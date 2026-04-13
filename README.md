@@ -7,3 +7,7 @@ Mirror Glaze Cake adalah situs web yang didasarkan pada daya tarik visualnya ber
 3. Annarizky Nifa Diana Putri (13182420110)
 4. Najwa Salsabila (13182420117)
 
+# Developer :
+Back End = Laravel
+Front end = CSS
+
