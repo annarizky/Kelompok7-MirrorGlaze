@@ -1,5 +1,5 @@
 # GLAZYLICIOUS 
-Mirror Glaze Cake adalah situs web yang didasarkan pada daya tarik visualnya berbeda dan menarik dibandingkan dengan kue biasa. Kue ini sangat cocok untuk dipasarkan melalui media digital seperti website karena tampilannya yang menarik. Mirror Glaze Cake juga memiliki banyak potensi pasar karena sangat disukai untuk berbagai acara spesial. Diharapkan situs web yang dibuat untuk memilih produk ini tidak hanya informatif tetapi juga dapat menarik pelanggan dan meningkatkan peluang penjualan.
+Glazylicious Cake adalah situs web yang didasarkan pada daya tarik visualnya berbeda dan menarik dibandingkan dengan kue biasa. Kue ini sangat cocok untuk dipasarkan melalui media digital seperti website karena tampilannya yang menarik. Glazylicious Cake juga memiliki banyak potensi pasar karena sangat disukai untuk berbagai acara spesial. Diharapkan situs web yang dibuat untuk memilih produk ini tidak hanya informatif tetapi juga dapat menarik pelanggan dan meningkatkan peluang penjualan.
 
 #TUJUAN
 1. Menampilkan produk kue secara online
