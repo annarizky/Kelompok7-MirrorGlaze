@@ -42,3 +42,14 @@ Front end = CSS
 [Pengiriman / Pengambilan]
    ↓
 [End]
+
+# Kelebihan
+- Mudah dibuat (tidak perlu sistem pembayaran kompleks)
+- Familiar Untuk User
+- Biaya Rendah
+
+# Kekurangan
+- Tidak Otomatis
+- Sulit scale jika order banyak
+- Tidak ada tracking sistematis
+
