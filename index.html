@@ -10,10 +10,10 @@
             theme: {
                 extend: {
                     colors: {
-                        'brand-red': '#9b1b30',
+                        'brand-red': '#D6336C',
                         'brand-light': '#fdf8f5',
                         'brand-dark': '#333333',
-                        'brand-pink': '#faeaea', /* Warna pink muda untuk card Our Promise */
+                        'brand-pink': '#FFF5F8', /* Warna pink muda untuk card Our Promise */
                     }
                 }
             }
@@ -201,32 +201,39 @@
             <div class="md:col-span-5 space-y-6">
                 
                 <div class="bg-brand-pink rounded-3xl p-6">
-                    <p class="text-brand-dark font-semibold text-sm mb-6 text-center">A glimpse of secret spell - only honest work!</p>
-                    <div class="grid grid-cols-4 gap-2 text-center">
-                        <div class="flex flex-col items-center">
-                            <div class="w-12 h-12 border-2 border-brand-red rounded-full flex items-center justify-center mb-2 text-brand-red">
-                                <i class="fa-solid fa-truck-fast text-lg"></i>
-                            </div>
-                            <span class="text-[10px] font-bold text-brand-red leading-tight">ON-TIME<br>DELIVERY</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <div class="w-12 h-12 border-2 border-brand-red rounded-full flex items-center justify-center mb-2 text-brand-red">
-                                <i class="fa-solid fa-layer-group text-lg"></i>
-                            </div>
-                            <span class="text-[10px] font-bold text-brand-red leading-tight">500+<br>DESIGNS</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <div class="w-12 h-12 border-2 border-brand-red rounded-full flex items-center justify-center mb-2 text-brand-red text-sm font-bold">
-                                2<span class="text-[10px]">CR+</span>
-                            </div>
-                            <span class="text-[10px] font-bold text-brand-red leading-tight">2 CR+<br>ORDERS</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <div class="w-12 h-12 border-2 border-brand-red rounded-full flex items-center justify-center mb-2 text-brand-red">
-                                <i class="fa-solid fa-fire-burner text-lg"></i>
-                            </div>
-                            <span class="text-[10px] font-bold text-brand-red leading-tight">BAKED<br>FRESH</span>
-                        </div>
+                   <a href="tracking.html" class="block font-semibold text-base md:text-lg mb-10 text-center text-[#333333] hover:text-[#9b1b30] transition">
+    Status Pesanan Anda</a>
+    
+    <!-- Container Tracking -->
+    <div class="relative flex items-center justify-between">
+        
+        <!-- Garis Penghubung (Z-index 0 agar berada di belakang lingkaran) -->
+        <!-- Left dan Right diatur 10% agar garis tidak menonjol keluar dari ikon pertama dan terakhir -->
+        <div class="absolute left-[10%] right-[10%] top-8 md:top-10 h-[3px] bg-[#9b1b30] z-0"></div>
+        
+        <!-- Step 2: Sedang Diproses -->
+        <div class="flex flex-col items-center z-10 flex-1">
+            <div class="w-16 h-16 md:w-20 md:h-20 border-[3px] border-[#9b1b30] bg-[#faeaea] rounded-full flex items-center justify-center mb-4 text-[#9b1b30]">
+                <i class="fa-solid fa-fire-burner text-2xl md:text-3xl"></i>
+            </div>
+            <span class="text-[11px] md:text-sm font-extrabold text-[#9b1b30] leading-tight tracking-wide text-center uppercase">SEDANG<br>DIPROSES</span>
+        </div>
+        
+        <!-- Step 3: Siap Diambil -->
+        <div class="flex flex-col items-center z-10 flex-1">
+            <div class="w-16 h-16 md:w-20 md:h-20 border-[3px] border-[#9b1b30] bg-[#faeaea] rounded-full flex items-center justify-center mb-4 text-[#9b1b30]">
+                <i class="fa-solid fa-store text-2xl md:text-3xl"></i>
+            </div>
+            <span class="text-[11px] md:text-sm font-extrabold text-[#9b1b30] leading-tight tracking-wide text-center uppercase">SIAP<br>DIAMBIL</span>
+        </div>
+        
+        <!-- Step 4: Selesai -->
+        <div class="flex flex-col items-center z-10 flex-1">
+            <div class="w-16 h-16 md:w-20 md:h-20 border-[3px] border-[#9b1b30] bg-[#faeaea] rounded-full flex items-center justify-center mb-4 text-[#9b1b30]">
+                <i class="fa-solid fa-check text-2xl md:text-3xl"></i>
+            </div>
+            <span class="text-[11px] md:text-sm font-extrabold text-[#9b1b30] leading-tight tracking-wide text-center uppercase">PESANAN<br>SELESAI</span>
+        </div>
                     </div>
                 </div>
 
