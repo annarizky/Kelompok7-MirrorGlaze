@@ -81,26 +81,6 @@
         </div>
     </section>
 
-    <section class="max-w-7xl mx-auto mt-12 px-8">
-        <h3 class="text-2xl font-bold text-brand-red mb-1">Menu</h3>
-        <p class="text-gray-500 mb-6">What will you wish for?</p>
-        
-        <div class="flex space-x-8">
-            <div class="flex flex-col items-center cursor-pointer">
-                <div class="w-20 h-20 bg-white rounded-2xl shadow-md flex items-center justify-center mb-2 hover:shadow-lg transition">
-                    <i class="fa-solid fa-cake-candles text-2xl text-brand-red"></i>
-                </div>
-                <span class="text-sm font-semibold">CLASSIC</span>
-            </div>
-            <div class="flex flex-col items-center cursor-pointer">
-                <div class="w-20 h-20 bg-white rounded-2xl shadow-md flex items-center justify-center mb-2 hover:shadow-lg transition">
-                    <i class="fa-solid fa-cookie text-2xl text-brand-red"></i>
-                </div>
-                <span class="text-sm font-semibold">CUSTOM</span>
-            </div>
-        </div>
-    </section>
-
     <section id="bestsellers" class="max-w-7xl mx-auto mt-12 px-8 scroll-mt-24">
     <h3 class="text-2xl font-bold text-brand-red mb-6">Menu Bestsellers</h3>
 
@@ -204,14 +184,9 @@
                    <a href="tracking.html" class="block font-semibold text-base md:text-lg mb-10 text-center text-[#333333] hover:text-[#9b1b30] transition">
     Status Pesanan Anda</a>
     
-    <!-- Container Tracking -->
-    <div class="relative flex items-center justify-between">
-        
-        <!-- Garis Penghubung (Z-index 0 agar berada di belakang lingkaran) -->
-        <!-- Left dan Right diatur 10% agar garis tidak menonjol keluar dari ikon pertama dan terakhir -->
-        <div class="absolute left-[10%] right-[10%] top-8 md:top-10 h-[3px] bg-[#9b1b30] z-0"></div>
-        
-        <!-- Step 2: Sedang Diproses -->
+    <div class="relative flex items-center justify-between">    
+    <div class="absolute left-[10%] right-[10%] top-8 md:top-10 h-[3px] bg-[#9b1b30] z-0"></div>
+     
         <div class="flex flex-col items-center z-10 flex-1">
             <div class="w-16 h-16 md:w-20 md:h-20 border-[3px] border-[#9b1b30] bg-[#faeaea] rounded-full flex items-center justify-center mb-4 text-[#9b1b30]">
                 <i class="fa-solid fa-fire-burner text-2xl md:text-3xl"></i>
@@ -219,7 +194,6 @@
             <span class="text-[11px] md:text-sm font-extrabold text-[#9b1b30] leading-tight tracking-wide text-center uppercase">SEDANG<br>DIPROSES</span>
         </div>
         
-        <!-- Step 3: Siap Diambil -->
         <div class="flex flex-col items-center z-10 flex-1">
             <div class="w-16 h-16 md:w-20 md:h-20 border-[3px] border-[#9b1b30] bg-[#faeaea] rounded-full flex items-center justify-center mb-4 text-[#9b1b30]">
                 <i class="fa-solid fa-store text-2xl md:text-3xl"></i>
@@ -227,7 +201,6 @@
             <span class="text-[11px] md:text-sm font-extrabold text-[#9b1b30] leading-tight tracking-wide text-center uppercase">SIAP<br>DIAMBIL</span>
         </div>
         
-        <!-- Step 4: Selesai -->
         <div class="flex flex-col items-center z-10 flex-1">
             <div class="w-16 h-16 md:w-20 md:h-20 border-[3px] border-[#9b1b30] bg-[#faeaea] rounded-full flex items-center justify-center mb-4 text-[#9b1b30]">
                 <i class="fa-solid fa-check text-2xl md:text-3xl"></i>
@@ -251,8 +224,7 @@
                     </div>
                 </div>
 
-               <!-- KODE BARU (Sudah bisa diklik) -->
-<div class="bg-brand-pink rounded-full p-3 flex items-center justify-between px-6">
+    <div class="bg-brand-pink rounded-full p-3 flex items-center justify-between px-6">
     <div class="flex -space-x-2">
         <!-- Instagram -->
         <a href="https://instagram.com/dakingo" target="_blank" class="w-8 h-8 rounded-full bg-gray-300 border-2 border-brand-pink flex items-center justify-center text-xs hover:z-10 hover:scale-110 transition-all">
