@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLAZECILOUS - Pickup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #E2F1F1; /* Hijau telur asin pas sesuai gambar */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start p-6 pt-12 select-none">
+
+    <div class="w-full max-w-md flex items-center justify-between mb-12 px-2">
+        <a href="customer.html" class="text-stone-800 hover:opacity-70 transition">
+            <i data-lucide="arrow-left" class="w-8 h-8 stroke-[2.5]"></i>
+        </a>
+        <h1 class="text-3xl font-semibold text-[#1C211F] tracking-wide pr-8">Pickup</h1>
+        <div></div>
+    </div>
+
+    <div class="w-full max-w-md mb-16 px-2">
+        <div class="flex gap-2 bg-white/30 p-2 rounded-2xl backdrop-blur-sm border border-white/20">
+            <input type="text" id="inputResi" placeholder="Masukkan ID Transaksi (Contoh: GZY-8392)" class="w-full p-3 text-xs rounded-xl border-none focus:outline-none bg-white text-stone-700 font-medium">
+            <button onclick="prosesLacak()" class="bg-[#C19A6B] hover:bg-[#A88358] text-white text-xs font-bold px-5 py-3 rounded-xl transition shadow-sm whitespace-nowrap">Lacak</button>
+        </div>
+    </div>
+
+    <div class="w-full max-w-md px-2">
+        <div class="relative flex items-center justify-between">
+            
+            <div class="absolute left-8 right-8 top-8 h-[3px] bg-[#C19A6B] -z-10"></div>
+
+            <div class="flex flex-col items-center flex-1">
+                <div id="bulat1" class="w-16 h-16 rounded-full bg-[#C19A6B] border-[3px] border-[#E2F1F1] outline outline-2 outline-[#C19A6B] flex items-center justify-center text-white transition-all duration-300">
+                    <i data-lucide="refresh-cw" class="w-7 h-7 stroke-[2.5]"></i>
+                </div>
+                <div id="teks1" class="text-center mt-4 text-[#8C9692] font-medium text-[14px] leading-tight">
+                    Sedang<br>Diproses
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center flex-1">
+                <div id="bulat2" class="w-16 h-16 rounded-full bg-[#C19A6B] border-[3px] border-[#E2F1F1] outline outline-2 outline-[#C19A6B] flex items-center justify-center text-white transition-all duration-300">
+                    <i data-lucide="store" class="w-7 h-7 stroke-[2.5]"></i>
+                </div>
+                <div id="teks2" class="text-center mt-4 text-[#8C9692] font-medium text-[14px] leading-tight">
+                    Siap<br>Di-Pickup
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center flex-1">
+                <div id="bulat3" class="w-16 h-16 rounded-full bg-[#C19A6B] border-[3px] border-[#E2F1F1] flex items-center justify-center text-white transition-all duration-300 shadow-sm">
+                    <i data-lucide="check" class="w-8 h-8 stroke-[3]"></i>
+                </div>
+                <div id="teks3" class="text-center mt-4 text-[#1C211F] font-bold text-[14px] leading-tight">
+                    Pesanan<br>Selesai
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Memunculkan semua ikon dari library Lucide
+        lucide.createIcons();
+
+        function prosesLacak() {
+            const resi = document.getElementById('inputResi').value.trim();
+            if (!resi) {
+                alert("Silakan masukkan ID Transaksi terlebih dahulu.");
+                return;
+            }
+            alert("Memeriksa status pesanan " + resi + "...");
+        }
+    </script>
+</body>
+</html>
