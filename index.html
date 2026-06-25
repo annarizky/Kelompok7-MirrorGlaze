@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dakingo - Online Bakery</title>
+    <title>Whisk & Wish - Online Bakery</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -28,7 +28,7 @@
 
     <header class="bg-brand-light py-4 px-8 shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <h1 class="text-3xl font-bold text-brand-red">Glazycious</h1>
+            <h1 class="text-3xl font-bold text-brand-red">Whisk & Wish</h1>
             
             <div class="relative w-1/3">
                 <input type="text" placeholder="Search" class="w-full border border-gray-300 rounded-full py-2 px-4 focus:outline-none focus:border-brand-red">
@@ -37,7 +37,6 @@
 
             <div class="flex items-center space-x-6">
             <a href="#" class="text-gray-600 hover:text-brand-red"><i class="fa-solid fa-location-dot"></i></a>
-            <a href="#" class="text-gray-600 hover:text-brand-red"><i class="fa-solid fa-cart-shopping"></i></a>
     
             <a href="login.html" class="text-sm font-medium hover:text-brand-red">Login/Signup</a>
 </div>
@@ -45,16 +44,20 @@
 
         <nav class="max-w-7xl mx-auto mt-4 flex justify-between items-center text-sm font-semibold">
             <div class="flex space-x-6">
-                <a href="#" class="hover:text-brand-red">Cakes</a>
-                <a href="#" class="hover:text-brand-red">Theme Cakes</a>
-                <a href="#" class="hover:text-brand-red">Desserts</a>
-                <a href="#" class="hover:text-brand-red">Birthday</a>
-                <a href="#" class="hover:text-brand-red">Hampers</a>
-                <a href="#" class="hover:text-brand-red">Anniversary</a>
-                <a href="#" class="hover:text-brand-red">Occasions</a>
-            </div>
+                <a href="#" class="text-sm font-medium hover:text-brand-red">
+                <i class="fa-solid fa-home mr-2"></i>Beranda</a>
+                
+                <a href="#" class="text-sm font-medium hover:text-brand-red">
+                <i class="fa-solid fa-edit mr-2"></i>Menu</a>
+               
+                <a href="#" class="text-sm font-medium hover:text-brand-red">
+                <i class="fa-solid fa-clipboard mr-2"></i>Riwayat Pesanan</a>
 
-           <button onclick="window.location.href='tracking.html'" class="bg-brand-red text-white px-6 py-2 rounded-full font-bold hover:bg-red-800 transition">TRACK ORDER</button>
+                <a href="#" class="text-sm font-medium hover:text-brand-red">
+                <i class="fa-solid fa-user-circle mr-2"></i>Akun</a>
+
+            </div>
+            <button class="bg-brand-red text-white px-6 py-2 rounded-full font-bold hover:bg-red-800 transition">ORDER NOW</button>
         </nav>
     </header>
 
@@ -64,7 +67,7 @@
             <div class="absolute bottom-0 left-1/2 w-96 h-96 bg-black opacity-10 rounded-full -mb-20"></div>
 
             <div class="relative z-10 w-1/2 text-white">
-                <h2 class="text-5xl font-extrabold mb-4 leading-tight">BITE INTO<br>THE SHINE, SPARKLE<br>WITH FLAVOR</h2>
+                <h2 class="text-5xl font-extrabold mb-4 leading-tight">Where Every Wish <br>Becomes Something Sweet.</h2>
                 <p class="text-xl mb-6">Satisfy Your Sweetest Cravings</p>
                 <div class="inline-block border-2 border-white px-4 py-2 rounded-lg">
                     <span class="block text-xs uppercase tracking-wider">Special Offer!</span>
@@ -202,8 +205,7 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
             <div class="md:col-span-5 space-y-6">
                 
-                <!-- KOTAK PROMISE DIUBAH AGAR BISA DIKLIK MENUJU TRACING -->
-                <div onclick="window.location.href='tracking.html'" class="bg-brand-pink rounded-3xl p-6 cursor-pointer hover:opacity-95 transition">
+                <div class="bg-brand-pink rounded-3xl p-6">
                     <p class="text-brand-dark font-semibold text-sm mb-6 text-center">A glimpse of secret spell - only honest work!</p>
                     <div class="grid grid-cols-4 gap-2 text-center">
                         <div class="flex flex-col items-center">
@@ -234,31 +236,44 @@
                 </div>
 
                 <div class="bg-brand-pink rounded-3xl p-6 flex flex-row items-center gap-4 relative overflow-hidden">
-    <div class="absolute top-2 left-2 text-yellow-400 text-xs"><i class="fa-solid fa-sparkles"></i></div>
-    <div class="absolute bottom-4 left-1/4 text-purple-400 text-sm"><i class="fa-solid fa-star"></i></div>
-    
-    <!-- Ikon Tiket/Diskon Kiri -->
-    <div class="w-1/3 flex justify-center">
-        <i class="fa-solid fa-ticket text-6xl text-yellow-500 rotate-[-30deg]"></i>
-    </div>
-    
-    <!-- Konten Teks & Tombol -->
-    <div class="w-2/3">
-        <h4 class="text-brand-red font-bold text-lg mb-1">PROMO BELI BANYAK</h4>
-        <p class="text-xs text-gray-700 mb-4 font-medium">Makin banyak belinya, makin hemat! Dapatkan potongan harga langsung setiap pembelian di atas 5 item.</p>
-        <button class="bg-brand-red text-white text-[10px] px-6 py-2 rounded-full font-bold tracking-wide hover:bg-red-800 transition">AMBIL DISKON</button>
-    </div>
-</div>
-
-                <div class="bg-brand-pink rounded-full p-3 flex items-center justify-between px-6">
-                    <div class="flex -space-x-2">
-                        <div class="w-8 h-8 rounded-full bg-gray-300 border-2 border-brand-pink flex items-center justify-center text-xs"><i class="fa-brands fa-instagram"></i></div>
-                        <div class="w-8 h-8 rounded-full bg-gray-400 border-2 border-brand-pink flex items-center justify-center text-xs"><i class="fa-brands fa-facebook-f"></i></div>
-                        <div class="w-8 h-8 rounded-full bg-gray-500 border-2 border-brand-pink flex items-center justify-center text-xs"><i class="fa-brands fa-twitter"></i></div>
-                        <div class="w-8 h-8 rounded-full bg-gray-600 border-2 border-brand-pink flex items-center justify-center text-xs text-white"><i class="fa-brands fa-youtube"></i></div>
+                    <div class="absolute top-2 left-2 text-yellow-400 text-xs"><i class="fa-solid fa-sparkles"></i></div>
+                    <div class="absolute bottom-4 left-1/4 text-purple-400 text-sm"><i class="fa-solid fa-star"></i></div>
+                    
+                    <div class="w-1/3 flex justify-center">
+                        <i class="fa-solid fa-ticket text-6xl text-yellow-500 rotate-[-30deg]"></i>
                     </div>
-                    <span class="text-brand-red font-bold text-sm">Follow us on social!</span>
+                    <div class="w-2/3">
+                        <h4 class="text-brand-red font-bold text-lg mb-1">THE MAGICAL TICKET</h4>
+                        <p class="text-xs text-gray-700 mb-4 font-medium">Add 3 reminders in your account.<br>Win offers worth Rs. 750</p>
+                        <button class="bg-brand-red text-white text-[10px] px-6 py-2 rounded-full font-bold tracking-wide hover:bg-red-800 transition">UNLOCK NOW</button>
+                    </div>
                 </div>
+
+               <!-- KODE BARU (Sudah bisa diklik) -->
+<div class="bg-brand-pink rounded-full p-3 flex items-center justify-between px-6">
+    <div class="flex -space-x-2">
+        <!-- Instagram -->
+        <a href="https://instagram.com/dakingo" target="_blank" class="w-8 h-8 rounded-full bg-gray-300 border-2 border-brand-pink flex items-center justify-center text-xs hover:z-10 hover:scale-110 transition-all">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        
+        <!-- Facebook -->
+        <a href="https://facebook.com/dakingo" target="_blank" class="w-8 h-8 rounded-full bg-gray-400 border-2 border-brand-pink flex items-center justify-center text-xs hover:z-10 hover:scale-110 transition-all">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        
+        <!-- Twitter/X -->
+        <a href="https://twitter.com/dakingo" target="_blank" class="w-8 h-8 rounded-full bg-gray-500 border-2 border-brand-pink flex items-center justify-center text-xs hover:z-10 hover:scale-110 transition-all">
+            <i class="fa-brands fa-twitter"></i>
+        </a>
+        
+        <!-- YouTube -->
+        <a href="https://youtube.com/dakingo" target="_blank" class="w-8 h-8 rounded-full bg-gray-600 border-2 border-brand-pink flex items-center justify-center text-xs text-white hover:z-10 hover:scale-110 transition-all">
+            <i class="fa-brands fa-youtube"></i>
+        </a>
+        </div>
+    <span class="text-brand-red font-bold text-sm">Follow us on social!</span>
+</div>
 
             </div>
 
@@ -278,13 +293,13 @@
     <footer class="max-w-7xl mx-auto mt-20 px-8 pb-12">
         
         <div class="bg-brand-red text-white text-center py-5 rounded-2xl mb-12 shadow-lg">
-            <h2 class="text-xl md:text-2xl font-bold tracking-wide">Dakingo – Your Trusted FSSAI Certified Online Bakery for Every Celebration</h2>
+            <h2 class="text-xl md:text-2xl font-bold tracking-wide">Wishk & Wish – Your Trusted Bakery for Every Celebration</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             
             <div class="md:col-span-3">
-                <h3 class="text-2xl font-bold text-brand-red mb-4">Dakingo</h3>
+                <h3 class="text-2xl font-bold text-brand-red mb-4">Wishk & Wish</h3>
                 <ul class="text-xs text-gray-500 space-y-3 font-medium">
                     <li><a href="#" class="hover:text-brand-red transition">Our Story</a></li>
                     <li><a href="#" class="hover:text-brand-red transition">Contact Us</a></li>
@@ -292,7 +307,7 @@
                     <li><a href="#" class="hover:text-brand-red transition">Media</a></li>
                     <li><a href="#" class="hover:text-brand-red transition">Careers</a></li>
                 </ul>
-            </div>
+            </div>  
 
             <div class="md:col-span-5 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
@@ -336,7 +351,6 @@
                     <span class="text-[10px] text-gray-500 font-medium">Hey, need any help?</span>
                 </div>
             </div>
-           
 
         </div>
     </footer>
