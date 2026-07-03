@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dakingo - Online Bakery</title>
+    <title>Whisk & Wish - Online Bakery</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'brand-red': '#9b1b30',
+                        'brand-red': '#D6336C',
                         'brand-light': '#fdf8f5',
-                        'brand-dark': '#333333',
-                        'brand-pink': '#faeaea', /* Warna pink muda untuk card Our Promise */
+                        'brand-dark': '##333333',
+                        'brand-pink': '#FFF5F8', /* Warna pink muda untuk card Our Promise */
                     }
                 }
             }
@@ -28,7 +28,7 @@
 
     <header class="bg-brand-light py-4 px-8 shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <h1 class="text-3xl font-bold text-brand-red">Glazycious</h1>
+            <h1 class="text-3xl font-bold text-brand-red">Whisk & Wish</h1>
             
             <div class="relative w-1/3">
                 <input type="text" placeholder="Search" class="w-full border border-gray-300 rounded-full py-2 px-4 focus:outline-none focus:border-brand-red">
@@ -36,24 +36,28 @@
             </div>
 
             <div class="flex items-center space-x-6">
-            <a href="#" class="text-gray-600 hover:text-brand-red"><i class="fa-solid fa-location-dot"></i></a>
-            <a href="#" class="text-gray-600 hover:text-brand-red"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="https://www.google.com/maps" class="text-gray-600 hover:text-brand-red"><i class="fa-solid fa-location-dot"></i></a>
     
             <a href="login.html" class="text-sm font-medium hover:text-brand-red">Login/Signup</a>
-</div>
+        </div>
         </div>
 
         <nav class="max-w-7xl mx-auto mt-4 flex justify-between items-center text-sm font-semibold">
             <div class="flex space-x-6">
-                <a href="#" class="hover:text-brand-red">Cakes</a>
-                <a href="#" class="hover:text-brand-red">Theme Cakes</a>
-                <a href="#" class="hover:text-brand-red">Desserts</a>
-                <a href="#" class="hover:text-brand-red">Birthday</a>
-                <a href="#" class="hover:text-brand-red">Hampers</a>
-                <a href="#" class="hover:text-brand-red">Anniversary</a>
-                <a href="#" class="hover:text-brand-red">Occasions</a>
+                <a href="index.html" class="text-sm font-medium hover:text-brand-red">
+                <i class="fa-solid fa-home mr-2"></i>Beranda</a>
+                
+                <a href="menu.html" class="text-sm font-medium hover:text-brand-red">
+                <i class="fa-solid fa-edit mr-2"></i>Menu</a>
+               
+                <a href="riwayat.html" class="text-sm font-medium hover:text-brand-red">
+                <i class="fa-solid fa-clipboard mr-2"></i>Riwayat Pesanan</a>
+
+                <a href="akun.html" class="text-sm font-medium hover:text-brand-red">
+                <i class="fa-solid fa-user-circle mr-2"></i>Akun</a>
+
             </div>
-            <button class="bg-brand-red text-white px-6 py-2 rounded-full font-bold hover:bg-red-800 transition">ORDER NOW</button>
+            <button class="bg-brand-red text-white px-6 py-2 rounded-full font-bold hover:bg-red-200 transition">ORDER NOW</button>
         </nav>
     </header>
 
@@ -63,7 +67,7 @@
             <div class="absolute bottom-0 left-1/2 w-96 h-96 bg-black opacity-10 rounded-full -mb-20"></div>
 
             <div class="relative z-10 w-1/2 text-white">
-                <h2 class="text-5xl font-extrabold mb-4 leading-tight">BITE INTO<br>THE SHINE, SPARKLE<br>WITH FLAVOR</h2>
+                <h2 class="text-5xl font-extrabold mb-4 leading-tight">Where Every Wish <br>Becomes Something Sweet.</h2>
                 <p class="text-xl mb-6">Satisfy Your Sweetest Cravings</p>
                 <div class="inline-block border-2 border-white px-4 py-2 rounded-lg">
                     <span class="block text-xs uppercase tracking-wider">Special Offer!</span>
@@ -79,118 +83,109 @@
         </div>
     </section>
 
-    <section class="max-w-7xl mx-auto mt-12 px-8">
-        <h3 class="text-2xl font-bold text-brand-red mb-1">Menu</h3>
-        <p class="text-gray-500 mb-6">What will you wish for?</p>
-        
-        <div class="flex space-x-8">
-            <div class="flex flex-col items-center cursor-pointer">
-                <div class="w-20 h-20 bg-white rounded-2xl shadow-md flex items-center justify-center mb-2 hover:shadow-lg transition">
-                    <i class="fa-solid fa-cake-candles text-2xl text-brand-red"></i>
-                </div>
-                <span class="text-sm font-semibold">CLASSIC</span>
+
+   <section class="max-w-7xl mx-auto mt-12 px-8 hidden">
+    <h3 class="text-2xl font-bold text-brand-red mb-1">Menu</h3>
+    <p class="text-gray-500 mb-6">What will you wish for?</p>
+    
+    <div class="flex space-x-8">
+        <div class="flex flex-col items-center cursor-pointer">
+            <div class="w-20 h-20 bg-white rounded-2xl shadow-md flex items-center justify-center mb-2 hover:shadow-lg transition">
+                <i class="fa-solid fa-cake-candles text-2xl text-brand-red"></i>
             </div>
-            <div class="flex flex-col items-center cursor-pointer">
-                <div class="w-20 h-20 bg-white rounded-2xl shadow-md flex items-center justify-center mb-2 hover:shadow-lg transition">
-                    <i class="fa-solid fa-cookie text-2xl text-brand-red"></i>
+            <span class="text-sm font-semibold">CLASSIC</span>
+        </div>
+        <div class="flex flex-col items-center cursor-pointer">
+            <div class="w-20 h-20 bg-white rounded-2xl shadow-md flex items-center justify-center mb-2 hover:shadow-lg transition">
+                <i class="fa-solid fa-cookie text-2xl text-brand-red"></i>
+            </div>
+            <span class="text-sm font-semibold">CUSTOM</span>
+        </div>
+    </div>
+</section>
+
+    <section id="bestsellers" class="max-w-7xl mx-auto mt-12 px-8 scroll-mt-24">
+    <h3 class="text-2xl font-bold text-brand-red mb-6">Menu Bestsellers</h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative">
+            <i class="fa-regular fa-heart absolute top-4 left-4 text-brand-red cursor-pointer"></i>
+            <div class="h-48 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400 overflow-hidden">
+                <img src="assets/image/RichChocolateTruffleCake.jpg" alt="Rich Chocolate Truffle Cake" class="w-full h-full object-cover rounded-xl">
+            </div>
+            <h4 class="font-bold text-gray-800 leading-tight mb-2">Chocolate Truffle Cake</h4>
+            <div class="flex justify-between items-end">
+                <div>
+                    <span class="font-bold text-lg">Rp 500k</span>
+                    <div class="text-yellow-400 text-xs mt-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
                 </div>
-                <span class="text-sm font-semibold">CUSTOM</span>
+                <button class="bg-brand-red text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-800">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
             </div>
         </div>
-    </section>
 
-    <section class="max-w-7xl mx-auto mt-12 px-8">
-        <h3 class="text-2xl font-bold text-brand-red mb-6">Bestsellers from Across the Country</h3>
-        
-        <!-- SEMUA 4 CARD DIGABUNGKAN KE DALAM 1 GRID INI -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            
-            <!-- Card 1 -->
-            <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative">
-                <i class="fa-regular fa-heart absolute top-4 left-4 text-brand-red cursor-pointer"></i>
-                <div class="h-40 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400">
-                    [Cake Img]
-                </div>
-                <h4 class="font-bold text-gray-800 leading-tight mb-2">Rich Chocolate Truffle Cake</h4>
-                <div class="flex justify-between items-end">
-                    <div>
-                        <span class="font-bold text-lg">Rp 500k</span>
-                        <div class="text-yellow-400 text-xs mt-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <button class="bg-brand-red text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-800">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
+        <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative">
+            <i class="fa-regular fa-heart absolute top-4 left-4 text-brand-red cursor-pointer"></i>
+            <div class="h-48 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400 overflow-hidden">
+                <img src="assets/image/StrawberryCake.jpg" alt="Strawberry Cake" class="w-full h-full object-cover rounded-xl">
             </div>
-
-            <!-- Card 2 -->
-            <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative">
-                <i class="fa-regular fa-heart absolute top-4 left-4 text-brand-red cursor-pointer"></i>
-                <div class="h-40 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400">
-                    [Cake Img]
-                </div>
-                <h4 class="font-bold text-gray-800 leading-tight mb-2">Choco Chip Truffle Cake</h4>
-                <div class="flex justify-between items-end">
-                    <div>
-                        <span class="font-bold text-lg">Rp 509k</span>
-                        <div class="text-yellow-400 text-xs mt-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                        </div>
+            <h4 class="font-bold text-gray-800 leading-tight mb-2">Strawberry Cake</h4>
+            <div class="flex justify-between items-end">
+                <div>
+                    <span class="font-bold text-lg">Rp 400k</span>
+                    <div class="text-yellow-400 text-xs mt-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
                     </div>
-                    <button class="bg-brand-red text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-800">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
                 </div>
+                <button class="bg-brand-red text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-800">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
             </div>
-
-            <!-- Card 3 -->
-            <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative">
-                <i class="fa-regular fa-heart absolute top-4 left-4 text-brand-red cursor-pointer"></i>
-                <div class="h-40 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400">
-                    [Cake Img]
-                </div>
-                <h4 class="font-bold text-gray-800 leading-tight mb-2">Rich Chocolate Truffle Cake</h4>
-                <div class="flex justify-between items-end">
-                    <div>
-                        <span class="font-bold text-lg">Rp 500k</span>
-                        <div class="text-yellow-400 text-xs mt-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <button class="bg-brand-red text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-800">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative">
-                <i class="fa-regular fa-heart absolute top-4 left-4 text-brand-red cursor-pointer"></i>
-                <div class="h-40 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400">
-                    [Cake Img]
-                </div>
-                <h4 class="font-bold text-gray-800 leading-tight mb-2">Choco Chip Truffle Cake</h4>
-                <div class="flex justify-between items-end">
-                    <div>
-                        <span class="font-bold text-lg">Rp 509k</span>
-                        <div class="text-yellow-400 text-xs mt-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                        </div>
-                    </div>
-                    <button class="bg-brand-red text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-800">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-
         </div>
-        
-        <div class="text-right mt-6">
-            <button class="bg-brand-red text-white px-6 py-2 rounded-full font-semibold hover:bg-red-800 transition">VIEW ALL</button>
+
+        <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative">
+            <i class="fa-regular fa-heart absolute top-4 left-4 text-brand-red cursor-pointer"></i>
+            <div class="h-48 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400 overflow-hidden">
+                <img src="assets/image/BentoCake.jpg" alt="Bento Cake" class="w-full h-full object-cover rounded-xl">
+            </div>
+            <h4 class="font-bold text-gray-800 leading-tight mb-2">Bento Cake</h4>
+            <div class="flex justify-between items-end">
+                <div>
+                    <span class="font-bold text-lg">Rp 85k</span>
+                    <div class="text-yellow-400 text-xs mt-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <button class="bg-brand-red text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-800">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
         </div>
-    </section>
+
+        <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative">
+            <i class="fa-regular fa-heart absolute top-4 left-4 text-brand-red cursor-pointer"></i>
+            <div class="h-48 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400 overflow-hidden">
+                <img src="assets/image/CupCake.jpg" alt="Cup Cake" class="w-full h-full object-cover rounded-xl">
+            </div>
+            <h4 class="font-bold text-gray-800 leading-tight mb-2">Cup Cake</h4>
+            <div class="flex justify-between items-end">
+                <div>
+                    <span class="font-bold text-lg">Rp 45k</span>
+                    <div class="text-yellow-400 text-xs mt-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                </div>
+                <button class="bg-brand-red text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-800">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
 
     <section class="max-w-7xl mx-auto mt-16 px-8">
         <div class="mb-8">
@@ -201,59 +196,85 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
             <div class="md:col-span-5 space-y-6">
                 
-                <div class="bg-brand-pink rounded-3xl p-6">
-                    <p class="text-brand-dark font-semibold text-sm mb-6 text-center">A glimpse of secret spell - only honest work!</p>
-                    <div class="grid grid-cols-4 gap-2 text-center">
-                        <div class="flex flex-col items-center">
-                            <div class="w-12 h-12 border-2 border-brand-red rounded-full flex items-center justify-center mb-2 text-brand-red">
-                                <i class="fa-solid fa-truck-fast text-lg"></i>
-                            </div>
-                            <span class="text-[10px] font-bold text-brand-red leading-tight">ON-TIME<br>DELIVERY</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <div class="w-12 h-12 border-2 border-brand-red rounded-full flex items-center justify-center mb-2 text-brand-red">
-                                <i class="fa-solid fa-layer-group text-lg"></i>
-                            </div>
-                            <span class="text-[10px] font-bold text-brand-red leading-tight">500+<br>DESIGNS</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <div class="w-12 h-12 border-2 border-brand-red rounded-full flex items-center justify-center mb-2 text-brand-red text-sm font-bold">
-                                2<span class="text-[10px]">CR+</span>
-                            </div>
-                            <span class="text-[10px] font-bold text-brand-red leading-tight">2 CR+<br>ORDERS</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <div class="w-12 h-12 border-2 border-brand-red rounded-full flex items-center justify-center mb-2 text-brand-red">
-                                <i class="fa-solid fa-fire-burner text-lg"></i>
-                            </div>
-                            <span class="text-[10px] font-bold text-brand-red leading-tight">BAKED<br>FRESH</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="bg-[#faeaea] rounded-[2rem] p-8 md:p-10 shadow-sm border border-red-50">
+    
+    <!-- Judul Box -->
+   <a href="tracking.html" class="block font-semibold text-base md:text-lg mb-10 text-center text-[#333333] hover:text-[#D6336C] transition">
+    Status Pesanan Anda</a>
+    
+    <!-- Container Tracking -->
+    <div class="relative flex items-center justify-between">
+        
+        <!-- Garis Penghubung (Z-index 0 agar berada di belakang lingkaran) -->
+        <!-- Left dan Right diatur 10% agar garis tidak menonjol keluar dari ikon pertama dan terakhir -->
+        <div class="absolute left-[10%] right-[10%] top-8 md:top-10 h-[3px] bg-[#9b1b30] z-0"></div>
+        
+        <!-- Step 2: Sedang Diproses -->
+        <div class="flex flex-col items-center z-10 flex-1">
+            <div class="w-16 h-16 md:w-20 md:h-20 border-[3px] border-[#D6336C] bg-[#faeaea] rounded-full flex items-center justify-center mb-4 text-[#D6336C]">
+                <i class="fa-solid fa-fire-burner text-2xl md:text-3xl"></i>
+            </div>
+            <span class="text-[11px] md:text-sm font-extrabold text-[#D6336C] leading-tight tracking-wide text-center uppercase">SEDANG<br>DIPROSES</span>
+        </div>
+        
+        <!-- Step 3: Siap Diambil -->
+        <div class="flex flex-col items-center z-10 flex-1">
+            <div class="w-16 h-16 md:w-20 md:h-20 border-[3px] border-[#D6336C] bg-[#faeaea] rounded-full flex items-center justify-center mb-4 text-[#D6336C]">
+                <i class="fa-solid fa-store text-2xl md:text-3xl"></i>
+            </div>
+            <span class="text-[11px] md:text-sm font-extrabold text-[#D6336C] leading-tight tracking-wide text-center uppercase">SIAP<br>DIAMBIL</span>
+        </div>
+        
+        <!-- Step 4: Selesai -->
+        <div class="flex flex-col items-center z-10 flex-1">
+            <div class="w-16 h-16 md:w-20 md:h-20 border-[3px] border-[#D6336C] bg-[#faeaea] rounded-full flex items-center justify-center mb-4 text-[#D6336C]">
+                <i class="fa-solid fa-check text-2xl md:text-3xl"></i>
+            </div>
+            <span class="text-[11px] md:text-sm font-extrabold text-[#D6336C] leading-tight tracking-wide text-center uppercase">PESANAN<br>SELESAI</span>
+        </div>
+        
+    </div>
+</div>
 
                 <div class="bg-brand-pink rounded-3xl p-6 flex flex-row items-center gap-4 relative overflow-hidden">
-                    <div class="absolute top-2 left-2 text-yellow-400 text-xs"><i class="fa-solid fa-sparkles"></i></div>
+                     <div class="absolute top-2 left-2 text-yellow-400 text-xs"><i class="fa-solid fa-sparkles"></i></div>
                     <div class="absolute bottom-4 left-1/4 text-purple-400 text-sm"><i class="fa-solid fa-star"></i></div>
                     
                     <div class="w-1/3 flex justify-center">
-                        <i class="fa-solid fa-ticket text-6xl text-yellow-500 rotate-[-30deg]"></i>
+                         <i class="fa-solid fa-cake-candles text-6xl text-pink-400 rotate-[-15deg] drop-shadow-lg"></i>
                     </div>
                     <div class="w-2/3">
-                        <h4 class="text-brand-red font-bold text-lg mb-1">THE MAGICAL TICKET</h4>
-                        <p class="text-xs text-gray-700 mb-4 font-medium">Add 3 reminders in your account.<br>Win offers worth Rs. 750</p>
+                        <h4 class="text-brand-red font-bold text-lg mb-1">OMG! SO YUMMY 🍰</h4>
+                       <p class="text-xs text-gray-700 mb-4 font-medium">Buy 3 cakes bestie 💕.<br>Unlock Rp 750 OFF!</p>
                         <button class="bg-brand-red text-white text-[10px] px-6 py-2 rounded-full font-bold tracking-wide hover:bg-red-800 transition">UNLOCK NOW</button>
                     </div>
                 </div>
 
-                <div class="bg-brand-pink rounded-full p-3 flex items-center justify-between px-6">
-                    <div class="flex -space-x-2">
-                        <div class="w-8 h-8 rounded-full bg-gray-300 border-2 border-brand-pink flex items-center justify-center text-xs"><i class="fa-brands fa-instagram"></i></div>
-                        <div class="w-8 h-8 rounded-full bg-gray-400 border-2 border-brand-pink flex items-center justify-center text-xs"><i class="fa-brands fa-facebook-f"></i></div>
-                        <div class="w-8 h-8 rounded-full bg-gray-500 border-2 border-brand-pink flex items-center justify-center text-xs"><i class="fa-brands fa-twitter"></i></div>
-                        <div class="w-8 h-8 rounded-full bg-gray-600 border-2 border-brand-pink flex items-center justify-center text-xs text-white"><i class="fa-brands fa-youtube"></i></div>
-                    </div>
-                    <span class="text-brand-red font-bold text-sm">Follow us on social!</span>
-                </div>
+               <!-- KODE BARU (Sudah bisa diklik) -->
+<div class="bg-brand-pink rounded-full p-3 flex items-center justify-between px-6">
+    <div class="flex -space-x-2">
+        <!-- Instagram -->
+        <a href="https://instagram.com/dakingo" target="_blank" class="w-8 h-8 rounded-full bg-gray-300 border-2 border-brand-pink flex items-center justify-center text-xs hover:z-10 hover:scale-110 transition-all">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        
+        <!-- Facebook -->
+        <a href="https://facebook.com/dakingo" target="_blank" class="w-8 h-8 rounded-full bg-gray-400 border-2 border-brand-pink flex items-center justify-center text-xs hover:z-10 hover:scale-110 transition-all">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        
+        <!-- Twitter/X -->
+        <a href="https://twitter.com/dakingo" target="_blank" class="w-8 h-8 rounded-full bg-gray-500 border-2 border-brand-pink flex items-center justify-center text-xs hover:z-10 hover:scale-110 transition-all">
+            <i class="fa-brands fa-twitter"></i>
+        </a>
+        
+        <!-- YouTube -->
+        <a href="https://youtube.com/dakingo" target="_blank" class="w-8 h-8 rounded-full bg-gray-600 border-2 border-brand-pink flex items-center justify-center text-xs text-white hover:z-10 hover:scale-110 transition-all">
+            <i class="fa-brands fa-youtube"></i>
+        </a>
+        </div>
+    <span class="text-brand-red font-bold text-sm">Follow us on social!</span>
+</div>
 
             </div>
 
@@ -273,13 +294,13 @@
     <footer class="max-w-7xl mx-auto mt-20 px-8 pb-12">
         
         <div class="bg-brand-red text-white text-center py-5 rounded-2xl mb-12 shadow-lg">
-            <h2 class="text-xl md:text-2xl font-bold tracking-wide">Dakingo – Your Trusted FSSAI Certified Online Bakery for Every Celebration</h2>
+            <h2 class="text-xl md:text-2xl font-bold tracking-wide">Wishk & Wish – Your Trusted Bakery for Every Celebration</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             
             <div class="md:col-span-3">
-                <h3 class="text-2xl font-bold text-brand-red mb-4">Dakingo</h3>
+                <h3 class="text-2xl font-bold text-brand-red mb-4">Wishk & Wish</h3>
                 <ul class="text-xs text-gray-500 space-y-3 font-medium">
                     <li><a href="#" class="hover:text-brand-red transition">Our Story</a></li>
                     <li><a href="#" class="hover:text-brand-red transition">Contact Us</a></li>
@@ -287,7 +308,7 @@
                     <li><a href="#" class="hover:text-brand-red transition">Media</a></li>
                     <li><a href="#" class="hover:text-brand-red transition">Careers</a></li>
                 </ul>
-            </div>
+            </div>  
 
             <div class="md:col-span-5 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glazycious - Pickup</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Konfigurasi Warna Tema Awal -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': '#D6336C',
+                        'brand-light': '#fdf8f5',
+                        'brand-dark': '##333333',
+                        'brand-pink': '#FFF5F8', 
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Poppins & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdf8f5; /* Background krem khas website awal */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start p-6 pt-12 select-none text-brand-dark">
+
+    <!-- Header -->
+    <div class="w-full max-w-2xl flex items-center justify-between mb-12 px-2">
+        <a href="index.html" class="text-brand-dark hover:text-brand-red transition">
+            <i class="fa-solid fa-arrow-left text-2xl"></i>
+        </a>
+        <h1 class="text-3xl font-bold text-brand-red tracking-wide pr-8">Pickup</h1>
+        <div></div> <!-- Spacing balancer agar teks tepat di tengah -->
+    </div>
+
+    <!-- Kolom Input Resi -->
+    <div class="w-full max-w-2xl mb-12 px-2">
+        <div class="flex gap-2 bg-white p-2 rounded-2xl shadow-sm border border-gray-200">
+            <input type="text" id="inputResi" placeholder="Masukkan ID Transaksi (Contoh: GZY-8392)" class="w-full p-3 text-sm rounded-xl border-none focus:outline-none bg-white text-gray-700 font-medium">
+            <button onclick="prosesLacak()" class="bg-brand-red hover:bg-red-800 text-white text-sm font-bold px-6 py-3 rounded-xl transition shadow-sm whitespace-nowrap">Lacak</button>
+        </div>
+    </div>
+
+    <!-- Box Tracking (Tema Glazycious 4 Langkah) -->
+    <div class="w-full max-w-2xl px-2">
+        <div class="bg-brand-pink rounded-[2rem] p-8 md:p-10 shadow-sm border border-red-50">
+            
+            <!-- Judul Box -->
+            <p class="text-brand-dark font-semibold text-base md:text-lg mb-10 text-center">Status Pesanan Anda</p>
+
+            <div class="relative flex items-center justify-between">
+                
+                <!-- Garis Penghubung (Z-index 0 agar berada di belakang lingkaran) -->
+                <div class="absolute left-[10%] right-[10%] top-8 md:top-10 h-[3px] bg-brand-red z-0"></div>
+
+                <!-- Step 1: Pesanan Diterima -->
+                <div class="flex flex-col items-center z-10 flex-1">
+                    <div class="w-16 h-16 md:w-20 md:h-20 border-[3px] border-brand-red bg-brand-pink rounded-full flex items-center justify-center mb-4 text-brand-red">
+                        <i class="fa-solid fa-receipt text-2xl md:text-3xl"></i>
+                    </div>
+                    <span class="text-[11px] md:text-sm font-extrabold text-brand-red leading-tight tracking-wide text-center uppercase">PESANAN<br>DITERIMA</span>
+                </div>
+                
+                <!-- Step 2: Sedang Diproses -->
+                <div class="flex flex-col items-center z-10 flex-1">
+                    <div class="w-16 h-16 md:w-20 md:h-20 border-[3px] border-brand-red bg-brand-pink rounded-full flex items-center justify-center mb-4 text-brand-red">
+                        <i class="fa-solid fa-fire-burner text-2xl md:text-3xl"></i>
+                    </div>
+                    <span class="text-[11px] md:text-sm font-extrabold text-brand-red leading-tight tracking-wide text-center uppercase">SEDANG<br>DIPROSES</span>
+                </div>
+                
+                <!-- Step 3: Siap Diambil -->
+                <div class="flex flex-col items-center z-10 flex-1">
+                    <div class="w-16 h-16 md:w-20 md:h-20 border-[3px] border-brand-red bg-brand-pink rounded-full flex items-center justify-center mb-4 text-brand-red">
+                        <i class="fa-solid fa-store text-2xl md:text-3xl"></i>
+                    </div>
+                    <span class="text-[11px] md:text-sm font-extrabold text-brand-red leading-tight tracking-wide text-center uppercase">SIAP<br>DIAMBIL</span>
+                </div>
+                
+                <!-- Step 4: Selesai -->
+                <div class="flex flex-col items-center z-10 flex-1">
+                    <div class="w-16 h-16 md:w-20 md:h-20 border-[3px] border-brand-red bg-brand-pink rounded-full flex items-center justify-center mb-4 text-brand-red">
+                        <i class="fa-solid fa-check text-2xl md:text-3xl"></i>
+                    </div>
+                    <span class="text-[11px] md:text-sm font-extrabold text-brand-red leading-tight tracking-wide text-center uppercase">PESANAN<br>SELESAI</span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function prosesLacak() {
+            const resi = document.getElementById('inputResi').value.trim();
+            if (!resi) {
+                alert("Silakan masukkan ID Transaksi terlebih dahulu.");
+                return;
+            }
+            alert("Memeriksa status pesanan " + resi + "...");
+        }
+    </script>
+</body>
+</html>
