@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Wishk & Wish</title>
+
+    <title>Login - Glazycious</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+
+                        'brand-red': '#D6336C',
+                        'brand-light': '#fdf8f5',
+                        'brand-dark': '#333333',
+                        'brand-pink': '#FFF5F8',
+
+                        'brand-red': '#9b1b30',
+                        'brand-light': '#fdf8f5',
+                        'brand-dark': '#333333',
+                        'brand-pink': '#faeaea',
+
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fdf8f5; }
+    </style>
+</head>
+<body class="text-brand-dark antialiased min-h-screen flex items-center justify-center">
+
+    <!-- Container Login -->
+    <div class="bg-white p-10 rounded-3xl shadow-xl max-w-md w-full mx-4 relative overflow-hidden">
+        
+        <!-- Ornamen Dekorasi Background -->
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-pink rounded-full opacity-60"></div>
+        <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-brand-pink rounded-full opacity-60"></div>
+
+        <div class="relative z-10">
+            <!-- Header Logo -->
+            <div class="text-center mb-8">
+
+                <h1 class="text-4xl font-bold text-brand-red mb-2">Wishk & Wish</h1>
+
+                <h1 class="text-4xl font-bold text-brand-red mb-2">Glazycious</h1>
+
+                <p class="text-gray-500 text-sm font-medium">Welcome back! Please login to your account.</p>
+            </div>
+
+            <!-- Form Login -->
+            <form class="space-y-5">
+                
+                <!-- Input Email -->
+                <div>
+                    <label class="block text-sm font-bold mb-2 text-gray-700">Email Address</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                            <i class="fa-regular fa-envelope text-gray-400"></i>
+                        </div>
+                        <input type="email" placeholder="Enter your email" class="w-full border border-gray-300 rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red text-sm transition">
+                    </div>
+                </div>
+
+                <!-- Input Password -->
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="block text-sm font-bold text-gray-700">Password</label>
+                        <a href="#" class="text-xs font-bold text-brand-red hover:underline">Forgot Password?</a>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                            <i class="fa-solid fa-lock text-gray-400"></i>
+                        </div>
+                        <input type="password" placeholder="Enter your password" class="w-full border border-gray-300 rounded-xl py-3 pl-11 pr-10 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red text-sm transition">
+                        <!-- Ikon Mata untuk show/hide password -->
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-4 cursor-pointer text-gray-400 hover:text-brand-red transition">
+                            <i class="fa-regular fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Remember Me -->
+                <div class="flex items-center pt-1">
+                    <input type="checkbox" id="remember" class="w-4 h-4 text-brand-red bg-gray-100 border-gray-300 rounded focus:ring-brand-red focus:ring-2 accent-brand-red cursor-pointer">
+                    <label for="remember" class="ml-2 text-sm font-medium text-gray-600 cursor-pointer">Remember me</label>
+                </div>
+
+                <!-- Tombol Submit -->
+                <button type="button" class="w-full bg-brand-red text-white py-3 rounded-full font-bold hover:bg-red-300 transition shadow-md mt-4">
+
+                <button type="button" class="w-full bg-brand-red text-white py-3 rounded-full font-bold hover:bg-red-800 transition shadow-md mt-4">
+
+                    LOGIN
+                </button>
+            </form>
+
+            <!-- Garis Pembatas (Divider) -->
+            <div class="mt-8 flex items-center justify-between">
+                <span class="border-b w-1/5 lg:w-1/4"></span>
+                <span class="text-xs text-gray-400 uppercase font-bold tracking-wider">Or login with</span>
+                <span class="border-b w-1/5 lg:w-1/4"></span>
+            </div>
+
+            <!-- Social Login Buttons -->
+            <div class="flex space-x-4 mt-6">
+                <button class="w-1/2 flex items-center justify-center py-2.5 border border-gray-300 rounded-xl hover:bg-gray-50 transition text-sm font-semibold text-gray-700 shadow-sm">
+                    <!-- Icon Google via image -->
+                    <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Google" class="w-4 h-4 mr-2">
+                    Google
+                </button>
+                <button class="w-1/2 flex items-center justify-center py-2.5 border border-gray-300 rounded-xl hover:bg-gray-50 transition text-sm font-semibold text-gray-700 shadow-sm">
+                    <i class="fa-brands fa-facebook text-[#1877F2] mr-2 text-lg"></i>
+                    Facebook
+                </button>
+            </div>
+
+            <!-- Link Register -->
+            <p class="mt-8 text-center text-sm text-gray-600 font-medium">
+
+                Don't have an account? <a href="signup.html" class="text-brand-red font-bold hover:underline">Sign Up</a>
+
+                Don't have an account? <a href="#" class="text-brand-red font-bold hover:underline">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

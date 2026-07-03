@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glazycious</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-amber-50/30 text-gray-800 font-sans">
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50 px-8 py-4 flex items-center justify-between">
+        <div class="text-3xl font-bold text-red-800">Glazycious</div>
+        
+        <div class="relative w-1/3">
+            <input type="text" placeholder="Search..." class="w-full border border-gray-300 rounded-full px-5 py-2 pl-11 focus:outline-none focus:ring-2 focus:ring-red-800">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-gray-400"></i>
+        </div>
+
+        <div class="flex items-center gap-6 font-semibold text-gray-600">
+            <a href="#" class="hover:text-red-800">Cakes</a>
+            <a href="#" class="hover:text-red-800">Theme Cakes</a>
+            <a href="#" class="hover:text-red-800">Desserts</a>
+            <a href="#" class="hover:text-red-800">Birthday</a>
+            <a href="#" class="hover:text-red-800">Hampers</a>
+            <div class="flex items-center gap-4 text-xl border-l pl-6 border-gray-200">
+                <i class="fa-solid fa-location-dot cursor-pointer hover:text-red-800"></i>
+                <i class="fa-solid fa-cart-shopping cursor-pointer hover:text-red-800"></i>
+                
+                <button onclick="bukaMenu()" class="bg-red-800 text-white text-sm px-8 py-3 rounded-full font-bold hover:bg-red-900 transition tracking-wide cursor-pointer uppercase shadow-md">
+                    ORDER NOW
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <main id="halaman-beranda" class="max-w-md mx-auto bg-white min-h-screen shadow-xl pb-24 mt-6 rounded-2xl overflow-hidden relative block">
+        <div class="px-6 pt-4 flex justify-between items-center text-sm font-bold bg-white">
+            <div>15.24</div>
+            <div class="flex items-center gap-1.5">
+                <i class="fa-solid fa-signal"></i>
+                <i class="fa-solid fa-wifi"></i>
+                <i class="fa-solid fa-battery-full text-amber-500"></i>
+            </div>
+        </div>
+
+        <div class="p-4 mx-4 mt-3 border border-gray-100 rounded-2xl shadow-xs bg-white">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h4 class="font-bold text-sm text-gray-800">Ruko Kedungmundu Semarang</h4>
+                    <p class="text-xs text-gray-400 truncate w-64">Ruko Kedungmundu Semarang, Jl. Sambiroto Raya 58...</p>
+                </div>
+                <i class="fa-solid fa-chevron-down text-red-800 text-sm"></i>
+            </div>
+            <div class="flex gap-4 mt-3 pt-3 border-t border-gray-100 text-xs font-bold text-gray-500">
+                <span class="text-gray-400">Melayani</span>
+                <span class="text-green-600"><i class="fa-solid fa-circle text-[8px] mr-1 align-middle"></i> Delivery</span>
+                <span class="text-cyan-600"><i class="fa-solid fa-circle text-[8px] mr-1 align-middle"></i> Pickup</span>
+            </div>
+        </div>
+
+        <div class="mx-4 mt-4 rounded-2xl overflow-hidden shadow-xs relative h-44 bg-gradient-to-r from-amber-700 to-red-900 text-white p-5 flex flex-col justify-between">
+            <div>
+                <span class="text-xs bg-white/20 px-2 py-0.5 rounded-md font-semibold tracking-wide">GLAZYCIOUS DEALS</span>
+                <h2 class="text-2xl font-black mt-1">THAI TEA SERIES <br><span class="text-amber-300">Mulai 19 RB</span></h2>
+            </div>
+            <p class="text-[10px] text-white/70">*Tersedia di outlet tertentu</p>
+        </div>
+
+        <div class="grid grid-cols-4 gap-3 px-4 mt-6 text-center">
+            <div onclick="bukaMenu()" class="cursor-pointer group">
+                <div class="aspect-square bg-amber-50 rounded-2xl flex items-center justify-center text-2xl text-red-800 group-hover:bg-red-100 transition shadow-xs">
+                    <i class="fa-solid fa-bowl-food"></i>
+                </div>
+                <span class="text-xs font-bold text-gray-700 block mt-2">Order</span>
+            </div>
+            <div class="cursor-pointer">
+                <div class="aspect-square bg-amber-50 rounded-2xl flex items-center justify-center text-2xl text-red-800">
+                    <i class="fa-solid fa-motorcycle"></i>
+                </div>
+                <span class="text-xs font-bold text-gray-700 block mt-2">Delivery Hemat</span>
+            </div>
+            <div class="cursor-pointer">
+                <div class="aspect-square bg-amber-50 rounded-2xl flex items-center justify-center text-2xl text-red-800">
+                    <i class="fa-solid fa-burger"></i>
+                </div>
+                <span class="text-xs font-bold text-gray-700 block mt-2">Chicken & Burger</span>
+            </div>
+            <div class="cursor-pointer">
+                <div class="aspect-square bg-amber-50 rounded-2xl flex items-center justify-center text-2xl text-red-800">
+                    <i class="fa-solid fa-cake-candles"></i>
+                </div>
+                <span class="text-xs font-bold text-gray-700 block mt-2">Catering & Wedding</span>
+            </div>
+        </div>
+
+        <div class="px-4 mt-6">
+            <div class="flex justify-between items-center mb-3">
+                <h3 class="font-bold text-sm text-gray-800">Order Lagi <span class="text-amber-500">💫</span></h3>
+                <i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+            </div>
+            <div class="border border-gray-100 rounded-xl p-3 flex justify-between items-center bg-white shadow-xs">
+                <div class="flex flex-col gap-1">
+                    <span class="text-[10px] text-amber-700 font-bold">Ruko Tentara Pelajar Sema...</span>
+                    <h5 class="text-xs font-bold text-gray-800 w-44 truncate">1x Rich Chocolate Truffle Cake</h5>
+                    <button class="border border-red-800 text-red-800 font-bold text-xs px-4 py-1 rounded-lg mt-2 w-16 hover:bg-red-50">Beli</button>
+                </div>
+                <div class="w-16 h-16 bg-gray-50 rounded-lg overflow-hidden">
+                    <img src="assets/image/RichChocolateTruffleCake.jpg" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <main id="halaman-menu" class="max-w-md mx-auto bg-white min-h-screen shadow-xl pb-24 mt-6 rounded-2xl overflow-hidden relative hidden">
+        <div class="p-4 border-b border-gray-100 sticky top-0 bg-white z-10 flex items-center gap-4">
+            <i onclick="bukaBeranda()" class="fa-solid fa-arrow-left text-lg text-gray-700 cursor-pointer p-1"></i>
+            <div>
+                <h3 class="font-bold text-sm">Pilih Menu Bestseller</h3>
+                <p class="text-xs text-gray-400">Ruko Kedungmundu Semarang</p>
+            </div>
+        </div>
+
+        <div class="flex gap-6 px-4 py-3 border-b border-gray-50 overflow-x-auto text-sm font-bold text-gray-400 whitespace-nowrap bg-white">
+            <span class="text-red-800 border-b-2 border-red-800 pb-2 cursor-pointer">Promo & Combo</span>
+            <span class="hover:text-red-800 cursor-pointer pb-2">Cakes</span>
+            <span class="hover:text-red-800 cursor-pointer pb-2">Theme Cakes</span>
+            <span class="hover:text-red-800 cursor-pointer pb-2">Desserts</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 p-4 bg-white">
+            
+            <div class="bg-white border border-gray-100 rounded-2xl p-3 shadow-xs">
+                <div class="h-36 bg-gray-50 rounded-xl mb-3 overflow-hidden">
+                    <img src="assets/image/RichChocolateTruffleCake.jpg" alt="Rich Chocolate Truffle Cake" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-xs text-gray-800 h-8 line-clamp-2 leading-tight">Rich Chocolate Truffle Cake</h4>
+                <div class="flex justify-between items-center mt-3">
+                    <span class="font-black text-sm text-gray-900">Rp 500k</span>
+                    <button class="bg-red-800 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs hover:bg-red-900 shadow-sm cursor-pointer">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-100 rounded-2xl p-3 shadow-xs">
+                <div class="h-36 bg-gray-50 rounded-xl mb-3 overflow-hidden">
+                    <img src="assets/image/StrawberryCake.jpg" alt="Strawberry Cake" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-xs text-gray-800 h-8 line-clamp-2 leading-tight">Strawberry Cake</h4>
+                <div class="flex justify-between items-center mt-3">
+                    <span class="font-black text-sm text-gray-900">Rp 400k</span>
+                    <button class="bg-red-800 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs hover:bg-red-900 shadow-sm cursor-pointer">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-100 rounded-2xl p-3 shadow-xs">
+                <div class="h-36 bg-gray-50 rounded-xl mb-3 overflow-hidden">
+                    <img src="assets/image/BentoCake.jpg" alt="Bento Cake" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-xs text-gray-800 h-8 line-clamp-2 leading-tight">Bento Cake</h4>
+                <div class="flex justify-between items-center mt-3">
+                    <span class="font-black text-sm text-gray-900">Rp 85k</span>
+                    <button class="bg-red-800 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs hover:bg-red-900 shadow-sm cursor-pointer">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-100 rounded-2xl p-3 shadow-xs">
+                <div class="h-36 bg-gray-50 rounded-xl mb-3 overflow-hidden">
+                    <img src="assets/image/CupCake.jpg" alt="Cup Cake" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-xs text-gray-800 h-8 line-clamp-2 leading-tight">Cup Cake</h4>
+                <div class="flex justify-between items-center mt-3">
+                    <span class="font-black text-sm text-gray-900">Rp 45k</span>
+                    <button class="bg-red-800 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs hover:bg-red-900 shadow-sm cursor-pointer">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+    <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t border-gray-100 py-2.5 flex justify-around text-center text-[11px] font-bold shadow-2xl z-50 rounded-t-2xl">
+        <div onclick="bukaBeranda()" id="nav-beranda" class="text-red-800 cursor-pointer flex flex-col items-center gap-1">
+            <i class="fa-solid fa-house text-lg"></i>
+            <span>Beranda</span>
+        </div>
+        <div onclick="bukaMenu()" id="nav-menu" class="text-gray-400 cursor-pointer flex flex-col items-center gap-1">
+            <i class="fa-solid fa-book-open text-lg"></i>
+            <span>Menu</span>
+        </div>
+        <div class="text-gray-400 cursor-pointer flex flex-col items-center gap-1">
+            <i class="fa-solid fa-circle-user text-lg"></i>
+            <span>VIP</span>
+        </div>
+        <div class="text-gray-400 cursor-pointer flex flex-col items-center gap-1">
+            <i class="fa-solid fa-user text-lg"></i>
+            <span>Saya</span>
+        </div>
+    </div>
+
+
+    <script>
+        const beranda = document.getElementById('halaman-beranda');
+        const menu = document.getElementById('halaman-menu');
+        const navBeranda = document.getElementById('nav-beranda');
+        const navMenu = document.getElementById('nav-menu');
+
+        // Pindah langsung ke beranda menu saat ORDER NOW diklik
+        function bukaMenu() {
+            beranda.classList.replace('block', 'hidden');
+            menu.classList.replace('hidden', 'block');
+            
+            // Ubah warna aktif navigasi bawah
+            navMenu.className = "text-red-800 cursor-pointer flex flex-col items-center gap-1";
+            navBeranda.className = "text-gray-400 cursor-pointer flex flex-col items-center gap-1";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Kembali ke dashboard depan
+        function bukaBeranda() {
+            menu.classList.replace('block', 'hidden');
+            beranda.classList.replace('hidden', 'block');
+            
+            // Ubah warna aktif navigasi bawah
+            navBeranda.className = "text-red-800 cursor-pointer flex flex-col items-center gap-1";
+            navMenu.className = "text-gray-400 cursor-pointer flex flex-col items-center gap-1";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>

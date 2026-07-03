@@ -1,3 +1,19 @@
+
+<section class="bg-[#cfe8d5] py-16 px-5 text-center font-sans mt-5">
+  
+  <!-- Header -->
+  <div class="mb-8 mt-5">
+    <span class="text-[#d81b60] text-sm font-bold tracking-widest uppercase">
+      Testimonials
+    </span>
+    <h2 class="text-3xl text-gray-800 mt-2">
+      What Our <span class="text-[#d81b60]">Customers</span> Say
+    </h2>
+  </div>
+
+  <!-- Card -->
+  <div class="bg-white max-w-[700px] mx-auto p-10 rounded-2xl relative shadow-lg text-left">
+
 <style>
    .testimonial-container {
     background-color: #cfe8d5; /* hijau */
@@ -6,117 +22,39 @@
     font-family: Arial, sans-serif;
     margin-top: 100px; /* ⬅️ INI YANG BUAT TURUN */
     }
+
     
-
-    testimonial-header {
-        margin-bottom: 40px;
-    }
-
-    testimonial-header span {
-        color: #d81b60; /* Warna pink fuchsia untuk label kecil */
-        font-size: 14px;
-        font-weight: bold;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-    }
-
-    testimonial-header h2 {
-        font-size: 36px;
-        color: #333;
-        margin-top: 10px;
-    }
-
-    testimonial-header h2 span {
-        color: #d81b60; /* Warna pink fuchsia untuk kata 'Customers' */
-        font-size: inherit;
-        text-transform: none;
-        letter-spacing: normal;
-    }
-
-    testimonial-card {
-        background: white;
-        max-width: 700px;
-        margin: 0 auto;
-        padding: 40px;
-        border-radius: 20px;
-        position: relative;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Bayangan halus */
-        text-align: left;
-    }
-
-    /* Ikon kutipan pink bulat seperti di desain Figma */
-    quote-badge {
-        position: absolute;
-        top: -20px;
-        left: 40px;
-        background: #d81b60;
-        color: white;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 24px;
-        font-weight: bold;
-    }
-
-    stars-rating {
-        color: #d81b60;
-        font-size: 20px;
-        margin-bottom: 15px;
-    }
-
-    testimonial-quote {
-        font-size: 18px;
-        line-height: 1.6;
-        color: #444;
-        margin-bottom: 25px;
-        font-style: italic;
-    }
-
-    customer-detail {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    customer-avatar {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: #fce4ec;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #d81b60;
-        font-weight: bold;
-    }
-
-    customer-info h4 {
-        margin: 0;
-        color: #333;
-        font-size: 16px;
-    }
-</style>
-
-<section class="testimonial-container">
-    <div class="testimonial-header">
-        <span>Testimonials</span>
-        <h2>What Our <span>Customers</span> Say</h2>
+    <!-- Quote Badge -->
+    <div class="absolute -top-5 left-10 bg-[#d81b60] text-white w-11 h-11 rounded-full flex items-center justify-center text-xl font-bold">
+      “
     </div>
 
-    <div class="testimonial-card">
-        <div class="quote-badge">“</div>
-        <div class="stars-rating">★★★★★</div>
-        <p class="testimonial-quote">
-            "GLAZYLICIOUS made our wedding day absolutely magical! The three-tier cake was not only stunning but tasted incredible. Every guest couldn't stop talking about it!"
-        </p>
-        <div class="customer-detail">
-            <div class="customer-avatar">S</div>
-            <div class="customer-info">
-                <h4>Sabrina Carpenter</h4>
-            </div>
-        </div>
+    <!-- Stars -->
+    <div class="text-[#d81b60] text-lg mb-4">
+      ★★★★★
     </div>
+
+    <!-- Quote -->
+    <p class="text-gray-600 text-lg leading-relaxed mb-6 italic">
+      "GLAZYLICIOUS made our wedding day absolutely magical! The three-tier cake was not only stunning but tasted incredible. Every guest couldn't stop talking about it!"
+    </p>
+
+    <!-- Customer -->
+    <div class="flex items-center gap-4">
+      <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-[#d81b60] font-bold">
+        S
+      </div>
+      <div>
+        <h4 class="text-gray-800 text-sm font-semibold">
+          Sabrina Carpenter
+        </h4>
+      </div>
+    </div>
+
+  </div>
 </section>
+
+</section>
+
+</section>
+
