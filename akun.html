@@ -5,245 +5,196 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Account - Wishk & Wish</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         'brand-red': '#D6336C',
-                        'brand-light': '#fdf8f5',
-                        'brand-dark': '#333333',
                         'brand-pink': '#FFF5F8',
                     }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fdf8f5; }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        .menu-btn.active { background-color: #FFF5F8; color: #D6336C; font-weight: bold; }
     </style>
 </head>
-<body class="text-brand-dark antialiased">
+<body class="bg-[#fdf8f5] text-gray-800">
 
-    <!-- Top Navigation -->
-    <header class="bg-brand-light py-4 px-8 shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <h1 class="text-3xl font-bold text-brand-red"><a href="index.html">Wishk & Wish</a></h1>
-            
-            <div class="relative w-1/3">
-                <input type="text" placeholder="Search" class="w-full border border-gray-300 rounded-full py-2 pl-11 pr-4 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red text-sm">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                    <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
-                </div>
-            </div>
-
-            <div class="flex items-center space-x-6">
-                <a href="#" class="text-gray-600 hover:text-brand-red"><i class="fa-solid fa-location-dot"></i></a>
-                <!-- Berubah menjadi menu Akun karena posisi sudah login -->
-                <a href="account.html" class="text-sm font-bold text-brand-red flex items-center">
-                    <i class="fa-regular fa-user-circle text-lg mr-2"></i> Hi, User
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Account Section -->
-    <main class="max-w-7xl mx-auto mt-10 px-8 pb-20">
-        
-        <div class="flex flex-col md:flex-row gap-8">
-            
-            <!-- Sidebar Navigation -->
-            <aside class="w-full md:w-1/4">
-                <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
-                    <!-- Profile Summary -->
-                    <div class="flex items-center space-x-4 mb-8 pb-6 border-b border-gray-100">
-                        <div class="w-14 h-14 bg-brand-pink rounded-full flex items-center justify-center text-brand-red text-2xl font-bold">
-                            U <!-- Inisial Nama -->
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-brand-dark">User Name</h3>
-                            <p class="text-xs text-gray-500">user@email.com</p>
-                        </div>
+    <main class="max-w-6xl mx-auto mt-10 p-4">
+        <div class="flex gap-8">
+            <!-- Sidebar -->
+            <aside class="w-1/4 bg-white rounded-3xl p-6 shadow-sm h-fit">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-12 h-12 bg-brand-pink rounded-full flex items-center justify-center text-brand-red font-bold">U</div>
+                    <div>
+                        <h3 class="font-bold">User Name</h3>
+                        <p class="text-xs text-gray-500">user@email.com</p>
                     </div>
-
-                    <!-- Menu Links -->
-                    <nav class="space-y-2">
-                        <a href="#" class="flex items-center space-x-3 bg-brand-pink text-brand-red px-4 py-3 rounded-xl font-bold transition">
-                            <i class="fa-regular fa-user w-5 text-center"></i>
-                            <span class="text-sm">My Profile</span>
-                        </a>
-                        <a href="#" class="flex items-center space-x-3 text-gray-600 hover:bg-gray-50 hover:text-brand-red px-4 py-3 rounded-xl font-semibold transition">
-                            <i class="fa-solid fa-box-open w-5 text-center"></i>
-                            <span class="text-sm">My Orders</span>
-                        </a>
-                        <a href="#" class="flex items-center space-x-3 text-gray-600 hover:bg-gray-50 hover:text-brand-red px-4 py-3 rounded-xl font-semibold transition">
-                            <i class="fa-solid fa-ticket w-5 text-center"></i>
-                            <span class="text-sm">Magical Tickets</span>
-                        </a>
-                        <a href="#" class="flex items-center space-x-3 text-gray-600 hover:bg-gray-50 hover:text-brand-red px-4 py-3 rounded-xl font-semibold transition">
-                            <i class="fa-regular fa-address-book w-5 text-center"></i>
-                            <span class="text-sm">Address Book</span>
-                        </a>
-                        <a href="#" class="flex items-center space-x-3 text-gray-600 hover:bg-gray-50 hover:text-brand-red px-4 py-3 rounded-xl font-semibold transition">
-                            <i class="fa-regular fa-heart w-5 text-center"></i>
-                            <span class="text-sm">Wishlist</span>
-                        </a>
-                        <a href="login.html" class="flex items-center space-x-3 text-gray-400 hover:bg-red-50 hover:text-brand-red px-4 py-3 rounded-xl font-semibold transition mt-6 pt-4 border-t border-gray-100">
-                            <i class="fa-solid fa-arrow-right-from-bracket w-5 text-center"></i>
-                            <span class="text-sm">Log Out</span>
-                        </a>
-                    </nav>
                 </div>
+
+                <nav class="space-y-1">
+                    <button onclick="showSection('profile', this)" class="menu-btn active w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">
+                        <i class="fa-regular fa-user"></i> My Profile
+                    </button>
+                    <button onclick="showSection('orders', this)" class="menu-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">
+                        <i class="fa-solid fa-box-open"></i> My Orders
+                    </button>
+                    <button onclick="showSection('vouchers', this)" class="menu-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">
+                        <i class="fa-solid fa-ticket"></i> Vouchers & Promo
+                    </button>
+                    <button onclick="showSection('tickets', this)" class="menu-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">
+                        <i class="fa-solid fa-magic"></i> Magical Tickets
+                    </button>
+                    <button onclick="showSection('address', this)" class="menu-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">
+                        <i class="fa-solid fa-address-book"></i> Address Book
+                    </button>
+                    <button onclick="showSection('wishlist', this)" class="menu-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">
+                        <i class="fa-regular fa-heart"></i> Wishlist
+                    </button>
+                    <div class="pt-4 mt-4 border-t border-gray-100">
+                        <a href="login.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-brand-red transition">
+                            <i class="fa-solid fa-right-from-bracket"></i> Log Out
+                        </a>
+                    </div>
+                </nav>
             </aside>
 
-            <!-- Main Content (Profile Settings) -->
-            <section class="w-full md:w-3/4">
-                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100">
-                    <h2 class="text-2xl font-bold text-brand-red mb-2">My Profile</h2>
-                    <p class="text-gray-500 text-sm mb-8">Manage your personal information and security settings.</p>
+            <!-- Main Content -->
+            <section class="w-3/4">
+<!-- My Profile -->
+<div id="profile" class="content-section active bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
+    <h2 class="text-2xl font-bold text-brand-red mb-2">My Profile</h2>
+    <p class="text-sm text-gray-500 mb-8">Manage your personal information and security settings.</p>
 
-                    <form class="space-y-6">
-                        
-                        <!-- Grid untuk Nama Depan & Belakang -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-bold mb-2 text-gray-700">First Name</label>
-                                <input type="text" value="User" class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red text-sm transition">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold mb-2 text-gray-700">Last Name</label>
-                                <input type="text" value="Name" class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red text-sm transition">
-                            </div>
-                        </div>
+    <form class="space-y-6">
+        <!-- Nama Lengkap -->
+        <div class="grid grid-cols-2 gap-6">
+            <div>
+                <label class="block text-sm font-bold mb-2 text-gray-700">First Name</label>
+                <input type="text" placeholder="User" class="w-full border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-brand-pink outline-none">
+            </div>
+            <div>
+                <label class="block text-sm font-bold mb-2 text-gray-700">Last Name</label>
+                <input type="text" placeholder="Name" class="w-full border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-brand-pink outline-none">
+            </div>
+        </div>
 
-                        <!-- Email & Nomor Telepon -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-bold mb-2 text-gray-700">Email Address</label>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                                        <i class="fa-regular fa-envelope text-gray-400"></i>
-                                    </div>
-                                    <input type="email" value="user@email.com" class="w-full border border-gray-300 rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red text-sm transition text-gray-500 bg-gray-50" readonly>
-                                </div>
-                                <p class="text-[10px] text-gray-400 mt-1">Email cannot be changed.</p>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold mb-2 text-gray-700">Phone Number</label>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                                        <i class="fa-solid fa-phone text-gray-400"></i>
-                                    </div>
-                                    <input type="tel" placeholder="+62 812-3456-7890" class="w-full border border-gray-300 rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red text-sm transition">
-                                </div>
-                            </div>
-                        </div>
+        <!-- Email & Telepon -->
+        <div class="grid grid-cols-2 gap-6">
+            <div>
+                <label class="block text-sm font-bold mb-2 text-gray-700">Email Address</label>
+                <input type="email" placeholder="user@email.com" class="w-full border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-brand-pink outline-none">
+            </div>
+            <div>
+                <label class="block text-sm font-bold mb-2 text-gray-700">Phone Number</label>
+                <input type="tel" placeholder="+62 812-xxxx-xxxx" class="w-full border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-brand-pink outline-none">
+            </div>
+        </div>
 
-                        <hr class="my-6 border-gray-100">
+        <!-- Ganti Password -->
+        <div class="pt-6 border-t border-gray-100">
+            <h3 class="font-bold text-lg mb-4 text-gray-800">Change Password</h3>
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-bold mb-2 text-gray-700">Current Password</label>
+                    <input type="password" placeholder="••••••••" class="w-full border border-gray-200 rounded-xl p-3">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-2 text-gray-700">New Password</label>
+                    <input type="password" placeholder="Enter new password" class="w-full border border-gray-200 rounded-xl p-3">
+                </div>
+            </div>
+        </div>
 
-                        <!-- Ubah Password -->
-                        <h3 class="text-lg font-bold text-gray-800 mb-4">Change Password</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-bold mb-2 text-gray-700">Current Password</label>
-                                <input type="password" placeholder="••••••••" class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red text-sm transition">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold mb-2 text-gray-700">New Password</label>
-                                <input type="password" placeholder="Enter new password" class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red text-sm transition">
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="flex justify-end space-x-4 pt-6">
-                            <button type="button" class="px-6 py-3 rounded-full font-bold text-sm text-gray-600 bg-gray-100 hover:bg-gray-200 transition">
-                                CANCEL
-                            </button>
-                            <button type="button" class="bg-brand-red text-white px-8 py-3 rounded-full font-bold text-sm hover:bg-red-800 transition shadow-md">
-                                SAVE CHANGES
-                            </button>
-                        </div>
-                        <div class="account-sidebar-menu">
-                 <!-- Menu 1: My Orders -->
-                 <a href="#" class="account-menu-item">
-                 <i class="fa-solid fa-box-open menu-icon"></i>
-                 <span>My Orders</span>
-                 </a>
-
-                 <!-- Menu 2: Magical Tickets -->
-                  <a href="#" class="account-menu-item">
-                   <i class="fa-solid fa-ticket menu-icon"></i>
-                  <span>Magical Tickets</span>
-                     </a>
-
-               <!-- Menu 3: Address Book -->
-                  <a href="#" class="account-menu-item">
-                  <i class="fa-solid fa-address-book menu-icon"></i>
-                   <span>Address Book</span>
-                </a>
-
-               <!-- Menu 4: Wishlist -->
-                <a href="#" class="account-menu-item">
-                 <i class="fa-regular fa-heart menu-icon"></i>
-              <span>Wishlist</span>
-              </a>
+        <div class="pt-4">
+            <button type="button" class="bg-brand-red text-white px-8 py-3 rounded-full font-bold hover:bg-pink-600 transition shadow-lg shadow-pink-200">
+                SAVE CHANGES
+            </button>
+        </div>
+    </form>
 </div>
+                <!-- Orders -->
+                <div id="orders" class="content-section bg-white rounded-3xl p-10 shadow-sm">
+                    <h2 class="text-2xl font-bold text-brand-red mb-6">My Orders</h2>
+                    <p class="text-gray-500">Daftar pesanan Anda akan muncul di sini.</p>
+                </div>
 
-                    </form>
+                <!-- Vouchers -->
+                <div id="vouchers" class="content-section bg-white rounded-3xl p-10 shadow-sm">
+                    <h2 class="text-2xl font-bold text-brand-red mb-6">Vouchers & Promo</h2>
+                    <p class="text-gray-500">Belum ada promo yang tersedia.</p>
+                </div>
+
+                <!-- Magical Tickets Section -->
+<div id="tickets" class="content-section bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
+    <h2 class="text-2xl font-bold text-brand-red mb-6">Magical Tickets</h2>
+
+    <div class="space-y-6">
+        <!-- Tiket 1: Spesial Pembelian Banyak -->
+        <div class="relative bg-brand-pink border-2 border-dashed border-brand-red rounded-2xl p-6 overflow-hidden">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h4 class="font-bold text-brand-red text-lg uppercase tracking-wider">Bulk Celebration</h4>
+                    <p class="text-sm text-gray-700 font-medium">Diskon 20% untuk pembelian 5+ kue</p>
+                    <p class="text-[11px] text-gray-400 mt-2 italic">*Berlaku untuk semua jenis kue</p>
+                </div>
+                <div class="border-l-2 border-dashed border-brand-red pl-6 text-center">
+                    <span class="block text-3xl font-black text-brand-red">20%</span>
+                    <button class="mt-2 bg-brand-red text-white text-[10px] font-bold px-4 py-1 rounded-full hover:bg-pink-700 transition">CLAIM</button>
+                </div>
+            </div>
+            <!-- Efek lingkaran bolong khas tiket -->
+            <div class="absolute -left-3 top-1/2 w-6 h-6 bg-[#fdf8f5] rounded-full"></div>
+            <div class="absolute -right-3 top-1/2 w-6 h-6 bg-[#fdf8f5] rounded-full"></div>
+        </div>
+
+        <!-- Tiket 2: Hari Spesial -->
+        <div class="relative bg-brand-pink border-2 border-dashed border-brand-red rounded-2xl p-6 overflow-hidden">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h4 class="font-bold text-brand-red text-lg uppercase tracking-wider">Birthday Special</h4>
+                    <p class="text-sm text-gray-700 font-medium">Gratis 1 Mini Cake setiap ultahmu</p>
+                    <p class="text-[11px] text-gray-400 mt-2 italic">*Klaim di bulan hari ulang tahunmu</p>
+                </div>
+                <div class="border-l-2 border-dashed border-brand-red pl-6 text-center">
+                    <span class="block text-xl font-black text-brand-red">FREE</span>
+                   <button id="btn-tiket-1" onclick="claimTicket('btn-tiket-1')" class="mt-2 bg-brand-red text-white text-[10px] font-bold px-4 py-1 rounded-full hover:bg-pink-700 transition">
+                   CLAIM </button>
+            </div>
+            <!-- Efek lingkaran bolong khas tiket -->
+            <div class="absolute -left-3 top-1/2 w-6 h-6 bg-[#fdf8f5] rounded-full"></div>
+            <div class="absolute -right-3 top-1/2 w-6 h-6 bg-[#fdf8f5] rounded-full"></div>
+        </div>
+    </div>
+</div>
+                <!-- Address Book -->
+                <div id="address" class="content-section bg-white rounded-3xl p-10 shadow-sm">
+                    <h2 class="text-2xl font-bold text-brand-red mb-6">Address Book</h2>
+                    <button class="bg-brand-pink text-brand-red px-6 py-2 rounded-xl font-bold text-sm">+ Add New Address</button>
+                </div>
+
+                <!-- Wishlist -->
+                <div id="wishlist" class="content-section bg-white rounded-3xl p-10 shadow-sm">
+                    <h2 class="text-2xl font-bold text-brand-red mb-6">Wishlist</h2>
+                    <p class="text-gray-500">Belum ada item di wishlist Anda.</p>
                 </div>
             </section>
-
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="max-w-7xl mx-auto mt-20 px-8 pb-12">
-        <div class="bg-brand-red text-white text-center py-5 rounded-2xl mb-12 shadow-lg">
-            <h2 class="text-xl md:text-2xl font-bold tracking-wide">Glazycious – Your Trusted Online Bakery for Every Celebration</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            <div class="md:col-span-3">
-                <h3 class="text-2xl font-bold text-brand-red mb-4">Glazycious</h3>
-                <ul class="text-xs text-gray-500 space-y-3 font-medium">
-                    <li><a href="#" class="hover:text-brand-red transition">Our Story</a></li>
-                    <li><a href="#" class="hover:text-brand-red transition">Contact Us</a></li>
-                    <li><a href="#" class="hover:text-brand-red transition">Locate Stores</a></li>
-                </ul>
-            </div>
-
-            <div class="md:col-span-5 grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div>
-                    <h4 class="font-bold text-brand-red text-[11px] mb-4 uppercase tracking-wider">Know Us</h4>
-                    <ul class="text-[11px] text-gray-500 space-y-3 font-medium">
-                        <li><a href="#" class="hover:text-brand-red transition">Contact Us</a></li>
-                        <li><a href="#" class="hover:text-brand-red transition">Blog</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-brand-red text-[11px] mb-4 uppercase tracking-wider">Need Help</h4>
-                    <ul class="text-[11px] text-gray-500 space-y-3 font-medium">
-                        <li><a href="#" class="hover:text-brand-red transition">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-brand-red transition">Refund Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-brand-red text-[11px] mb-4 uppercase tracking-wider">More Info</h4>
-                    <ul class="text-[11px] text-gray-500 space-y-3 font-medium">
-                        <li><a href="#" class="hover:text-brand-red transition">Coupons & Offers</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="md:col-span-4 flex flex-col items-end justify-start h-full pt-8">
-                <div class="flex items-center space-x-4 w-full justify-end">
-                    <input type="email" placeholder="Enter Email Address" class="border border-gray-300 rounded-full py-2 px-4 text-xs focus:outline-none focus:border-brand-red w-48 shadow-sm">
-                    <button class="bg-brand-red text-white px-6 py-2 rounded-full font-bold text-xs hover:bg-red-800 transition shadow-sm">SUBSCRIBE</button>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    <script>
+        function showSection(id, btn) {
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            btn.classList.add('active');
+        }
+    </script>
 </body>
 </html>
