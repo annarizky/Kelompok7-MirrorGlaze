@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whisk & Wish - Menu Bakery</title>
+    <title>Glazycious Menu - Online Bakery</title>
     <!-- Menggunakan CDN Tailwind CSS v3 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -35,7 +35,9 @@
                 <a href="index.html" class="text-gray-600 hover:text-brand-red text-xl">
                     <i class="fa-solid fa-arrow-left"></i>
                 </a>
-                <a href="index.html"><h1 class="text-3xl font-bold text-brand-red">Whisk & Wish</h1></a>
+                <a href="index.html">
+                    <h1 class="text-3xl font-bold text-brand-red">Glazycious</h1>
+                </a>
             </div>
             
             <div class="relative w-1/3">
@@ -70,36 +72,42 @@
                 </a>
             </div>
             
-            <span class="text-xs text-gray-500 font-medium">Whisk & Wish Menu &bull; Freshly Baked Every Day</span>
+            <span class="text-xs text-gray-500 font-medium">Glazycious Menu &bull; Freshly Baked Every Day</span>
         </nav>
     </header>
 
     <!-- MAIN CONTAINER -->
     <main class="max-w-7xl mx-auto px-8 mt-8 grid grid-cols-1 md:grid-cols-12 gap-8">
         
-        <!-- SIDEBAR KATEGORI (Kiri) -->
         <aside class="md:col-span-3 space-y-2 sticky top-28 h-fit">
             <h2 class="text-xl font-bold text-brand-red mb-4 px-2">Kategori</h2>
-            <a href="#" class="block bg-brand-red text-white font-semibold py-3 px-4 rounded-xl shadow-sm">
+
+            <a href="#bestseller" class="block bg-brand-red text-white font-semibold py-3 px-4 rounded-xl shadow-sm">
                 <i class="fa-solid fa-star mr-2"></i> Menu Bestsellers
             </a>
-            <a href="#" class="block bg-white text-gray-700 hover:bg-brand-pink hover:text-brand-red font-medium py-3 px-4 rounded-xl transition shadow-sm">
+
+            <a href="#classiccakes" class="block bg-white text-gray-700 hover:bg-brand-pink hover:text-brand-red font-medium py-3 px-4 rounded-xl transition shadow-sm">
                 <i class="fa-solid fa-cake-candles mr-2"></i> Classic Cakes
             </a>
-            <a href="#" class="block bg-white text-gray-700 hover:bg-brand-pink hover:text-brand-red font-medium py-3 px-4 rounded-xl transition shadow-sm">
+
+            <a href="#themecakes" class="block bg-white text-gray-700 hover:bg-brand-pink hover:text-brand-red font-medium py-3 px-4 rounded-xl transition shadow-sm">
                 <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Theme Cakes
             </a>
-            <a href="#" class="block bg-white text-gray-700 hover:bg-brand-pink hover:text-brand-red font-medium py-3 px-4 rounded-xl transition shadow-sm">
+
+            <a href="#desserts" class="block bg-white text-gray-700 hover:bg-brand-pink hover:text-brand-red font-medium py-3 px-4 rounded-xl transition shadow-sm">
                 <i class="fa-solid fa-cookie mr-2"></i> Desserts
             </a>
-            <a href="#" class="block bg-white text-gray-700 hover:bg-brand-pink hover:text-brand-red font-medium py-3 px-4 rounded-xl transition shadow-sm">
+
+            <a href="#hampers" class="block bg-white text-gray-700 hover:bg-brand-pink hover:text-brand-red font-medium py-3 px-4 rounded-xl transition shadow-sm">
                 <i class="fa-solid fa-gift mr-2"></i> Hampers & Gift
             </a>
         </aside>
 
         <!-- KONTEN PRODUK (Kanan) -->
         <section class="md:col-span-9">
-            <div class="mb-6 flex justify-between items-center">
+            
+            <!-- MENU BESTSELLERS -->
+            <div class="mb-6 flex justify-between items-center" id="bestseller">
                 <div>
                     <h2 class="text-3xl font-bold text-brand-red">Menu Bestsellers</h2>
                     <p class="text-gray-500 text-sm mt-1">Pilihan kue terfavorit dan paling banyak dipesan minggu ini</p>
@@ -109,7 +117,7 @@
                 </div>
             </div>
 
-            <!-- GRID DAFTAR KUE (Sesuai Struktur Gambar) -->
+            <!-- GRID DAFTAR KUE BESTSELLERS -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 
                 <!-- Card 1: Chocolate Truffle Cake -->
@@ -124,7 +132,7 @@
                     </div>
                     <div class="flex justify-between items-end pt-2 border-t border-gray-100">
                         <div>
-                            <span class="font-bold text-lg text-brand-dark">Rp 500.000</span>
+                            <span class="font-bold text-lg text-brand-dark">Rp 500k</span>
                             <div class="text-yellow-400 text-[10px] mt-0.5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
@@ -147,7 +155,7 @@
                     </div>
                     <div class="flex justify-between items-end pt-2 border-t border-gray-100">
                         <div>
-                            <span class="font-bold text-lg text-brand-dark">Rp 400.000</span>
+                            <span class="font-bold text-lg text-brand-dark">Rp 400k</span>
                             <div class="text-yellow-400 text-[10px] mt-0.5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
                             </div>
@@ -170,7 +178,7 @@
                     </div>
                     <div class="flex justify-between items-end pt-2 border-t border-gray-100">
                         <div>
-                            <span class="font-bold text-lg text-brand-dark">Rp 85.000</span>
+                            <span class="font-bold text-lg text-brand-dark">Rp 85k</span>
                             <div class="text-yellow-400 text-[10px] mt-0.5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
@@ -193,7 +201,7 @@
                     </div>
                     <div class="flex justify-between items-end pt-2 border-t border-gray-100">
                         <div>
-                            <span class="font-bold text-lg text-brand-dark">Rp 45.000</span>
+                            <span class="font-bold text-lg text-brand-dark">Rp 45k</span>
                             <div class="text-yellow-400 text-[10px] mt-0.5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
                             </div>
@@ -204,7 +212,6 @@
                     </div>
                 </div>
 
-                <!-- Tambahan Card Menu Baru biar makin ramai saat di-klik -->
                 <!-- Card 5: Red Velvet Cake -->
                 <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative flex flex-col justify-between">
                     <div>
@@ -217,7 +224,7 @@
                     </div>
                     <div class="flex justify-between items-end pt-2 border-t border-gray-100">
                         <div>
-                            <span class="font-bold text-lg text-brand-dark">Rp 450.000</span>
+                            <span class="font-bold text-lg text-brand-dark">Rp 450k</span>
                             <div class="text-yellow-400 text-[10px] mt-0.5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
@@ -227,13 +234,170 @@
                         </button>
                     </div>
                 </div>
-            </div>
+
+            </div> <!-- Penutup Grid Bestsellers -->
+
+            <!-- DESSERTS CATEGORY -->
+            <div id="desserts" class="mt-16">
+                
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-brand-red">
+                        <i class="fa-solid fa-cookie mr-2"></i> Desserts
+                    </h2>
+                    <p class="text-gray-500 text-sm">
+                        Freshly baked pastries & cookies
+                    </p>
+                </div>
+
+                <!-- GRID DAFTAR DESSERTS (Struktur Disamakan) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    
+                    <!-- Dessert 1: Salt Bread Beef & Cheese -->
+                    <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative flex flex-col justify-between">
+                        <div>
+                            <i class="fa-regular fa-heart absolute top-4 left-4 text-brand-red cursor-pointer bg-white/80 p-1.5 rounded-full shadow-sm hover:fa-solid"></i>
+                            <div class="h-44 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400 overflow-hidden">
+                                <img src="assets/image/SaltBreadBeefCheese.png" alt="Salt Bread Beef & Cheese" class="w-full h-full object-cover rounded-xl">
+                            </div>
+                            <h4 class="font-bold text-gray-800 leading-tight text-base mb-1">Salt Bread Beef & Cheese</h4>
+                            <p class="text-xs text-gray-400 mb-3">Soft Japanese salt bread filled with beef and melted cheese.</p>
+                        </div>
+                        <div class="flex justify-between items-end pt-2 border-t border-gray-100">
+                            <div>
+                                <span class="font-bold text-lg text-brand-dark">Rp15.000</span>
+                                <div class="text-yellow-400 text-[10px] mt-0.5">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                            <button class="bg-brand-red text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-red-800 transition shadow-sm">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Dessert 2: Salt Bread Choco -->
+                    <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative flex flex-col justify-between">
+                        <div>
+                            <i class="fa-regular fa-heart absolute top-4 left-4 text-brand-red cursor-pointer bg-white/80 p-1.5 rounded-full shadow-sm hover:fa-solid"></i>
+                            <div class="h-44 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400 overflow-hidden">
+                                <img src="assets/image/SaltBreadChoco.png" alt="Salt Bread Choco" class="w-full h-full object-cover rounded-xl">
+                            </div>
+                            <h4 class="font-bold text-gray-800 leading-tight text-base mb-1">Salt Bread Choco</h4>
+                            <p class="text-xs text-gray-400 mb-3">Soft buttery salt bread with rich chocolate filling.</p>
+                        </div>
+                        <div class="flex justify-between items-end pt-2 border-t border-gray-100">
+                            <div>
+                                <span class="font-bold text-lg text-brand-dark">Rp15.000</span>
+                                <div class="text-yellow-400 text-[10px] mt-0.5">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                            <button class="bg-brand-red text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-red-800 transition shadow-sm">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Dessert 3: Butter Croissant -->
+                    <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative flex flex-col justify-between">
+                        <div>
+                            <i class="fa-regular fa-heart absolute top-4 left-4 text-brand-red cursor-pointer bg-white/80 p-1.5 rounded-full shadow-sm hover:fa-solid"></i>
+                            <div class="h-44 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400 overflow-hidden">
+                                <img src="assets/image/ButterCroissant.png" alt="Butter Croissant" class="w-full h-full object-cover rounded-xl">
+                            </div>
+                            <h4 class="font-bold text-gray-800 leading-tight text-base mb-1">Butter Croissant</h4>
+                            <p class="text-xs text-gray-400 mb-3">Classic buttery croissant with a crispy flaky texture.</p>
+                        </div>
+                        <div class="flex justify-between items-end pt-2 border-t border-gray-100">
+                            <div>
+                                <span class="font-bold text-lg text-brand-dark">Rp18.000</span>
+                                <div class="text-yellow-400 text-[10px] mt-0.5">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                            <button class="bg-brand-red text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-red-800 transition shadow-sm">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Dessert 4: Salt Bread Sausage -->
+                    <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative flex flex-col justify-between">
+                        <div>
+                            <i class="fa-regular fa-heart absolute top-4 left-4 text-brand-red cursor-pointer bg-white/80 p-1.5 rounded-full shadow-sm hover:fa-solid"></i>
+                            <div class="h-44 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400 overflow-hidden">
+                                <img src="assets/image/SaltBreadSausage.png" alt="Salt Bread Sausage" class="w-full h-full object-cover rounded-xl">
+                            </div>
+                            <h4 class="font-bold text-gray-800 leading-tight text-base mb-1">Salt Bread Sausage</h4>
+                            <p class="text-xs text-gray-400 mb-3">Soft salt bread filled with juicy chicken sausage.</p>
+                        </div>
+                        <div class="flex justify-between items-end pt-2 border-t border-gray-100">
+                            <div>
+                                <span class="font-bold text-lg text-brand-dark">Rp18.000</span>
+                                <div class="text-yellow-400 text-[10px] mt-0.5">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                            <button class="bg-brand-red text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-red-800 transition shadow-sm">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Dessert 5: Choco Chip Cookies -->
+                    <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative flex flex-col justify-between">
+                        <div>
+                            <i class="fa-regular fa-heart absolute top-4 left-4 text-brand-red cursor-pointer bg-white/80 p-1.5 rounded-full shadow-sm hover:fa-solid"></i>
+                            <div class="h-44 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400 overflow-hidden">
+                                <img src="assets/image/ChocoChipCookies.png" alt="Choco Chip Cookies" class="w-full h-full object-cover rounded-xl">
+                            </div>
+                            <h4 class="font-bold text-gray-800 leading-tight text-base mb-1">Choco Chip Cookies</h4>
+                            <p class="text-xs text-gray-400 mb-3">Crunchy cookies loaded with premium chocolate chips.</p>
+                        </div>
+                        <div class="flex justify-between items-end pt-2 border-t border-gray-100">
+                            <div>
+                                <span class="font-bold text-lg text-brand-dark">Rp12.000</span>
+                                <div class="text-yellow-400 text-[10px] mt-0.5">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                            <button class="bg-brand-red text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-red-800 transition shadow-sm">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Dessert 6: Cup Cake -->
+                    <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition relative flex flex-col justify-between">
+                        <div>
+                            <i class="fa-regular fa-heart absolute top-4 left-4 text-brand-red cursor-pointer bg-white/80 p-1.5 rounded-full shadow-sm hover:fa-solid"></i>
+                            <div class="h-44 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400 overflow-hidden">
+                                <img src="assets/image/CupCake.jpg" alt="Cup Cake" class="w-full h-full object-cover rounded-xl">
+                            </div>
+                            <h4 class="font-bold text-gray-800 leading-tight text-base mb-1">Cup Cake</h4>
+                            <p class="text-xs text-gray-400 mb-3">Kue cangkir lembut bertabur krim stroberi cantik.</p>
+                        </div>
+                        <div class="flex justify-between items-end pt-2 border-t border-gray-100">
+                            <div>
+                                <span class="font-bold text-lg text-brand-dark">Rp 45k</span>
+                                <div class="text-yellow-400 text-[10px] mt-0.5">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                            </div>
+                            <button class="bg-brand-red text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-red-800 transition shadow-sm">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div> <!-- Penutup Grid Desserts -->
+            </div> 
         </section>
     </main>
 
     <!-- FOOTER SINGKAT -->
     <footer class="text-center py-8 text-xs text-gray-400 mt-20 border-t border-gray-200">
-        &copy; 2026 Whisk & Wish Bakery Shop. All Rights Reserved.
+        &copy; 2026 Glazycious Online Bakery. All Rights Reserved.
     </footer>
 
 </body>
