@@ -13,6 +13,8 @@
                     colors: {
                         'brand-red': '#D6336C',
                         'brand-pink': '#FFF5F8',
+                        'gold-light': '#FDE68A',
+                        'gold-dark': '#D97706',
                     }
                 }
             }
@@ -22,29 +24,37 @@
         .content-section { display: none; }
         .content-section.active { display: block; }
         .menu-btn.active { background-color: #FFF5F8; color: #D6336C; font-weight: bold; }
+        /* Animasi mengambang untuk tiket VIP */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+        .vip-ticket:hover { animation: float 2s ease-in-out infinite; }
     </style>
 </head>
 <body class="bg-[#fdf8f5] text-gray-800">
 
     <main class="max-w-6xl mx-auto mt-10 p-4">
-        <div class="flex gap-8">
+        <div class="flex flex-col md:flex-row gap-8">
+            
             <!-- Sidebar -->
-<aside class="w-1/4 bg-white rounded-3xl p-6 shadow-sm h-fit">
-    <!-- Panah Kembali -->
-    <div class="mb-6">
-        <button onclick="history.back()" class="text-gray-400 hover:text-brand-red transition">
-            <i class="fa-solid fa-arrow-left text-lg"></i>
-        </button>
-    </div>
+            <aside class="w-full md:w-1/4 bg-white rounded-3xl p-6 shadow-sm h-fit border border-gray-100">
+                <!-- Panah Kembali -->
+                <div class="mb-6">
+                    <button onclick="history.back()" class="text-gray-400 hover:text-brand-red transition">
+                        <i class="fa-solid fa-arrow-left text-lg"></i>
+                    </button>
+                </div>
 
-    <!-- Profil User -->
-    <div class="flex items-center gap-3 mb-8">
-        <div class="w-12 h-12 bg-brand-pink rounded-full flex items-center justify-center text-brand-red font-bold">U</div>
-        <div>
-            <h3 class="font-bold">User Name</h3>
-            <p class="text-xs text-gray-500">user@email.com</p>
-        </div>
-    </div>
+                <!-- Profil User -->
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-12 h-12 bg-brand-pink rounded-full flex items-center justify-center text-brand-red font-bold text-xl">U</div>
+                    <div>
+                        <h3 class="font-bold text-lg">User Name</h3>
+                        <p class="text-xs text-gray-500">user@email.com</p>
+                    </div>
+                </div>
 
                 <nav class="space-y-1">
                     <button onclick="showSection('profile', this)" class="menu-btn active w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">
@@ -53,11 +63,13 @@
                     <button onclick="showSection('orders', this)" class="menu-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">
                         <i class="fa-solid fa-box-open"></i> My Orders
                     </button>
-                    <button onclick="showSection('vouchers', this)" class="menu-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">
+                    <button onclick="showSection('vouchers', this)" class="menu-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition relative">
                         <i class="fa-solid fa-ticket"></i> Vouchers & Promo
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full animate-pulse">4</span>
                     </button>
-                    <button onclick="showSection('tickets', this)" class="menu-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">
+                    <button onclick="showSection('tickets', this)" class="menu-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition relative">
                         <i class="fa-solid fa-magic"></i> Magical Tickets
+                        <span class="absolute right-4 top-1/2 -translate-y-1/2 bg-yellow-400 text-yellow-900 text-[10px] font-bold px-2 py-0.5 rounded-full">VIP</span>
                     </button>
                     <button onclick="showSection('address', this)" class="menu-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">
                         <i class="fa-solid fa-address-book"></i> Address Book
@@ -74,147 +86,324 @@
             </aside>
 
             <!-- Main Content -->
-            <section class="w-3/4">
-<!-- My Profile -->
-<div id="profile" class="content-section active bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
-    <h2 class="text-2xl font-bold text-brand-red mb-2">My Profile</h2>
-    <p class="text-sm text-gray-500 mb-8">Manage your personal information and security settings.</p>
+            <section class="w-full md:w-3/4">
+                
+                <!-- 1. MY PROFILE -->
+                <div id="profile" class="content-section active bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-brand-red mb-2">My Profile</h2>
+                    <p class="text-sm text-gray-500 mb-8">Manage your personal information and security settings.</p>
 
-    <form class="space-y-6">
-        <!-- Nama Lengkap -->
-        <div class="grid grid-cols-2 gap-6">
-            <div>
-                <label class="block text-sm font-bold mb-2 text-gray-700">First Name</label>
-                <input type="text" placeholder="User" class="w-full border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-brand-pink outline-none">
-            </div>
-            <div>
-                <label class="block text-sm font-bold mb-2 text-gray-700">Last Name</label>
-                <input type="text" placeholder="Name" class="w-full border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-brand-pink outline-none">
-            </div>
-        </div>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold mb-2 text-gray-700">First Name</label>
+                                <input type="text" value="User" class="w-full border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-brand-pink outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-2 text-gray-700">Last Name</label>
+                                <input type="text" value="Name" class="w-full border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-brand-pink outline-none">
+                            </div>
+                        </div>
 
-        <!-- Email & Telepon -->
-        <div class="grid grid-cols-2 gap-6">
-            <div>
-                <label class="block text-sm font-bold mb-2 text-gray-700">Email Address</label>
-                <input type="email" placeholder="user@email.com" class="w-full border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-brand-pink outline-none">
-            </div>
-            <div>
-                <label class="block text-sm font-bold mb-2 text-gray-700">Phone Number</label>
-                <input type="tel" placeholder="+62 812-xxxx-xxxx" class="w-full border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-brand-pink outline-none">
-            </div>
-        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold mb-2 text-gray-700">Email Address</label>
+                                <input type="email" value="user@email.com" class="w-full border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-brand-pink outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-2 text-gray-700">Phone Number</label>
+                                <input type="tel" value="+62 812-3456-7890" class="w-full border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-brand-pink outline-none">
+                            </div>
+                        </div>
 
-        <!-- Ganti Password -->
-        <div class="pt-6 border-t border-gray-100">
-            <h3 class="font-bold text-lg mb-4 text-gray-800">Change Password</h3>
-            <div class="grid grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm font-bold mb-2 text-gray-700">Current Password</label>
-                    <input type="password" placeholder="••••••••" class="w-full border border-gray-200 rounded-xl p-3">
+                        <div class="pt-6 border-t border-gray-100">
+                            <h3 class="font-bold text-lg mb-4 text-gray-800">Change Password</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-bold mb-2 text-gray-700">Current Password</label>
+                                    <input type="password" placeholder="••••••••" class="w-full border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-brand-pink outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold mb-2 text-gray-700">New Password</label>
+                                    <input type="password" placeholder="Enter new password" class="w-full border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-brand-pink outline-none">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4">
+                            <button type="button" class="bg-brand-red text-white px-8 py-3 rounded-full font-bold hover:bg-pink-700 transition shadow-lg shadow-pink-200">
+                                SAVE CHANGES
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <div>
-                    <label class="block text-sm font-bold mb-2 text-gray-700">New Password</label>
-                    <input type="password" placeholder="Enter new password" class="w-full border border-gray-200 rounded-xl p-3">
-                </div>
-            </div>
-        </div>
 
-        <div class="pt-4">
-            <button type="button" class="bg-brand-red text-white px-8 py-3 rounded-full font-bold hover:bg-pink-600 transition shadow-lg shadow-pink-200">
-                SAVE CHANGES
-            </button>
-        </div>
-    </form>
-</div>
-                <!-- Orders -->
-                <div id="orders" class="content-section bg-white rounded-3xl p-10 shadow-sm">
+                <!-- 2. MY ORDERS -->
+                <div id="orders" class="content-section bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
                     <h2 class="text-2xl font-bold text-brand-red mb-6">My Orders</h2>
-                    <p class="text-gray-500">Daftar pesanan Anda akan muncul di sini.</p>
+                    <div class="space-y-4">
+                        <div class="border border-gray-100 rounded-2xl p-5 flex flex-col md:flex-row gap-5 items-center hover:shadow-md transition">
+                            <div class="w-20 h-20 bg-brand-pink rounded-xl flex items-center justify-center text-brand-red shrink-0">
+                                <i class="fa-solid fa-cake-candles text-3xl"></i>
+                            </div>
+                            <div class="flex-1 w-full">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-xs text-gray-500 font-medium"><i class="fa-solid fa-bag-shopping"></i> Shopping • 07 Jul 2026</span>
+                                    <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">DIKIRIM</span>
+                                </div>
+                                <h4 class="font-bold text-gray-800 text-lg">Signature Red Velvet Cake</h4>
+                                <p class="text-sm text-gray-500">1x Whole Cake (20cm) • Catatan: "Happy Birthday Mama"</p>
+                                <div class="mt-3 flex justify-between items-center">
+                                    <p class="text-brand-red font-black">Rp 350.000</p>
+                                    <button class="bg-brand-pink text-brand-red px-5 py-2 rounded-xl text-xs font-bold hover:bg-brand-red hover:text-white transition">Lacak Kurir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Vouchers -->
-                <div id="vouchers" class="content-section bg-white rounded-3xl p-10 shadow-sm">
-                    <h2 class="text-2xl font-bold text-brand-red mb-6">Vouchers & Promo</h2>
-                    <p class="text-gray-500">Belum ada promo yang tersedia.</p>
+                <!-- 3. VOUCHERS & PROMO (Desain Baru!) -->
+                <div id="vouchers" class="content-section bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
+                    <div class="flex justify-between items-end mb-6">
+                        <div>
+                            <h2 class="text-2xl font-bold text-brand-red mb-1">Vouchers & Promo</h2>
+                            <p class="text-sm text-gray-500">Gunakan voucher ini saat checkout biar makin hemat!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        
+                        <!-- Voucher 1: Diskon Besar (Merah/Pink) -->
+                        <div class="relative bg-white border border-gray-100 rounded-2xl flex overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                            <!-- Badge -->
+                            <div class="absolute top-0 left-0 bg-red-500 text-white text-[9px] font-black px-3 py-1 rounded-br-lg z-10 tracking-widest">HOT PROMO</div>
+                            
+                            <!-- Left Bagian Gradient -->
+                            <div class="bg-gradient-to-br from-brand-red to-pink-500 text-white w-28 flex flex-col justify-center items-center p-3 relative">
+                                <i class="fa-solid fa-percent text-3xl mb-2 drop-shadow-md"></i>
+                                <span class="text-xl font-black leading-none text-center">50%<br><span class="text-[10px] font-normal">CASHBACK</span></span>
+                                <!-- Efek bolongan atas & bawah (garis putus) -->
+                                <div class="absolute -right-2 top-0 h-full w-4 bg-transparent border-l-4 border-dashed border-white"></div>
+                            </div>
+                            
+                            <!-- Right Bagian Detail -->
+                            <div class="flex-1 p-4 bg-white flex flex-col justify-between pl-6">
+                                <div>
+                                    <h4 class="font-bold text-gray-800 text-base">Cashback Super 50%</h4>
+                                    <p class="text-xs text-gray-500 mt-1">S/d Rp 50.000 (Min. beli Rp 100rb)</p>
+                                </div>
+                                <div class="mt-4 flex justify-between items-center">
+                                    <p class="text-[10px] text-red-500 font-bold bg-red-50 px-2 py-1 rounded-md"><i class="fa-regular fa-clock"></i> Berakhir Besok!</p>
+                                    <button onclick="claimVoucher(this)" class="bg-brand-red text-white px-5 py-2 rounded-full text-xs font-bold hover:bg-pink-700 transition shadow-md shadow-pink-200">KLAIM</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Voucher 2: Gratis Ongkir (Tosca/Biru) -->
+                        <div class="relative bg-white border border-gray-100 rounded-2xl flex overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                            <div class="bg-gradient-to-br from-teal-400 to-emerald-500 text-white w-28 flex flex-col justify-center items-center p-3 relative">
+                                <i class="fa-solid fa-truck-fast text-3xl mb-2 drop-shadow-md"></i>
+                                <span class="text-base font-black leading-tight text-center">GRATIS<br><span class="text-[10px] font-normal">ONGKIR</span></span>
+                                <div class="absolute -right-2 top-0 h-full w-4 bg-transparent border-l-4 border-dashed border-white"></div>
+                            </div>
+                            <div class="flex-1 p-4 bg-white flex flex-col justify-between pl-6">
+                                <div>
+                                    <h4 class="font-bold text-gray-800 text-base">Gratis Ongkir se-Jawa</h4>
+                                    <p class="text-xs text-gray-500 mt-1">Potongan s/d Rp 30.000 tanpa min. beli</p>
+                                </div>
+                                <div class="mt-4 flex justify-between items-center">
+                                    <p class="text-[10px] text-gray-400 font-medium"><i class="fa-regular fa-calendar"></i> S/d 31 Jul 2026</p>
+                                    <button onclick="claimVoucher(this)" class="bg-emerald-50 text-emerald-600 border border-emerald-200 px-5 py-2 rounded-full text-xs font-bold hover:bg-emerald-500 hover:text-white transition">KLAIM</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Voucher 3: Diskon Weekend (Orange/Kuning) -->
+                        <div class="relative bg-white border border-gray-100 rounded-2xl flex overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                            <div class="absolute top-0 left-0 bg-orange-500 text-white text-[9px] font-black px-3 py-1 rounded-br-lg z-10 tracking-widest">WEEKEND</div>
+                            <div class="bg-gradient-to-br from-orange-400 to-amber-500 text-white w-28 flex flex-col justify-center items-center p-3 relative">
+                                <i class="fa-solid fa-tags text-3xl mb-2 drop-shadow-md"></i>
+                                <span class="text-xl font-black leading-none text-center">30%<br><span class="text-[10px] font-normal">OFF</span></span>
+                                <div class="absolute -right-2 top-0 h-full w-4 bg-transparent border-l-4 border-dashed border-white"></div>
+                            </div>
+                            <div class="flex-1 p-4 bg-white flex flex-col justify-between pl-6">
+                                <div>
+                                    <h4 class="font-bold text-gray-800 text-base">Sweet Weekend Deals</h4>
+                                    <p class="text-xs text-gray-500 mt-1">Diskon 30% untuk semua kategori Pastry</p>
+                                </div>
+                                <div class="mt-4 flex justify-between items-center">
+                                    <p class="text-[10px] text-gray-400 font-medium"><i class="fa-regular fa-calendar"></i> S/d 12 Jul 2026</p>
+                                    <button onclick="claimVoucher(this)" class="bg-orange-50 text-orange-600 border border-orange-200 px-5 py-2 rounded-full text-xs font-bold hover:bg-orange-500 hover:text-white transition">KLAIM</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Voucher 4: Khusus Pengguna Baru (Ungu) -->
+                        <div class="relative bg-white border border-gray-100 rounded-2xl flex overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 group">
+                            <div class="absolute top-0 left-0 bg-purple-500 text-white text-[9px] font-black px-3 py-1 rounded-br-lg z-10 tracking-widest">NEWBIE</div>
+                            <div class="bg-gradient-to-br from-purple-500 to-indigo-500 text-white w-28 flex flex-col justify-center items-center p-3 relative">
+                                <i class="fa-solid fa-gift text-3xl mb-2 drop-shadow-md"></i>
+                                <span class="text-base font-black leading-tight text-center">FREE<br><span class="text-[10px] font-normal">GIFT</span></span>
+                                <div class="absolute -right-2 top-0 h-full w-4 bg-transparent border-l-4 border-dashed border-white"></div>
+                            </div>
+                            <div class="flex-1 p-4 bg-white flex flex-col justify-between pl-6">
+                                <div>
+                                    <h4 class="font-bold text-gray-800 text-base">Welcome Treat!</h4>
+                                    <p class="text-xs text-gray-500 mt-1">Gratis 1 Signature Macaron untuk pesanan pertamamu.</p>
+                                </div>
+                                <div class="mt-4 flex justify-between items-center">
+                                    <p class="text-[10px] text-gray-400 font-medium"><i class="fa-regular fa-calendar"></i> S/d 31 Jul 2026</p>
+                                    <button onclick="claimVoucher(this)" class="bg-purple-50 text-purple-600 border border-purple-200 px-5 py-2 rounded-full text-xs font-bold hover:bg-purple-600 hover:text-white transition">KLAIM</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                 <!-- Tiket 1: Spesial Pembelian Banyak -->
-        <div class="relative bg-brand-pink border-2 border-dashed border-brand-red rounded-2xl p-6 overflow-hidden">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h4 class="font-bold text-brand-red text-lg uppercase tracking-wider">Bulk Celebration</h4>
-                    <p class="text-sm text-gray-700 font-medium">Diskon 20% untuk pembelian 5+ kue</p>
-                    <p class="text-[11px] text-gray-400 mt-2 italic">*Berlaku untuk semua jenis kue</p>
-                </div>
-                <div class="border-l-2 border-dashed border-brand-red pl-6 text-center">
-                    <span class="block text-3xl font-black text-brand-red">20%</span>
-                    <button class="mt-2 bg-brand-red text-white text-[10px] font-bold px-4 py-1 rounded-full hover:bg-pink-700 transition">CLAIM</button>
-                </div>
-            </div>
-            <!-- Efek lingkaran bolong khas tiket -->
-            <div class="absolute -left-3 top-1/2 w-6 h-6 bg-[#fdf8f5] rounded-full"></div>
-            <div class="absolute -right-3 top-1/2 w-6 h-6 bg-[#fdf8f5] rounded-full"></div>
-        </div>
+                <!-- 4. MAGICAL TICKETS (Desain Baru & Lebih Banyak!) -->
+                <div id="tickets" class="content-section bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-brand-red mb-2"><i class="fa-solid fa-wand-magic-sparkles"></i> Magical Tickets</h2>
+                    <p class="text-sm text-gray-500 mb-8">Pencapaian rahasia & tiket ajaibmu terkumpul di sini. Kumpulkan lebih banyak!</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <!-- Tiket 1: Golden VIP (SPESIAL) -->
+                        <div class="vip-ticket col-span-1 md:col-span-2 relative bg-gradient-to-r from-yellow-100 via-gold-light to-yellow-100 border-2 border-gold-dark rounded-2xl p-6 overflow-hidden shadow-lg shadow-yellow-200 cursor-pointer">
+                            <div class="absolute top-0 right-0 p-4 opacity-20"><i class="fa-solid fa-crown text-8xl text-gold-dark"></i></div>
+                            <div class="flex flex-col md:flex-row justify-between items-center relative z-10">
+                                <div>
+                                    <h4 class="font-black text-gold-dark text-xl uppercase tracking-widest drop-shadow-sm"><i class="fa-solid fa-star"></i> GOLDEN VIP PASS</h4>
+                                    <p class="text-sm text-yellow-800 font-bold mt-1">Akses Spesial Bebas Antre & Tester Menu Baru</p>
+                                    <p class="text-[11px] text-yellow-700 mt-2 italic">*Didapatkan karena kamu top spender bulan ini!</p>
+                                </div>
+                                <div class="mt-4 md:mt-0 border-t-2 md:border-t-0 md:border-l-2 border-dashed border-gold-dark pt-4 md:pt-0 md:pl-6 text-center w-full md:w-auto">
+                                    <span class="block text-2xl font-black text-gold-dark tracking-widest">VIP</span>
+                                    <button onclick="claimTicket(this)" class="mt-2 bg-gradient-to-r from-gold-dark to-yellow-500 text-white text-[11px] font-black px-6 py-2 rounded-full hover:shadow-lg hover:scale-105 transition duration-300">GUNAKAN</button>
+                                </div>
+                            </div>
+                            <!-- Efek lingkaran bolong -->
+                            <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-r-2 border-gold-dark"></div>
+                            <div class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-l-2 border-gold-dark"></div>
+                        </div>
 
-        <!-- Tiket 2: Hari Spesial -->
-        <div class="relative bg-brand-pink border-2 border-dashed border-brand-red rounded-2xl p-6 overflow-hidden">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h4 class="font-bold text-brand-red text-lg uppercase tracking-wider">Birthday Special</h4>
-                    <p class="text-sm text-gray-700 font-medium">Gratis 1 Mini Cake setiap ultahmu</p>
-                    <p class="text-[11px] text-gray-400 mt-2 italic">*Klaim di bulan hari ulang tahunmu</p>
-                </div>
-                <div class="border-l-2 border-dashed border-brand-red pl-6 text-center">
-                    <span class="block text-xl font-black text-brand-red">FREE</span>
-                   <button id="btn-tiket-1" onclick="claimTicket('btn-tiket-1')" class="mt-2 bg-brand-red text-white text-[10px] font-bold px-4 py-1 rounded-full hover:bg-pink-700 transition">
-                   CLAIM </button>
-            </div
-            <!-- Efek lingkaran bolong khas tiket -->
-            <div class="absolute -left-3 top-1/2 w-6 h-6 bg-[#fdf8f5] rounded-full"></div>
-            <div class="absolute -right-3 top-1/2 w-6 h-6 bg-[#fdf8f5] rounded-full"></div>
-        </div>
+                        <!-- Tiket 2: Bulk Celebration -->
+                        <div class="relative bg-brand-pink border-2 border-dashed border-brand-red rounded-2xl p-6 overflow-hidden hover:shadow-md transition">
+                            <div class="flex flex-col justify-between h-full">
+                                <div>
+                                    <h4 class="font-bold text-brand-red text-base uppercase tracking-wider">Bulk Celebration</h4>
+                                    <p class="text-xs text-gray-700 font-medium mt-1">Diskon 20% pembelian 5+ kue</p>
+                                </div>
+                                <div class="mt-4 border-t-2 border-dashed border-brand-red pt-4 flex justify-between items-center">
+                                    <span class="block text-2xl font-black text-brand-red">20%</span>
+                                    <button onclick="claimTicket(this)" class="bg-brand-red text-white text-[10px] font-bold px-4 py-1.5 rounded-full hover:bg-pink-700 transition">KLAIM</button>
+                                </div>
+                            </div>
+                            <!-- Efek lingkaran bolong (kiri-kanan) -->
+                            <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-r-2 border-dashed border-brand-red"></div>
+                            <div class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-l-2 border-dashed border-brand-red"></div>
+                        </div>
 
-        <!-- Tiket 2: Hari Spesial -->
-        <div class="relative bg-brand-pink border-2 border-dashed border-brand-red rounded-2xl p-6 overflow-hidden">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h4 class="font-bold text-brand-red text-lg uppercase tracking-wider">Birthday Special</h4>
-                    <p class="text-sm text-gray-700 font-medium">Gratis 1 Mini Cake setiap ultahmu</p>
-                    <p class="text-[11px] text-gray-400 mt-2 italic">*Klaim di bulan hari ulang tahunmu</p>
-                </div>
-                <div class="border-l-2 border-dashed border-brand-red pl-6 text-center">
-                    <span class="block text-xl font-black text-brand-red">FREE</span>
-                   <button id="btn-tiket-1" onclick="claimTicket('btn-tiket-1')" class="mt-2 bg-brand-red text-white text-[10px] font-bold px-4 py-1 rounded-full hover:bg-pink-700 transition">
-                   CLAIM </button>
-            </div>
-            <!-- Efek lingkaran bolong khas tiket -->
-            <div class="absolute -left-3 top-1/2 w-6 h-6 bg-[#fdf8f5] rounded-full"></div>
-            <div class="absolute -right-3 top-1/2 w-6 h-6 bg-[#fdf8f5] rounded-full"></div>
-        </div>
-    </div>
-</div>
-                <!-- Address Book -->
-                <div id="address" class="content-section bg-white rounded-3xl p-10 shadow-sm">
-                    <h2 class="text-2xl font-bold text-brand-red mb-6">Address Book</h2>
-                    <button class="bg-brand-pink text-brand-red px-6 py-2 rounded-xl font-bold text-sm">+ Add New Address</button>
+                        <!-- Tiket 3: Birthday Special -->
+                        <div class="relative bg-brand-pink border-2 border-dashed border-brand-red rounded-2xl p-6 overflow-hidden hover:shadow-md transition">
+                            <div class="flex flex-col justify-between h-full">
+                                <div>
+                                    <h4 class="font-bold text-brand-red text-base uppercase tracking-wider">Birthday Special</h4>
+                                    <p class="text-xs text-gray-700 font-medium mt-1">Gratis 1 Mini Cake setiap ultahmu</p>
+                                </div>
+                                <div class="mt-4 border-t-2 border-dashed border-brand-red pt-4 flex justify-between items-center">
+                                    <span class="block text-xl font-black text-brand-red">FREE</span>
+                                    <button onclick="claimTicket(this)" class="bg-brand-red text-white text-[10px] font-bold px-4 py-1.5 rounded-full hover:bg-pink-700 transition">KLAIM</button>
+                                </div>
+                            </div>
+                            <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-r-2 border-dashed border-brand-red"></div>
+                            <div class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-l-2 border-dashed border-brand-red"></div>
+                        </div>
+
+                        <!-- Tiket 4: Rainy Day Comfort -->
+                        <div class="relative bg-[#F3F4F6] border-2 border-dashed border-gray-400 rounded-2xl p-6 overflow-hidden hover:shadow-md transition">
+                            <div class="flex flex-col justify-between h-full">
+                                <div>
+                                    <h4 class="font-bold text-gray-700 text-base uppercase tracking-wider"><i class="fa-solid fa-cloud-rain text-blue-400"></i> Rainy Day</h4>
+                                    <p class="text-xs text-gray-600 font-medium mt-1">Gratis Hot Tea tiap hujan turun</p>
+                                </div>
+                                <div class="mt-4 border-t-2 border-dashed border-gray-400 pt-4 flex justify-between items-center">
+                                    <span class="block text-xl font-black text-gray-600">TEA</span>
+                                    <button onclick="claimTicket(this)" class="bg-gray-700 text-white text-[10px] font-bold px-4 py-1.5 rounded-full hover:bg-black transition">KLAIM</button>
+                                </div>
+                            </div>
+                            <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-r-2 border-dashed border-gray-400"></div>
+                            <div class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-l-2 border-dashed border-gray-400"></div>
+                        </div>
+
+                    </div>
                 </div>
 
-                <!-- Wishlist -->
-                <div id="wishlist" class="content-section bg-white rounded-3xl p-10 shadow-sm">
-                    <h2 class="text-2xl font-bold text-brand-red mb-6">Wishlist</h2>
-                    <p class="text-gray-500">Belum ada item di wishlist Anda.</p>
+                <!-- 5. ADDRESS BOOK -->
+                <div id="address" class="content-section bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-brand-red">Address Book</h2>
+                        <button class="bg-brand-red text-white px-5 py-2 rounded-xl font-bold text-xs hover:bg-pink-700 transition shadow-md shadow-pink-200">+ Tambah Alamat</button>
+                    </div>
+                    
+                    <div class="border-2 border-brand-red bg-[#FFF5F8] rounded-2xl p-6 relative">
+                        <span class="absolute top-4 right-4 bg-brand-red text-white text-[10px] px-3 py-1 rounded-full font-bold tracking-wider">UTAMA</span>
+                        <h4 class="font-bold flex items-center gap-2 text-lg"><i class="fa-solid fa-house text-brand-red"></i> Rumah</h4>
+                        <div class="mt-4">
+                            <p class="font-bold text-gray-800">User Name <span class="text-gray-400 font-normal text-sm ml-2">| +62 812-3456-7890</span></p>
+                            <p class="text-sm text-gray-600 mt-2 leading-relaxed max-w-lg">
+                                Perumahan Indah Asri Blok C No. 12<br>
+                                Jl. Sudirman, Kebayoran Baru, Jakarta Selatan<br>
+                                DKI Jakarta, 12190
+                            </p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- 6. WISHLIST -->
+                <div id="wishlist" class="content-section bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold text-brand-red mb-6">Wishlist (<span id="wishlist-count">2</span>)</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="border border-gray-100 rounded-2xl overflow-hidden group hover:shadow-lg transition flex flex-col">
+                            <div class="h-40 bg-[#fdf8f5] flex items-center justify-center relative">
+                                <i class="fa-solid fa-cake-candles text-brand-pink text-6xl drop-shadow-md"></i>
+                            </div>
+                            <div class="p-4 flex flex-col flex-1">
+                                <h4 class="font-bold text-gray-800 line-clamp-1">Classic Tiramisu Cake</h4>
+                                <p class="text-brand-red font-black mt-1">Rp 180.000</p>
+                                <button class="mt-auto pt-4 w-full bg-brand-pink text-brand-red py-2 rounded-xl text-xs font-bold hover:bg-brand-red hover:text-white transition">
+                                    <i class="fa-solid fa-cart-plus mr-1"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </section>
         </div>
     </main>
 
     <script>
+        // Tab Navigasi
         function showSection(id, btn) {
             document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             btn.classList.add('active');
+        }
+
+        // Fungsi Klaim Magical Ticket
+        function claimTicket(btn) {
+            btn.innerText = "DIGUNAKAN!";
+            btn.classList.remove("bg-brand-red", "hover:bg-pink-700", "bg-gradient-to-r", "from-gold-dark", "to-yellow-500", "bg-gray-700", "hover:scale-105");
+            btn.classList.add("bg-gray-400", "cursor-not-allowed");
+            btn.disabled = true;
+        }
+
+        // Fungsi Klaim Voucher
+        function claimVoucher(btn) {
+            btn.innerHTML = '<i class="fa-solid fa-check mr-1"></i> DIKLAIM';
+            btn.className = "bg-gray-200 text-gray-500 px-5 py-2 rounded-full text-xs font-bold cursor-not-allowed w-auto";
+            btn.disabled = true;
         }
     </script>
 </body>
