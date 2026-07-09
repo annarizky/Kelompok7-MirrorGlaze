@@ -67,10 +67,6 @@
                         <i class="fa-solid fa-ticket"></i> Vouchers & Promo
                         <span class="absolute right-4 top-1/2 -translate-y-1/2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full animate-pulse">4</span>
                     </button>
-                    <button onclick="showSection('tickets', this)" class="menu-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition relative">
-                        <i class="fa-solid fa-magic"></i> Magical Tickets
-                        <span class="absolute right-4 top-1/2 -translate-y-1/2 bg-yellow-400 text-yellow-900 text-[10px] font-bold px-2 py-0.5 rounded-full">VIP</span>
-                    </button>
                     <button onclick="showSection('address', this)" class="menu-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl transition">
                         <i class="fa-solid fa-address-book"></i> Address Book
                     </button>
@@ -259,86 +255,7 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- 4. MAGICAL TICKETS (Desain Baru & Lebih Banyak!) -->
-                <div id="tickets" class="content-section bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
-                    <h2 class="text-2xl font-bold text-brand-red mb-2"></i> Magical Tickets</h2>
-                    <p class="text-sm text-gray-500 mb-8">Pencapaian rahasia & tiket ajaibmu terkumpul di sini. Kumpulkan lebih banyak!</p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        
-                        <!-- Tiket 1: Golden VIP (SPESIAL) -->
-                        <div class="vip-ticket col-span-1 md:col-span-2 relative bg-gradient-to-r from-yellow-100 via-gold-light to-yellow-100 border-2 border-gold-dark rounded-2xl p-6 overflow-hidden shadow-lg shadow-yellow-200 cursor-pointer">
-                            <div class="absolute top-0 right-0 p-4 opacity-20"><i class="fa-solid fa-crown text-8xl text-gold-dark"></i></div>
-                            <div class="flex flex-col md:flex-row justify-between items-center relative z-10">
-                                <div>
-                                    <h4 class="font-black text-gold-dark text-xl uppercase tracking-widest drop-shadow-sm"><i class="fa-solid fa-star"></i> GOLDEN VIP PASS</h4>
-                                    <p class="text-sm text-yellow-800 font-bold mt-1">Akses Spesial Bebas Antre & Tester Menu Baru</p>
-                                    <p class="text-[11px] text-yellow-700 mt-2 italic">*Didapatkan karena kamu top spender bulan ini!</p>
-                                </div>
-                                <div class="mt-4 md:mt-0 border-t-2 md:border-t-0 md:border-l-2 border-dashed border-gold-dark pt-4 md:pt-0 md:pl-6 text-center w-full md:w-auto">
-                                    <span class="block text-2xl font-black text-gold-dark tracking-widest">VIP</span>
-                                    <button onclick="claimTicket(this)" class="mt-2 bg-gradient-to-r from-gold-dark to-yellow-500 text-white text-[11px] font-black px-6 py-2 rounded-full hover:shadow-lg hover:scale-105 transition duration-300">GUNAKAN</button>
-                                </div>
-                            </div>
-                            <!-- Efek lingkaran bolong -->
-                            <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-r-2 border-gold-dark"></div>
-                            <div class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-l-2 border-gold-dark"></div>
-                        </div>
-
-                        <!-- Tiket 2: Bulk Celebration -->
-                        <div class="relative bg-brand-pink border-2 border-dashed border-brand-red rounded-2xl p-6 overflow-hidden hover:shadow-md transition">
-                            <div class="flex flex-col justify-between h-full">
-                                <div>
-                                    <h4 class="font-bold text-brand-red text-base uppercase tracking-wider">Bulk Celebration</h4>
-                                    <p class="text-xs text-gray-700 font-medium mt-1">Diskon 20% pembelian 5+ kue</p>
-                                </div>
-                                <div class="mt-4 border-t-2 border-dashed border-brand-red pt-4 flex justify-between items-center">
-                                    <span class="block text-2xl font-black text-brand-red">20%</span>
-                                    <button onclick="claimTicket(this)" class="bg-brand-red text-white text-[10px] font-bold px-4 py-1.5 rounded-full hover:bg-pink-700 transition">KLAIM</button>
-                                </div>
-                            </div>
-                            <!-- Efek lingkaran bolong (kiri-kanan) -->
-                            <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-r-2 border-dashed border-brand-red"></div>
-                            <div class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-l-2 border-dashed border-brand-red"></div>
-                        </div>
-
-                        <!-- Tiket 3: Birthday Special -->
-                        <div class="relative bg-brand-pink border-2 border-dashed border-brand-red rounded-2xl p-6 overflow-hidden hover:shadow-md transition">
-                            <div class="flex flex-col justify-between h-full">
-                                <div>
-                                    <h4 class="font-bold text-brand-red text-base uppercase tracking-wider">Birthday Special</h4>
-                                    <p class="text-xs text-gray-700 font-medium mt-1">Gratis 1 Mini Cake setiap ultahmu</p>
-                                </div>
-                                <div class="mt-4 border-t-2 border-dashed border-brand-red pt-4 flex justify-between items-center">
-                                    <span class="block text-xl font-black text-brand-red">FREE</span>
-                                    <button onclick="claimTicket(this)" class="bg-brand-red text-white text-[10px] font-bold px-4 py-1.5 rounded-full hover:bg-pink-700 transition">KLAIM</button>
-                                </div>
-                            </div>
-                            <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-r-2 border-dashed border-brand-red"></div>
-                            <div class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-l-2 border-dashed border-brand-red"></div>
-                        </div>
-
-                        <!-- Tiket 4: Rainy Day Comfort -->
-                        <div class="relative bg-[#F3F4F6] border-2 border-dashed border-gray-400 rounded-2xl p-6 overflow-hidden hover:shadow-md transition">
-                            <div class="flex flex-col justify-between h-full">
-                                <div>
-                                    <h4 class="font-bold text-gray-700 text-base uppercase tracking-wider"><i class="fa-solid fa-cloud-rain text-blue-400"></i> Rainy Day</h4>
-                                    <p class="text-xs text-gray-600 font-medium mt-1">Gratis Hot Tea tiap hujan turun</p>
-                                </div>
-                                <div class="mt-4 border-t-2 border-dashed border-gray-400 pt-4 flex justify-between items-center">
-                                    <span class="block text-xl font-black text-gray-600">TEA</span>
-                                    <button onclick="claimTicket(this)" class="bg-gray-700 text-white text-[10px] font-bold px-4 py-1.5 rounded-full hover:bg-black transition">KLAIM</button>
-                                </div>
-                            </div>
-                            <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-r-2 border-dashed border-gray-400"></div>
-                            <div class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full border-l-2 border-dashed border-gray-400"></div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- 5. ADDRESS BOOK -->
+                <!-- 4. ADDRESS BOOK -->
                 <div id="address" class="content-section bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-2xl font-bold text-brand-red">Address Book</h2>
@@ -359,7 +276,7 @@
                     </div>
                 </div>
 
-                <!-- 6. WISHLIST -->
+                <!-- 5. WISHLIST -->
                 <div id="wishlist" class="content-section bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
                     <h2 class="text-2xl font-bold text-brand-red mb-6">Wishlist (<span id="wishlist-count">2</span>)</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
