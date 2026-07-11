@@ -3,28 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Login - Wishk & Wish</title>
-
-    <title>Login - Wishk & Wish </title>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-
-                        'brand-red': '#D6336C',
-                        'brand-light': '#fdf8f5',
-                        'brand-dark': '#333333',
-                        'brand-pink': '#FFF5F8',
-
                         'brand-red': '#9b1b30',
                         'brand-light': '#fdf8f5',
                         'brand-dark': '#333333',
                         'brand-pink': '#faeaea',
-
                     }
                 }
             }
@@ -47,16 +36,12 @@
         <div class="relative z-10">
             <!-- Header Logo -->
             <div class="text-center mb-8">
-
                 <h1 class="text-4xl font-bold text-brand-red mb-2">Wishk & Wish</h1>
-
-                <h1 class="text-4xl font-bold text-brand-red mb-2"> Wishk & Wish</h1>
-
                 <p class="text-gray-500 text-sm font-medium">Welcome back! Please login to your account.</p>
             </div>
 
             <!-- Form Login -->
-            <form class="space-y-5">
+            <form id="loginForm" class="space-y-5">
                 
                 <!-- Input Email -->
                 <div>
@@ -65,7 +50,7 @@
                         <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
                             <i class="fa-regular fa-envelope text-gray-400"></i>
                         </div>
-                        <input type="email" placeholder="Enter your email" class="w-full border border-gray-300 rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red text-sm transition">
+                        <input type="email" id="email" placeholder="Enter your email" required class="w-full border border-gray-300 rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red text-sm transition">
                     </div>
                 </div>
 
@@ -79,10 +64,10 @@
                         <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
                             <i class="fa-solid fa-lock text-gray-400"></i>
                         </div>
-                        <input type="password" placeholder="Enter your password" class="w-full border border-gray-300 rounded-xl py-3 pl-11 pr-10 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red text-sm transition">
+                        <input type="password" id="password" placeholder="Enter your password" required class="w-full border border-gray-300 rounded-xl py-3 pl-11 pr-10 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red text-sm transition">
                         <!-- Ikon Mata untuk show/hide password -->
-                        <div class="absolute inset-y-0 right-0 flex items-center pr-4 cursor-pointer text-gray-400 hover:text-brand-red transition">
-                            <i class="fa-regular fa-eye"></i>
+                        <div id="togglePassword" class="absolute inset-y-0 right-0 flex items-center pr-4 cursor-pointer text-gray-400 hover:text-brand-red transition">
+                            <i class="fa-regular fa-eye" id="eyeIcon"></i>
                         </div>
                     </div>
                 </div>
@@ -94,10 +79,7 @@
                 </div>
 
                 <!-- Tombol Submit -->
-                <button type="button" class="w-full bg-brand-red text-white py-3 rounded-full font-bold hover:bg-red-300 transition shadow-md mt-4">
-
-                <button type="button" class="w-full bg-brand-red text-white py-3 rounded-full font-bold hover:bg-red-800 transition shadow-md mt-4">
-
+                <button type="submit" class="w-full bg-brand-red text-white py-3 rounded-full font-bold hover:bg-red-800 transition shadow-md mt-4">
                     LOGIN
                 </button>
             </form>
@@ -124,13 +106,76 @@
 
             <!-- Link Register -->
             <p class="mt-8 text-center text-sm text-gray-600 font-medium">
-
                 Don't have an account? <a href="signup.html" class="text-brand-red font-bold hover:underline">Sign Up</a>
-
-                Don't have an account? <a href="#" class="text-brand-red font-bold hover:underline">Sign Up</a>
             </p>
         </div>
     </div>
 
+    <!-- Supabase CDN & Client Config -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabaseClient.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Check if user is already logged in
+            const user = await getCurrentUser();
+            if (user) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            const loginForm = document.getElementById('loginForm');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const submitBtn = loginForm.querySelector('button[type="submit"]');
+
+            // Show/Hide Password Toggle
+            const togglePassword = document.getElementById('togglePassword');
+            const eyeIcon = document.getElementById('eyeIcon');
+            togglePassword.addEventListener('click', () => {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    eyeIcon.classList.replace('fa-regular', 'fa-solid');
+                    eyeIcon.classList.replace('fa-eye', 'fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    eyeIcon.classList.replace('fa-solid', 'fa-regular');
+                    eyeIcon.classList.replace('fa-eye-slash', 'fa-eye');
+                }
+            });
+
+            // Form Submit handler
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                if (!supabaseClient) {
+                    alert('Supabase belum terkonfigurasi. Silakan isi URL dan API Key Anda di assets/js/supabaseClient.js');
+                    return;
+                }
+
+                const email = emailInput.value.trim();
+                const password = passwordInput.value;
+
+                submitBtn.disabled = true;
+                submitBtn.innerText = 'LOGGING IN...';
+
+                try {
+                    const { data, error } = await supabaseClient.auth.signInWithPassword({
+                        email,
+                        password
+                    });
+
+                    if (error) throw error;
+
+                    alert('Login berhasil!');
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    alert('Gagal Login: ' + error.message);
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'LOGIN';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

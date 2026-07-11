@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- FontAwesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   :root{
     --pink-primary:#C2255C;
@@ -44,6 +46,14 @@
     font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
     color:var(--pink-primary);margin:0 0 6px;
   }
+  .eyebrow a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .eyebrow a:hover {
+    color: var(--pink-mid);
+  }
   h1{
     font-family:var(--font-display);
     font-weight:800;
@@ -65,7 +75,7 @@
   }
   .track-input svg{flex-shrink:0;color:var(--pink-primary);}
 
-  /* ---- Filter tabs (scallop chips, like a cake stand) ---- */
+  /* ---- Filter tabs ---- */
   .tabs{
     display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;margin-bottom:28px;
     scrollbar-width:none;
@@ -165,6 +175,8 @@
     font-family:var(--font-body);font-weight:600;font-size:13px;
     padding:9px 16px;border-radius:999px;cursor:pointer;border:1.5px solid transparent;
     transition:all .15s ease;
+    text-decoration: none;
+    display: inline-block;
   }
   .btn-ghost{background:#fff;border-color:var(--line);color:var(--ink-soft);}
   .btn-ghost:hover{border-color:var(--pink-mid);color:var(--pink-primary);}
@@ -195,162 +207,229 @@
 
   <div class="page-head">
     <div>
-      <p class="eyebrow">Akun / Riwayat</p>
+      <p class="eyebrow"><a href="index.html"><i class="fa-solid fa-arrow-left mr-1"></i> Beranda</a> / Riwayat</p>
       <h1>Riwayat Pesanan</h1>
       <p>Semua wish manis yang pernah kamu pesan, dari yang baru diproses sampai yang sudah sampai di tangan.</p>
     </div>
     <div class="track-input">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      <input type="text" placeholder="Cari no. pesanan...">
+      <input type="text" id="searchOrderId" placeholder="Cari no. pesanan...">
     </div>
   </div>
 
-  <div class="tabs">
-    <div class="tab active">Semua <span class="count">12</span></div>
-    <div class="tab">Diproses <span class="count">1</span></div>
-    <div class="tab">Dikirim <span class="count">2</span></div>
-    <div class="tab">Selesai <span class="count">8</span></div>
-    <div class="tab">Dibatalkan <span class="count">1</span></div>
+  <div class="tabs" id="statusTabs">
+    <div class="tab active" data-status="semua">Semua <span class="count" id="count-semua">0</span></div>
+    <div class="tab" data-status="diproses">Diproses <span class="count" id="count-diproses">0</span></div>
+    <div class="tab" data-status="siap">Siap Diambil <span class="count" id="count-siap">0</span></div>
+    <div class="tab" data-status="selesai">Selesai <span class="count" id="count-selesai">0</span></div>
   </div>
 
-  <div class="order-list">
-
-    <!-- Order: Diproses -->
-    <div class="order-card">
-      <div class="order-top">
-        <div>
-          <p class="order-id">#WW-20260701-014</p>
-          <p class="order-date">1 Juli 2026, 10.24</p>
-        </div>
-        <span class="status-pill status-diproses"><span class="dot"></span>Sedang Diproses</span>
-      </div>
-      <div class="order-body">
-        <div class="thumb">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12h16v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6z" stroke="currentColor" stroke-width="1.8"/><path d="M4 12a4 4 0 018 0 4 4 0 018 0" stroke="currentColor" stroke-width="1.8"/><path d="M12 8V5m0 0l-1.4-1.4M12 5l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </div>
-        <div class="item-info">
-          <p class="item-name">Red Velvet Wish Cake (18cm)</p>
-          <p class="item-meta">1 item · Pesan lagi favoritmu</p>
-          <p class="item-extra">Dapur mulai memanggang pukul 11.00</p>
-        </div>
-        <div class="item-price">Rp285.000</div>
-      </div>
-      <div class="order-bottom">
-        <div class="total-line">Total bayar <b>Rp295.000</b></div>
-        <div class="actions">
-          <button class="btn btn-ghost">Lihat Detail</button>
-          <button class="btn btn-solid">Lacak Pesanan</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Order: Dikirim -->
-    <div class="order-card">
-      <div class="order-top">
-        <div>
-          <p class="order-id">#WW-20260628-009</p>
-          <p class="order-date">28 Juni 2026, 15.02</p>
-        </div>
-        <span class="status-pill status-dikirim"><span class="dot"></span>Dalam Pengiriman</span>
-      </div>
-      <div class="order-body">
-        <div class="thumb">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="13" height="10" rx="1.5" stroke="currentColor" stroke-width="1.8"/><path d="M16 10h3l2 2.5V17h-5v-7z" stroke="currentColor" stroke-width="1.8"/><circle cx="7.5" cy="18.5" r="1.6" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="18.5" r="1.6" stroke="currentColor" stroke-width="1.6"/></svg>
-        </div>
-        <div class="item-info">
-          <p class="item-name">Choco Hazelnut Cupcake (Box isi 6)</p>
-          <p class="item-meta">2 item · termasuk Matcha Tiramisu Jar</p>
-        </div>
-        <div class="item-price">Rp162.000</div>
-      </div>
-      <div class="order-bottom">
-        <div class="total-line">Total bayar <b>Rp172.000</b></div>
-        <div class="actions">
-          <button class="btn btn-ghost">Lihat Detail</button>
-          <button class="btn btn-solid">Lacak Pesanan</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Order: Selesai -->
-    <div class="order-card">
-      <div class="order-top">
-        <div>
-          <p class="order-id">#WW-20260619-002</p>
-          <p class="order-date">19 Juni 2026, 09.41</p>
-        </div>
-        <span class="status-pill status-selesai"><span class="dot"></span>Selesai</span>
-      </div>
-      <div class="order-body">
-        <div class="thumb">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12h16v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6z" stroke="currentColor" stroke-width="1.8"/><path d="M4 12a4 4 0 018 0 4 4 0 018 0" stroke="currentColor" stroke-width="1.8"/></svg>
-        </div>
-        <div class="item-info">
-          <p class="item-name">Vanilla Bean Wedding Cake (2 tingkat)</p>
-          <p class="item-meta">1 item · Diterima 20 Juni 2026</p>
-        </div>
-        <div class="item-price">Rp850.000</div>
-      </div>
-      <div class="order-bottom">
-        <div class="total-line">Total bayar <b>Rp865.000</b></div>
-        <div class="actions">
-          <button class="btn btn-ghost">Beri Ulasan</button>
-          <button class="btn btn-solid">Pesan Lagi</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Order: Dibatalkan -->
-    <div class="order-card">
-      <div class="order-top">
-        <div>
-          <p class="order-id">#WW-20260602-021</p>
-          <p class="order-date">2 Juni 2026, 18.15</p>
-        </div>
-        <span class="status-pill status-dibatalkan"><span class="dot"></span>Dibatalkan</span>
-      </div>
-      <div class="order-body">
-        <div class="thumb">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </div>
-        <div class="item-info">
-          <p class="item-name">Strawberry Shortcake Jar (isi 4)</p>
-          <p class="item-meta">Dibatalkan atas permintaan pembeli</p>
-        </div>
-        <div class="item-price">Rp96.000</div>
-      </div>
-      <div class="order-bottom">
-        <div class="total-line">Dana dikembalikan penuh</div>
-        <div class="actions">
-          <button class="btn btn-ghost">Lihat Detail</button>
-          <button class="btn btn-solid">Pesan Lagi</button>
-        </div>
-      </div>
-    </div>
-
+  <div class="order-list" id="ordersContainer">
+    <div class="text-center py-10 text-gray-500">Memuat riwayat pesanan...</div>
   </div>
-
-  <!-- Empty state reference (hidden by default, shown when a filter has no results) -->
-  <!--
-  <div class="empty">
-    <div class="icon">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 12h16v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6z" stroke="currentColor" stroke-width="1.8"/><path d="M4 12a4 4 0 018 0 4 4 0 018 0" stroke="currentColor" stroke-width="1.8"/></svg>
-    </div>
-    <h3>Belum ada wish di sini</h3>
-    <p>Pesanan dengan status ini akan muncul begitu kamu memesan.</p>
-    <button class="btn btn-solid">Mulai Pesan</button>
-  </div>
-  -->
 
 </div>
 
+<!-- Supabase CDN & Config -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabaseClient.js"></script>
 <script>
-  document.querySelectorAll('.tab').forEach(tab=>{
-    tab.addEventListener('click',()=>{
-      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-      tab.classList.add('active');
-    });
+  let allOrders = [];
+  let activeFilter = 'semua';
+
+  document.addEventListener('DOMContentLoaded', async () => {
+      // Periksa login user
+      const user = await getCurrentUser();
+      if (!user) {
+          alert('Silakan login terlebih dahulu untuk melihat riwayat pesanan Anda.');
+          window.location.href = 'login.html';
+          return;
+      }
+
+      await loadOrderHistory(user.id);
+      setupTabs();
+      setupSearch();
   });
+
+  // Ambil riwayat pesanan user dari Supabase
+  async function loadOrderHistory(userId) {
+      if (!supabaseClient) {
+          showPlaceholder("Koneksi database belum disetup di assets/js/supabaseClient.js.");
+          return;
+      }
+
+      try {
+          // Ambil orders beserta order_items relasi
+          const { data: orders, error } = await supabaseClient
+              .from('orders')
+              .select('*, order_items(*)')
+              .eq('user_id', userId)
+              .order('created_at', { ascending: false });
+
+          if (error) throw error;
+          allOrders = orders;
+
+          updateCounts();
+          renderFilteredOrders();
+
+      } catch (err) {
+          console.error("Gagal memuat riwayat:", err);
+          showPlaceholder("Gagal mengambil data dari database.");
+      }
+  }
+
+  function showPlaceholder(message) {
+      const container = document.getElementById('ordersContainer');
+      if (container) {
+          container.innerHTML = `
+              <div class="empty">
+                  <div class="icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+                  <h3>Gagal Memuat</h3>
+                  <p>${message}</p>
+              </div>
+          `;
+      }
+  }
+
+  // Hitung jumlah pesanan per status
+  function updateCounts() {
+      const counts = {
+          semua: allOrders.length,
+          diproses: allOrders.filter(o => o.status === 'PESANAN DITERIMA' || o.status === 'SEDANG DIPROSES').length,
+          siap: allOrders.filter(o => o.status === 'SIAP DIAMBIL').length,
+          selesai: allOrders.filter(o => o.status === 'PESANAN SELESAI').length
+      };
+
+      document.getElementById('count-semua').innerText = counts.semua;
+      document.getElementById('count-diproses').innerText = counts.diproses;
+      document.getElementById('count-siap').innerText = counts.siap;
+      document.getElementById('count-selesai').innerText = counts.selesai;
+  }
+
+  // Filter dan render pesanan
+  function renderFilteredOrders(filteredList = null) {
+      const container = document.getElementById('ordersContainer');
+      if (!container) return;
+
+      let listToRender = filteredList || allOrders;
+
+      // Saring berdasarkan tab aktif jika tidak ada list pencarian eksternal
+      if (!filteredList) {
+          if (activeFilter === 'diproses') {
+              listToRender = allOrders.filter(o => o.status === 'PESANAN DITERIMA' || o.status === 'SEDANG DIPROSES');
+          } else if (activeFilter === 'siap') {
+              listToRender = allOrders.filter(o => o.status === 'SIAP DIAMBIL');
+          } else if (activeFilter === 'selesai') {
+              listToRender = allOrders.filter(o => o.status === 'PESANAN SELESAI');
+          }
+      }
+
+      if (listToRender.length === 0) {
+          container.innerHTML = `
+              <div class="empty">
+                  <div class="icon">
+                      <i class="fa-solid fa-cake-candles text-2xl"></i>
+                  </div>
+                  <h3>Belum ada pesanan</h3>
+                  <p>Mulai pesan kue favoritmu di halaman Menu sekarang.</p>
+                  <a href="menu.html" class="btn btn-solid">Mulai Pesan</a>
+              </div>
+          `;
+          return;
+      }
+
+      container.innerHTML = '';
+
+      listToRender.forEach(order => {
+          // Siapkan status visual
+          let statusClass = 'status-diproses';
+          let statusText = order.status;
+          
+          if (order.status === 'PESANAN DITERIMA') {
+              statusClass = 'status-diproses';
+              statusText = 'Pesanan Diterima';
+          } else if (order.status === 'SEDANG DIPROSES') {
+              statusClass = 'status-diproses';
+              statusText = 'Sedang Diproses';
+          } else if (order.status === 'SIAP DIAMBIL') {
+              statusClass = 'status-dikirim';
+              statusText = 'Siap Diambil';
+          } else if (order.status === 'PESANAN SELESAI') {
+              statusClass = 'status-selesai';
+              statusText = 'Selesai';
+          }
+
+          // Siapkan data item pesanan
+          const firstItem = order.order_items[0] || { product_name: 'Custom Cake', quantity: 1, price: order.total_price };
+          const totalItems = order.order_items.reduce((sum, i) => sum + i.quantity, 0);
+          const otherItemsText = order.order_items.length > 1 
+              ? `dan ${totalItems - firstItem.quantity} item lainnya...` 
+              : 'Pesan lagi favoritmu';
+
+          const card = document.createElement('div');
+          card.className = 'order-card';
+          card.innerHTML = `
+              <div class="order-top">
+                  <div>
+                      <p class="order-id">#${order.id}</p>
+                      <p class="order-date">${new Date(order.created_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute:'2-digit' })}</p>
+                  </div>
+                  <span class="status-pill ${statusClass}"><span class="dot"></span>${statusText}</span>
+              </div>
+              <div class="order-body">
+                  <div class="thumb">
+                      <i class="fa-solid fa-cake-candles text-xl"></i>
+                  </div>
+                  <div class="item-info">
+                      <p class="item-name">${firstItem.product_name}</p>
+                      <p class="item-meta">${totalItems} item · ${otherItemsText}</p>
+                      <p class="item-extra text-xs text-gray-400 mt-1">Outlet: ${order.outlet || '-'}</p>
+                  </div>
+                  <div class="item-price">Rp ${new Intl.NumberFormat('id-ID').format(firstItem.price)}</div>
+              </div>
+              <div class="order-bottom">
+                  <div class="total-line">Total bayar <b>Rp ${new Intl.NumberFormat('id-ID').format(order.total_price)}</b></div>
+                  <div class="actions">
+                      <a href="tracking.html?id=${order.id}" class="btn btn-solid">Lacak Pesanan</a>
+                  </div>
+              </div>
+          `;
+          container.appendChild(card);
+      });
+  }
+
+  // Setup tab filter clicks
+  function setupTabs() {
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+              tabs.forEach(t => t.classList.remove('active'));
+              tab.classList.add('active');
+              activeFilter = tab.getAttribute('data-status');
+              renderFilteredOrders();
+          });
+      });
+  }
+
+  // Setup pencarian pesanan
+  function setupSearch() {
+      const searchInput = document.getElementById('searchOrderId');
+      if (!searchInput) return;
+
+      searchInput.addEventListener('input', (e) => {
+          const query = e.target.value.toLowerCase().trim();
+          if (!query) {
+              renderFilteredOrders();
+              return;
+          }
+
+          const filtered = allOrders.filter(o => 
+              o.id.toLowerCase().includes(query) ||
+              o.customer_name.toLowerCase().includes(query)
+          );
+          renderFilteredOrders(filtered);
+      });
+  }
 </script>
 </body>
 </html>

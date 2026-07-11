@@ -3,41 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glazycious</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Glazycious Order - Whisk & Wish</title>
+    <!-- Tailwind CSS v3 for consistent styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': '#9b1b30',
+                        'brand-light': '#fdf8f5',
+                        'brand-dark': '#333333',
+                        'brand-pink': '#faeaea',
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-amber-50/30 text-gray-800 font-sans">
 
+    <!-- DESKTOP NAVBAR -->
     <nav class="bg-white shadow-sm sticky top-0 z-50 px-8 py-4 flex items-center justify-between">
-        <div class="text-3xl font-bold text-red-800">Glazycious</div>
+        <div class="text-3xl font-bold text-red-800">
+            <a href="index.html">Glazycious</a>
+        </div>
         
         <div class="relative w-1/3">
-            <input type="text" placeholder="Search..." class="w-full border border-gray-300 rounded-full px-5 py-2 pl-11 focus:outline-none focus:ring-2 focus:ring-red-800">
+            <input type="text" id="desktopSearch" placeholder="Search..." class="w-full border border-gray-300 rounded-full px-5 py-2 pl-11 focus:outline-none focus:ring-2 focus:ring-red-800">
             <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-gray-400"></i>
         </div>
 
         <div class="flex items-center gap-6 font-semibold text-gray-600">
-            <a href="#" class="hover:text-red-800">Cakes</a>
-            <a href="#" class="hover:text-red-800">Theme Cakes</a>
-            <a href="#" class="hover:text-red-800">Desserts</a>
-            <a href="#" class="hover:text-red-800">Birthday</a>
-            <a href="#" class="hover:text-red-800">Hampers</a>
+            <a href="menu.html" class="hover:text-red-800">All Menu</a>
             <div class="flex items-center gap-4 text-xl border-l pl-6 border-gray-200">
-                <i class="fa-solid fa-location-dot cursor-pointer hover:text-red-800"></i>
-                <i class="fa-solid fa-cart-shopping cursor-pointer hover:text-red-800"></i>
+                <a href="#" class="text-gray-600 hover:text-red-800"><i class="fa-solid fa-location-dot"></i></a>
+                <div onclick="bukaKeranjang()" class="text-red-800 hover:text-red-900 relative cursor-pointer">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cartBadgeDesktop" class="absolute -top-2 -right-2 bg-red-800 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                </div>
                 
-                <button onclick="bukaMenu()" class="bg-red-800 text-white text-sm px-8 py-3 rounded-full font-bold hover:bg-red-900 transition tracking-wide cursor-pointer uppercase shadow-md">
+                <a id="navbarAuthLink" href="login.html" class="text-sm bg-red-800 text-white px-6 py-2.5 rounded-full font-bold hover:bg-red-900 transition tracking-wide uppercase shadow-sm">
                     ORDER NOW
-                </button>
+                </a>
             </div>
         </div>
     </nav>
 
-
-    <main id="halaman-beranda" class="max-w-md mx-auto bg-white min-h-screen shadow-xl pb-24 mt-6 rounded-2xl overflow-hidden relative block">
-        <div class="px-6 pt-4 flex justify-between items-center text-sm font-bold bg-white">
-            <div>15.24</div>
+    <!-- MOBILE DASHBOARD: BERANDA TAB -->
+    <main id="halaman-beranda" class="max-w-md mx-auto bg-white min-h-screen shadow-xl pb-24 mt-6 rounded-2xl overflow-hidden relative block border border-gray-100">
+        <div class="px-6 pt-4 flex justify-between items-center text-sm font-bold bg-white text-gray-400">
+            <div class="text-gray-600">Glazycious Mobile</div>
             <div class="flex items-center gap-1.5">
                 <i class="fa-solid fa-signal"></i>
                 <i class="fa-solid fa-wifi"></i>
@@ -45,11 +62,11 @@
             </div>
         </div>
 
-        <div class="p-4 mx-4 mt-3 border border-gray-100 rounded-2xl shadow-xs bg-white">
+        <div class="p-4 mx-4 mt-3 border border-gray-100 rounded-2xl shadow-sm bg-white">
             <div class="flex items-center justify-between">
                 <div>
                     <h4 class="font-bold text-sm text-gray-800">Ruko Kedungmundu Semarang</h4>
-                    <p class="text-xs text-gray-400 truncate w-64">Ruko Kedungmundu Semarang, Jl. Sambiroto Raya 58...</p>
+                    <p class="text-xs text-gray-400 truncate w-64">Jl. Sambiroto Raya 58, Kedungmundu</p>
                 </div>
                 <i class="fa-solid fa-chevron-down text-red-800 text-sm"></i>
             </div>
@@ -60,7 +77,7 @@
             </div>
         </div>
 
-        <div class="mx-4 mt-4 rounded-2xl overflow-hidden shadow-xs relative h-44 bg-gradient-to-r from-amber-700 to-red-900 text-white p-5 flex flex-col justify-between">
+        <div class="mx-4 mt-4 rounded-2xl overflow-hidden shadow-sm relative h-44 bg-gradient-to-r from-amber-700 to-red-900 text-white p-5 flex flex-col justify-between">
             <div>
                 <span class="text-xs bg-white/20 px-2 py-0.5 rounded-md font-semibold tracking-wide">GLAZYCIOUS DEALS</span>
                 <h2 class="text-2xl font-black mt-1">THAI TEA SERIES <br><span class="text-amber-300">Mulai 19 RB</span></h2>
@@ -70,124 +87,117 @@
 
         <div class="grid grid-cols-4 gap-3 px-4 mt-6 text-center">
             <div onclick="bukaMenu()" class="cursor-pointer group">
-                <div class="aspect-square bg-amber-50 rounded-2xl flex items-center justify-center text-2xl text-red-800 group-hover:bg-red-100 transition shadow-xs">
+                <div class="aspect-square bg-amber-50 rounded-2xl flex items-center justify-center text-2xl text-red-800 group-hover:bg-red-100 transition shadow-sm">
                     <i class="fa-solid fa-bowl-food"></i>
                 </div>
                 <span class="text-xs font-bold text-gray-700 block mt-2">Order</span>
             </div>
-            <div class="cursor-pointer">
+            <div onclick="bukaMenu()" class="cursor-pointer">
                 <div class="aspect-square bg-amber-50 rounded-2xl flex items-center justify-center text-2xl text-red-800">
                     <i class="fa-solid fa-motorcycle"></i>
                 </div>
-                <span class="text-xs font-bold text-gray-700 block mt-2">Delivery Hemat</span>
+                <span class="text-xs font-bold text-gray-700 block mt-2">Delivery</span>
             </div>
-            <div class="cursor-pointer">
+            <div onclick="bukaMenu()" class="cursor-pointer">
                 <div class="aspect-square bg-amber-50 rounded-2xl flex items-center justify-center text-2xl text-red-800">
                     <i class="fa-solid fa-burger"></i>
                 </div>
-                <span class="text-xs font-bold text-gray-700 block mt-2">Chicken & Burger</span>
+                <span class="text-xs font-bold text-gray-700 block mt-2">Snacks</span>
             </div>
-            <div class="cursor-pointer">
+            <div onclick="bukaMenu()" class="cursor-pointer">
                 <div class="aspect-square bg-amber-50 rounded-2xl flex items-center justify-center text-2xl text-red-800">
                     <i class="fa-solid fa-cake-candles"></i>
                 </div>
-                <span class="text-xs font-bold text-gray-700 block mt-2">Catering & Wedding</span>
+                <span class="text-xs font-bold text-gray-700 block mt-2">Catering</span>
             </div>
         </div>
 
         <div class="px-4 mt-6">
             <div class="flex justify-between items-center mb-3">
-                <h3 class="font-bold text-sm text-gray-800">Order Lagi <span class="text-amber-500">💫</span></h3>
-                <i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+                <h3 class="font-bold text-sm text-gray-800">Rekomendasi Menu <span class="text-amber-500">💫</span></h3>
             </div>
-            <div class="border border-gray-100 rounded-xl p-3 flex justify-between items-center bg-white shadow-xs">
+            <div class="border border-gray-100 rounded-xl p-3 flex justify-between items-center bg-white shadow-sm">
                 <div class="flex flex-col gap-1">
-                    <span class="text-[10px] text-amber-700 font-bold">Ruko Tentara Pelajar Sema...</span>
-                    <h5 class="text-xs font-bold text-gray-800 w-44 truncate">1x Rich Chocolate Truffle Cake</h5>
-                    <button class="border border-red-800 text-red-800 font-bold text-xs px-4 py-1 rounded-lg mt-2 w-16 hover:bg-red-50">Beli</button>
+                    <span class="text-[10px] text-amber-700 font-bold">Ruko Kedungmundu Semarang</span>
+                    <h5 class="text-xs font-bold text-gray-800 w-44 truncate">Chocolate Truffle Cake</h5>
+                    <button onclick="bukaMenu()" class="border border-red-800 text-red-800 font-bold text-xs px-4 py-1 rounded-lg mt-2 w-16 hover:bg-red-50 cursor-pointer">Beli</button>
                 </div>
                 <div class="w-16 h-16 bg-gray-50 rounded-lg overflow-hidden">
-                    <img src="assets/image/RichChocolateTruffleCake.jpg" class="w-full h-full object-cover">
+                    <img src="assets/image/RichChocolateTruffleCake.jpg" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150'">
                 </div>
             </div>
         </div>
     </main>
 
-
-    <main id="halaman-menu" class="max-w-md mx-auto bg-white min-h-screen shadow-xl pb-24 mt-6 rounded-2xl overflow-hidden relative hidden">
+    <!-- MOBILE DASHBOARD: MENU TAB -->
+    <main id="halaman-menu" class="max-w-md mx-auto bg-white min-h-screen shadow-xl pb-24 mt-6 rounded-2xl overflow-hidden relative hidden border border-gray-100">
         <div class="p-4 border-b border-gray-100 sticky top-0 bg-white z-10 flex items-center gap-4">
             <i onclick="bukaBeranda()" class="fa-solid fa-arrow-left text-lg text-gray-700 cursor-pointer p-1"></i>
             <div>
-                <h3 class="font-bold text-sm">Pilih Menu Bestseller</h3>
+                <h3 class="font-bold text-sm">Pilih Menu Kue</h3>
                 <p class="text-xs text-gray-400">Ruko Kedungmundu Semarang</p>
             </div>
         </div>
 
         <div class="flex gap-6 px-4 py-3 border-b border-gray-50 overflow-x-auto text-sm font-bold text-gray-400 whitespace-nowrap bg-white">
-            <span class="text-red-800 border-b-2 border-red-800 pb-2 cursor-pointer">Promo & Combo</span>
-            <span class="hover:text-red-800 cursor-pointer pb-2">Cakes</span>
-            <span class="hover:text-red-800 cursor-pointer pb-2">Theme Cakes</span>
+            <span class="text-red-800 border-b-2 border-red-800 pb-2 cursor-pointer">Bestsellers</span>
             <span class="hover:text-red-800 cursor-pointer pb-2">Desserts</span>
+            <span class="hover:text-red-800 cursor-pointer pb-2">Theme Cakes</span>
+            <span class="hover:text-red-800 cursor-pointer pb-2">Hampers</span>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 p-4 bg-white">
-            
-            <div class="bg-white border border-gray-100 rounded-2xl p-3 shadow-xs">
-                <div class="h-36 bg-gray-50 rounded-xl mb-3 overflow-hidden">
-                    <img src="assets/image/RichChocolateTruffleCake.jpg" alt="Rich Chocolate Truffle Cake" class="w-full h-full object-cover">
-                </div>
-                <h4 class="font-bold text-xs text-gray-800 h-8 line-clamp-2 leading-tight">Rich Chocolate Truffle Cake</h4>
-                <div class="flex justify-between items-center mt-3">
-                    <span class="font-black text-sm text-gray-900">Rp 500k</span>
-                    <button class="bg-red-800 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs hover:bg-red-900 shadow-sm cursor-pointer">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="bg-white border border-gray-100 rounded-2xl p-3 shadow-xs">
-                <div class="h-36 bg-gray-50 rounded-xl mb-3 overflow-hidden">
-                    <img src="assets/image/StrawberryCake.jpg" alt="Strawberry Cake" class="w-full h-full object-cover">
-                </div>
-                <h4 class="font-bold text-xs text-gray-800 h-8 line-clamp-2 leading-tight">Strawberry Cake</h4>
-                <div class="flex justify-between items-center mt-3">
-                    <span class="font-black text-sm text-gray-900">Rp 400k</span>
-                    <button class="bg-red-800 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs hover:bg-red-900 shadow-sm cursor-pointer">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="bg-white border border-gray-100 rounded-2xl p-3 shadow-xs">
-                <div class="h-36 bg-gray-50 rounded-xl mb-3 overflow-hidden">
-                    <img src="assets/image/BentoCake.jpg" alt="Bento Cake" class="w-full h-full object-cover">
-                </div>
-                <h4 class="font-bold text-xs text-gray-800 h-8 line-clamp-2 leading-tight">Bento Cake</h4>
-                <div class="flex justify-between items-center mt-3">
-                    <span class="font-black text-sm text-gray-900">Rp 85k</span>
-                    <button class="bg-red-800 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs hover:bg-red-900 shadow-sm cursor-pointer">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="bg-white border border-gray-100 rounded-2xl p-3 shadow-xs">
-                <div class="h-36 bg-gray-50 rounded-xl mb-3 overflow-hidden">
-                    <img src="assets/image/CupCake.jpg" alt="Cup Cake" class="w-full h-full object-cover">
-                </div>
-                <h4 class="font-bold text-xs text-gray-800 h-8 line-clamp-2 leading-tight">Cup Cake</h4>
-                <div class="flex justify-between items-center mt-3">
-                    <span class="font-black text-sm text-gray-900">Rp 45k</span>
-                    <button class="bg-red-800 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs hover:bg-red-900 shadow-sm cursor-pointer">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-
+        <!-- GRID PRODUK DINAMIS -->
+        <div id="mobileProductsList" class="grid grid-cols-2 gap-4 p-4 bg-white min-h-[200px]">
+            <div class="col-span-2 text-center py-10 text-gray-400">Loading products...</div>
         </div>
     </main>
 
+    <!-- MOBILE DASHBOARD: KERANJANG & CHECKOUT TAB -->
+    <main id="halaman-keranjang" class="max-w-md mx-auto bg-white min-h-screen shadow-xl pb-24 mt-6 rounded-2xl overflow-hidden relative hidden border border-gray-100">
+        <div class="p-4 border-b border-gray-100 sticky top-0 bg-white z-10 flex items-center gap-4">
+            <i onclick="bukaMenu()" class="fa-solid fa-arrow-left text-lg text-gray-700 cursor-pointer p-1"></i>
+            <div>
+                <h3 class="font-bold text-sm">Keranjang Belanja</h3>
+                <p class="text-xs text-gray-400">Konfirmasi Pemesanan Anda</p>
+            </div>
+        </div>
 
+        <!-- Item List -->
+        <div id="cartItemsList" class="p-4 space-y-4 max-h-[300px] overflow-y-auto">
+            <!-- Dimuat dinamis -->
+        </div>
+
+        <!-- Checkout Form -->
+        <div class="p-4 bg-gray-50 border-t border-gray-100 space-y-4">
+            <div class="flex justify-between items-center text-sm font-bold">
+                <span class="text-gray-600">Total Harga:</span>
+                <span id="cartTotalPrice" class="text-red-800 text-lg font-black">Rp 0</span>
+            </div>
+
+            <form id="checkoutForm" class="space-y-3 pt-2">
+                <div>
+                    <label class="block text-[11px] font-bold text-gray-600 mb-1 uppercase tracking-wider">Nama Lengkap</label>
+                    <input type="text" id="customerName" required placeholder="Masukkan nama Anda" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-red-800 bg-white">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-gray-600 mb-1 uppercase tracking-wider">Nomor HP (WhatsApp)</label>
+                    <input type="tel" id="customerPhone" required placeholder="Contoh: 081234567890" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-red-800 bg-white">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-gray-600 mb-1 uppercase tracking-wider">Pilih Outlet</label>
+                    <select id="checkoutOutlet" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-red-800 bg-white">
+                        <option value="Ruko Kedungmundu Semarang">Ruko Kedungmundu Semarang</option>
+                        <option value="Ruko Tentara Pelajar Semarang">Ruko Tentara Pelajar Semarang</option>
+                    </select>
+                </div>
+                <button type="submit" id="btnSubmitCheckout" class="w-full bg-red-800 text-white py-3 rounded-full font-bold text-sm hover:bg-red-900 transition mt-2 cursor-pointer shadow-md uppercase tracking-wider">
+                    BUAT PESANAN
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <!-- MOBILE NAVIGATION BAR (BOTTOM) -->
     <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t border-gray-100 py-2.5 flex justify-around text-center text-[11px] font-bold shadow-2xl z-50 rounded-t-2xl">
         <div onclick="bukaBeranda()" id="nav-beranda" class="text-red-800 cursor-pointer flex flex-col items-center gap-1">
             <i class="fa-solid fa-house text-lg"></i>
@@ -197,45 +207,334 @@
             <i class="fa-solid fa-book-open text-lg"></i>
             <span>Menu</span>
         </div>
-        <div class="text-gray-400 cursor-pointer flex flex-col items-center gap-1">
-            <i class="fa-solid fa-circle-user text-lg"></i>
-            <span>VIP</span>
+        <div onclick="bukaKeranjang()" id="nav-keranjang" class="text-gray-400 cursor-pointer flex flex-col items-center gap-1 relative">
+            <i class="fa-solid fa-cart-shopping text-lg"></i>
+            <span id="cartBadgeMobile" class="absolute -top-1 right-2 bg-red-800 text-white text-[9px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">0</span>
+            <span>Keranjang</span>
         </div>
-        <div class="text-gray-400 cursor-pointer flex flex-col items-center gap-1">
+        <div onclick="goToAccount()" id="nav-saya" class="text-gray-400 cursor-pointer flex flex-col items-center gap-1">
             <i class="fa-solid fa-user text-lg"></i>
             <span>Saya</span>
         </div>
     </div>
 
-
+    <!-- Supabase CDN & Config -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabaseClient.js"></script>
     <script>
         const beranda = document.getElementById('halaman-beranda');
         const menu = document.getElementById('halaman-menu');
+        const keranjang = document.getElementById('halaman-keranjang');
+        
         const navBeranda = document.getElementById('nav-beranda');
         const navMenu = document.getElementById('nav-menu');
+        const navKeranjang = document.getElementById('nav-keranjang');
+        const navSaya = document.getElementById('nav-saya');
 
-        // Pindah langsung ke beranda menu saat ORDER NOW diklik
+        let allProducts = [];
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            updateCartUI();
+            checkNavbarAuth();
+            await loadProducts();
+            setupCheckoutForm();
+        });
+
+        // Cek login user untuk tombol navbar
+        async function checkNavbarAuth() {
+            const user = await getCurrentUser();
+            const orderBtn = document.getElementById('navbarAuthLink');
+            if (orderBtn && user) {
+                orderBtn.innerText = "MY PROFILE";
+                orderBtn.href = "akun.html";
+                
+                // Isi form nama secara otomatis dari user metadata
+                const customerNameInput = document.getElementById('customerName');
+                if (customerNameInput && user.user_metadata.full_name) {
+                    customerNameInput.value = user.user_metadata.full_name;
+                }
+            }
+        }
+
+        // Ambil produk dari Supabase untuk tab menu mobile
+        async function loadProducts() {
+            if (!supabaseClient) {
+                showPlaceholderGrid();
+                return;
+            }
+
+            try {
+                const { data, error } = await supabaseClient
+                    .from('products')
+                    .select('*');
+
+                if (error) throw error;
+                allProducts = data;
+                renderMobileProducts(data);
+            } catch (err) {
+                console.error("Gagal memuat produk:", err);
+                showPlaceholderGrid();
+            }
+        }
+
+        function showPlaceholderGrid() {
+            const el = document.getElementById('mobileProductsList');
+            if (el) {
+                el.innerHTML = `
+                    <div class="col-span-2 text-center py-10 text-gray-500">
+                        <i class="fa-solid fa-triangle-exclamation text-brand-red text-xl mb-1"></i>
+                        <p class="text-xs font-bold">Koneksi database belum disetup.</p>
+                    </div>
+                `;
+            }
+        }
+
+        function renderMobileProducts(products) {
+            const el = document.getElementById('mobileProductsList');
+            if (!el) return;
+            el.innerHTML = '';
+
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "bg-white border border-gray-100 rounded-2xl p-3 shadow-xs flex flex-col justify-between";
+                card.innerHTML = `
+                    <div>
+                        <div class="h-32 bg-gray-50 rounded-xl mb-3 overflow-hidden">
+                            <img src="${p.image_url}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150'">
+                        </div>
+                        <h4 class="font-bold text-xs text-gray-800 h-8 line-clamp-2 leading-tight">${p.name}</h4>
+                    </div>
+                    <div class="flex justify-between items-center mt-3 pt-2 border-t border-gray-50">
+                        <span class="font-black text-xs text-gray-900">Rp ${formatRupiahShort(p.price)}</span>
+                        <button onclick="addToCart('${p.id}')" class="bg-red-800 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs hover:bg-red-900 shadow-sm cursor-pointer">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                `;
+                el.appendChild(card);
+            });
+        }
+
+        function formatRupiahShort(price) {
+            if (price >= 1000) {
+                return (price / 1000) + 'k';
+            }
+            return price;
+        }
+
+        // Format angka ke format Rupiah standar
+        function formatRupiah(number) {
+            return new Intl.NumberFormat('id-ID').format(number);
+        }
+
+        // Tambah ke keranjang belanja
+        window.addToCart = function(productId) {
+            const product = allProducts.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image_url: product.image_url,
+                    quantity: 1
+                });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+            alert(`${product.name} dimasukkan ke keranjang!`);
+        }
+
+        // Hapus atau kurangi item dari keranjang
+        window.changeQuantity = function(productId, delta) {
+            const item = cart.find(i => i.id === productId);
+            if (!item) return;
+
+            item.quantity += delta;
+            if (item.quantity <= 0) {
+                cart = cart.filter(i => i.id !== productId);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        // Perbarui tampilan antarmuka keranjang
+        function updateCartUI() {
+            // Update Badges
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartBadgeDesktop').innerText = totalItems;
+            document.getElementById('cartBadgeMobile').innerText = totalItems;
+
+            // Render Cart Tab List
+            const listEl = document.getElementById('cartItemsList');
+            const totalEl = document.getElementById('cartTotalPrice');
+            if (!listEl || !totalEl) return;
+
+            if (cart.length === 0) {
+                listEl.innerHTML = `
+                    <div class="text-center py-10 text-gray-400">
+                        <i class="fa-solid fa-cart-shopping text-3xl mb-2"></i>
+                        <p class="text-xs font-semibold">Keranjang Anda masih kosong.</p>
+                    </div>
+                `;
+                totalEl.innerText = "Rp 0";
+                return;
+            }
+
+            listEl.innerHTML = '';
+            let totalHarga = 0;
+
+            cart.forEach(item => {
+                totalHarga += item.price * item.quantity;
+                const row = document.createElement('div');
+                row.className = "flex items-center justify-between border-b border-gray-50 pb-3";
+                row.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <img src="${item.image_url}" class="w-12 h-12 rounded-lg object-cover" onerror="this.src='https://via.placeholder.com/100'">
+                        <div>
+                            <h5 class="text-xs font-bold text-gray-800 w-32 truncate">${item.name}</h5>
+                            <span class="text-[10px] text-gray-400">Rp ${formatRupiah(item.price)}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="changeQuantity('${item.id}', -1)" class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold hover:bg-gray-200">-</button>
+                        <span class="text-xs font-bold w-4 text-center">${item.quantity}</span>
+                        <button onclick="changeQuantity('${item.id}', 1)" class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold hover:bg-gray-200">+</button>
+                    </div>
+                `;
+                listEl.appendChild(row);
+            });
+
+            totalEl.innerText = "Rp " + formatRupiah(totalHarga);
+        }
+
+        // Buat Pesanan & Simpan ke Supabase
+        function setupCheckoutForm() {
+            const form = document.getElementById('checkoutForm');
+            if (!form) return;
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                if (cart.length === 0) {
+                    alert('Keranjang Anda kosong. Silakan tambahkan kue terlebih dahulu.');
+                    return;
+                }
+
+                if (!supabaseClient) {
+                    alert('Supabase belum terkonfigurasi di assets/js/supabaseClient.js!');
+                    return;
+                }
+
+                const user = await getCurrentUser();
+                const name = document.getElementById('customerName').value.trim();
+                const phone = document.getElementById('customerPhone').value.trim();
+                const outlet = document.getElementById('checkoutOutlet').value;
+
+                // Hitung total harga
+                const totalHarga = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+                // Generate ID Transaksi acak: GZY-XXXX
+                const txId = "GZY-" + Math.floor(1000 + Math.random() * 9000);
+
+                const btn = document.getElementById('btnSubmitCheckout');
+                btn.disabled = true;
+                btn.innerText = 'MEMPROSES...';
+
+                try {
+                    // 1. Simpan ke tabel orders
+                    const { error: orderError } = await supabaseClient
+                        .from('orders')
+                        .insert({
+                            id: txId,
+                            user_id: user ? user.id : null,
+                            customer_name: name,
+                            phone_number: phone,
+                            outlet: outlet,
+                            total_price: totalHarga,
+                            status: 'PESANAN DITERIMA'
+                        });
+
+                    if (orderError) throw orderError;
+
+                    // 2. Simpan setiap item ke order_items
+                    const orderItemsToInsert = cart.map(item => ({
+                        order_id: txId,
+                        product_id: item.id,
+                        product_name: item.name,
+                        quantity: item.quantity,
+                        price: item.price
+                    }));
+
+                    const { error: itemsError } = await supabaseClient
+                        .from('order_items')
+                        .insert(orderItemsToInsert);
+
+                    if (itemsError) throw itemsError;
+
+                    // 3. Clear cart
+                    cart = [];
+                    localStorage.removeItem('cart');
+                    updateCartUI();
+
+                    alert(`Pesanan berhasil dibuat! ID Transaksi Anda: ${txId}. Silakan simpan ID ini untuk melacak pesanan.`);
+                    window.location.href = `tracking.html?id=${txId}`;
+
+                } catch (err) {
+                    console.error("Gagal melakukan checkout:", err);
+                    alert("Gagal memproses pesanan: " + err.message);
+                } finally {
+                    btn.disabled = false;
+                    btn.innerText = 'BUAT PESANAN';
+                }
+            });
+        }
+
+        // Tab Navigation
+        function bukaBeranda() {
+            beranda.classList.replace('hidden', 'block');
+            menu.classList.replace('block', 'hidden');
+            keranjang.classList.replace('block', 'hidden');
+
+            navBeranda.className = "text-red-800 cursor-pointer flex flex-col items-center gap-1";
+            navMenu.className = "text-gray-400 cursor-pointer flex flex-col items-center gap-1";
+            navKeranjang.className = "text-gray-400 cursor-pointer flex flex-col items-center gap-1 relative";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         function bukaMenu() {
             beranda.classList.replace('block', 'hidden');
             menu.classList.replace('hidden', 'block');
-            
-            // Ubah warna aktif navigasi bawah
+            keranjang.classList.replace('block', 'hidden');
+
             navMenu.className = "text-red-800 cursor-pointer flex flex-col items-center gap-1";
             navBeranda.className = "text-gray-400 cursor-pointer flex flex-col items-center gap-1";
+            navKeranjang.className = "text-gray-400 cursor-pointer flex flex-col items-center gap-1 relative";
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Kembali ke dashboard depan
-        function bukaBeranda() {
+        function bukaKeranjang() {
+            beranda.classList.replace('block', 'hidden');
             menu.classList.replace('block', 'hidden');
-            beranda.classList.replace('hidden', 'block');
-            
-            // Ubah warna aktif navigasi bawah
-            navBeranda.className = "text-red-800 cursor-pointer flex flex-col items-center gap-1";
+            keranjang.classList.replace('hidden', 'block');
+
+            navKeranjang.className = "text-red-800 cursor-pointer flex flex-col items-center gap-1 relative";
+            navBeranda.className = "text-gray-400 cursor-pointer flex flex-col items-center gap-1";
             navMenu.className = "text-gray-400 cursor-pointer flex flex-col items-center gap-1";
+            updateCartUI();
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goToAccount() {
+            window.location.href = "akun.html";
         }
     </script>
-
 </body>
 </html>
