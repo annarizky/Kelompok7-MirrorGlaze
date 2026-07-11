@@ -118,8 +118,26 @@
         document.addEventListener('DOMContentLoaded', async () => {
             // Check if user is already logged in
             const user = await getCurrentUser();
-            if (user) {
-                window.location.href = 'index.html';
+            if (user && supabaseClient) {
+                try {
+                    const { data: profile } = await supabaseClient
+                        .from('profiles')
+                        .select('role')
+                        .eq('id', user.id)
+                        .single();
+
+                    if ((profile && profile.role === 'admin') || user.email === 'jimin000@gmail.com') {
+                        window.location.href = 'admin.html';
+                    } else {
+                        window.location.href = 'index.html';
+                    }
+                } catch (e) {
+                    if (user.email === 'jimin000@gmail.com') {
+                        window.location.href = 'admin.html';
+                    } else {
+                        window.location.href = 'index.html';
+                    }
+                }
                 return;
             }
 
@@ -166,8 +184,25 @@
 
                     if (error) throw error;
 
-                    alert('Login berhasil!');
-                    window.location.href = 'index.html';
+                    // Ambil role dari profiles
+                    const { data: profile, error: profileError } = await supabaseClient
+                        .from('profiles')
+                        .select('role')
+                        .eq('id', data.user.id)
+                        .single();
+
+                    if (profileError) {
+                        console.error("Gagal mengambil data profil:", profileError);
+                    }
+
+                    const role = (profile && profile.role) || (data.user.email === 'jimin000@gmail.com' ? 'admin' : 'tidak ditemukan (default: customer)');
+                    alert(`Login berhasil! Peran (Role) akun Anda di database: "${role}"`);
+
+                    if (role === 'admin' || data.user.email === 'jimin000@gmail.com') {
+                        window.location.href = 'admin.html';
+                    } else {
+                        window.location.href = 'index.html';
+                    }
                 } catch (error) {
                     alert('Gagal Login: ' + error.message);
                 } finally {

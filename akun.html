@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <nav class="space-y-1">
+                <nav id="sidebarNav" class="space-y-1">
                     <button onclick="showSection('profile', this)" class="menu-btn active w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left text-xs font-semibold">
                         <i class="fa-regular fa-user"></i> Profil Saya
                     </button>
@@ -289,6 +289,49 @@
             await loadUserOrders();
             setupProfileFormSubmit();
             setupPasswordFormSubmit();
+
+            // Cek jika user adalah admin, tampilkan link ke Dashboard Admin
+            if (supabaseClient) {
+                try {
+                    const { data: profile } = await supabaseClient
+                        .from('profiles')
+                        .select('role')
+                        .eq('id', user.id)
+                        .single();
+
+                    const isAdmin = (profile && profile.role === 'admin') || user.email === 'jimin000@gmail.com';
+                    if (isAdmin) {
+                        const nav = document.getElementById('sidebarNav');
+                        if (nav) {
+                            const adminLink = document.createElement('a');
+                            adminLink.href = 'admin.html';
+                            adminLink.className = "w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left text-xs font-semibold text-brand-red hover:bg-red-50 mt-1";
+                            adminLink.innerHTML = `<i class="fa-solid fa-gauge"></i> Dashboard Admin`;
+                            
+                            const divider = nav.querySelector('div.pt-4');
+                            if (divider) {
+                                nav.insertBefore(adminLink, divider);
+                            } else {
+                                nav.appendChild(adminLink);
+                            }
+                        }
+                    }
+                } catch (e) {
+                    if (user.email === 'jimin000@gmail.com') {
+                        const nav = document.getElementById('sidebarNav');
+                        if (nav) {
+                            const adminLink = document.createElement('a');
+                            adminLink.href = 'admin.html';
+                            adminLink.className = "w-full flex items-center gap-3 px-4 py-3 rounded-xl transition text-left text-xs font-semibold text-brand-red hover:bg-red-50 mt-1";
+                            adminLink.innerHTML = `<i class="fa-solid fa-gauge"></i> Dashboard Admin`;
+                            const divider = nav.querySelector('div.pt-4');
+                            if (divider) nav.insertBefore(adminLink, divider);
+                            else nav.appendChild(adminLink);
+                        }
+                    }
+                    console.error("Gagal memeriksa role admin di akun.html:", e);
+                }
+            }
         });
 
         // Tampilkan data profil user ke form dan sidebar
