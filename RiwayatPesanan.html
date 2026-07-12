@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Riwayat Pesanan — Whisk & Wish</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- FontAwesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root{
+    --pink-primary:#C2255C;
+    --pink-dark:#7E1444;
+    --pink-mid:#E24D82;
+    --pink-light:#F8D6E3;
+    --cream:#FDF3EC;
+    --cream-2:#FBE8DC;
+    --ink:#2B1620;
+    --ink-soft:#8A6673;
+    --line:#F0DCE3;
+    --success-bg:#E7F5E9; --success-fg:#2E7D46;
+    --warn-bg:#FDF0DE; --warn-fg:#B5730F;
+    --transit-bg:#EAEBFB; --transit-fg:#4C4FC4;
+    --danger-bg:#FBE7E7; --danger-fg:#C23B3B;
+    --radius-lg:28px;
+    --radius-md:18px;
+    --font-display:'Baloo 2', sans-serif;
+    --font-body:'Poppins', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    font-family:var(--font-body);
+    color:var(--ink);
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:40px 24px 80px;}
+
+  /* ---- Page header ---- */
+  .page-head{
+    display:flex;align-items:flex-end;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;margin-bottom:28px;
+  }
+  .eyebrow{
+    font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--pink-primary);margin:0 0 6px;
+  }
+  .eyebrow a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .eyebrow a:hover {
+    color: var(--pink-mid);
+  }
+  h1{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:38px;
+    line-height:1.05;
+    margin:0;
+    color:var(--pink-dark);
+  }
+  .page-head p{
+    margin:8px 0 0;color:var(--ink-soft);font-size:15px;max-width:420px;
+  }
+  .track-input{
+    display:flex;align-items:center;gap:8px;
+    background:#fff;border:1px solid var(--line);border-radius:999px;
+    padding:10px 16px;min-width:230px;
+  }
+  .track-input input{
+    border:none;outline:none;font-family:var(--font-body);font-size:14px;width:100%;background:transparent;color:var(--ink);
+  }
+  .track-input svg{flex-shrink:0;color:var(--pink-primary);}
+
+  /* ---- Filter tabs ---- */
+  .tabs{
+    display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;margin-bottom:28px;
+    scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{
+    flex:0 0 auto;
+    font-family:var(--font-body);font-weight:600;font-size:13.5px;
+    padding:10px 20px;border-radius:999px;border:1.5px solid var(--line);
+    background:#fff;color:var(--ink-soft);cursor:pointer;
+    transition:all .18s ease;
+    white-space:nowrap;
+  }
+  .tab:hover{border-color:var(--pink-mid);color:var(--pink-primary);}
+  .tab.active{
+    background:var(--pink-primary);border-color:var(--pink-primary);color:#fff;
+    box-shadow:0 6px 14px -6px rgba(194,37,92,.55);
+  }
+  .tab .count{
+    display:inline-block;margin-left:6px;font-size:11px;font-weight:700;
+    background:rgba(255,255,255,.35);border-radius:999px;padding:1px 7px;
+  }
+  .tab:not(.active) .count{background:var(--pink-light);color:var(--pink-primary);}
+
+  /* ---- Order card ---- */
+  .order-list{display:flex;flex-direction:column;gap:18px;}
+
+  .order-card{
+    position:relative;
+    background:#fff;
+    border-radius:var(--radius-lg);
+    border:1px solid var(--line);
+    padding:22px 22px 18px;
+    box-shadow:0 10px 24px -18px rgba(126,20,68,.35);
+  }
+  /* scalloped top edge like a pastry box lid */
+  .order-card::before{
+    content:"";
+    position:absolute;top:-9px;left:22px;right:22px;height:14px;
+    background-image:radial-gradient(circle at 10px 0, transparent 9px, #fff 9.5px);
+    background-size:20px 14px;
+    background-repeat:repeat-x;
+    background-position:left top;
+  }
+
+  .order-top{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:12px;margin-bottom:14px;flex-wrap:wrap;
+  }
+  .order-id{
+    font-family:var(--font-display);font-weight:700;font-size:16.5px;color:var(--ink);
+    margin:0 0 3px;
+  }
+  .order-date{font-size:12.5px;color:var(--ink-soft);margin:0;}
+
+  .status-pill{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12.5px;font-weight:700;padding:6px 13px;border-radius:999px;
+  }
+  .status-pill .dot{width:6px;height:6px;border-radius:50%;}
+  .status-selesai{background:var(--success-bg);color:var(--success-fg);}
+  .status-selesai .dot{background:var(--success-fg);}
+  .status-diproses{background:var(--warn-bg);color:var(--warn-fg);}
+  .status-diproses .dot{background:var(--warn-fg);}
+  .status-dikirim{background:var(--transit-bg);color:var(--transit-fg);}
+  .status-dikirim .dot{background:var(--transit-fg);}
+  .status-dibatalkan{background:var(--danger-bg);color:var(--danger-fg);}
+  .status-dibatalkan .dot{background:var(--danger-fg);}
+
+  .order-body{
+    display:flex;gap:14px;align-items:center;
+    padding:14px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);
+  }
+  .thumb{
+    width:58px;height:58px;border-radius:16px;flex-shrink:0;
+    background:var(--pink-light);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--pink-primary);
+  }
+  .item-info{flex:1;min-width:0;}
+  .item-name{font-weight:600;font-size:14.5px;margin:0 0 2px;color:var(--ink);}
+  .item-meta{font-size:12.5px;color:var(--ink-soft);margin:0;}
+  .item-extra{font-size:12px;color:var(--pink-primary);font-weight:600;margin-top:3px;}
+  .item-price{
+    font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--pink-dark);
+    white-space:nowrap;
+  }
+
+  .order-bottom{
+    display:flex;justify-content:space-between;align-items:center;
+    gap:12px;padding-top:14px;flex-wrap:wrap;
+  }
+  .total-line{font-size:13px;color:var(--ink-soft);}
+  .total-line b{color:var(--ink);font-weight:700;}
+  .actions{display:flex;gap:10px;}
+  .btn{
+    font-family:var(--font-body);font-weight:600;font-size:13px;
+    padding:9px 16px;border-radius:999px;cursor:pointer;border:1.5px solid transparent;
+    transition:all .15s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-ghost{background:#fff;border-color:var(--line);color:var(--ink-soft);}
+  .btn-ghost:hover{border-color:var(--pink-mid);color:var(--pink-primary);}
+  .btn-solid{background:var(--pink-primary);color:#fff;box-shadow:0 6px 14px -6px rgba(194,37,92,.55);}
+  .btn-solid:hover{background:var(--pink-dark);}
+
+  /* ---- Empty state ---- */
+  .empty{
+    text-align:center;padding:64px 24px;background:#fff;border-radius:var(--radius-lg);
+    border:1px dashed var(--line);
+  }
+  .empty .icon{
+    width:72px;height:72px;border-radius:50%;background:var(--pink-light);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:var(--pink-primary);
+  }
+  .empty h3{font-family:var(--font-display);font-size:20px;margin:0 0 6px;color:var(--pink-dark);}
+  .empty p{font-size:14px;color:var(--ink-soft);margin:0 0 20px;}
+
+  @media (max-width:520px){
+    h1{font-size:29px;}
+    .order-body{flex-wrap:wrap;}
+    .item-price{width:100%;text-align:right;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="page-head">
+    <div>
+      <p class="eyebrow"><a href="index.html"><i class="fa-solid fa-arrow-left mr-1"></i> Beranda</a> / Riwayat</p>
+      <h1>Riwayat Pesanan</h1>
+      <p>Semua wish manis yang pernah kamu pesan, dari yang baru diproses sampai yang sudah sampai di tangan.</p>
+    </div>
+    <div class="track-input">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input type="text" id="searchOrderId" placeholder="Cari no. pesanan...">
+    </div>
+  </div>
+
+  <div class="tabs" id="statusTabs">
+    <div class="tab active" data-status="semua">Semua <span class="count" id="count-semua">0</span></div>
+    <div class="tab" data-status="diproses">Diproses <span class="count" id="count-diproses">0</span></div>
+    <div class="tab" data-status="siap">Siap Diambil <span class="count" id="count-siap">0</span></div>
+    <div class="tab" data-status="selesai">Selesai <span class="count" id="count-selesai">0</span></div>
+  </div>
+
+  <div class="order-list" id="ordersContainer">
+    <div class="text-center py-10 text-gray-500">Memuat riwayat pesanan...</div>
+  </div>
+
+</div>
+
+<!-- Supabase CDN & Config -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabaseClient.js"></script>
+<script>
+  let allOrders = [];
+  let activeFilter = 'semua';
+
+  document.addEventListener('DOMContentLoaded', async () => {
+      // Periksa login user
+      const user = await getCurrentUser();
+      if (!user) {
+          alert('Silakan login terlebih dahulu untuk melihat riwayat pesanan Anda.');
+          window.location.href = 'login.html';
+          return;
+      }
+
+      await loadOrderHistory(user.id);
+      setupTabs();
+      setupSearch();
+  });
+
+  // Ambil riwayat pesanan user dari Supabase
+  async function loadOrderHistory(userId) {
+      if (!supabaseClient) {
+          showPlaceholder("Koneksi database belum disetup di assets/js/supabaseClient.js.");
+          return;
+      }
+
+      try {
+          // Ambil orders beserta order_items relasi
+          const { data: orders, error } = await supabaseClient
+              .from('orders')
+              .select('*, order_items(*)')
+              .eq('user_id', userId)
+              .order('created_at', { ascending: false });
+
+          if (error) throw error;
+          allOrders = orders;
+
+          updateCounts();
+          renderFilteredOrders();
+
+      } catch (err) {
+          console.error("Gagal memuat riwayat:", err);
+          showPlaceholder("Gagal mengambil data dari database.");
+      }
+  }
+
+  function showPlaceholder(message) {
+      const container = document.getElementById('ordersContainer');
+      if (container) {
+          container.innerHTML = `
+              <div class="empty">
+                  <div class="icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+                  <h3>Gagal Memuat</h3>
+                  <p>${message}</p>
+              </div>
+          `;
+      }
+  }
+
+  // Hitung jumlah pesanan per status
+  function updateCounts() {
+      const counts = {
+          semua: allOrders.length,
+          diproses: allOrders.filter(o => o.status === 'PESANAN DITERIMA' || o.status === 'SEDANG DIPROSES').length,
+          siap: allOrders.filter(o => o.status === 'SIAP DIAMBIL').length,
+          selesai: allOrders.filter(o => o.status === 'PESANAN SELESAI').length
+      };
+
+      document.getElementById('count-semua').innerText = counts.semua;
+      document.getElementById('count-diproses').innerText = counts.diproses;
+      document.getElementById('count-siap').innerText = counts.siap;
+      document.getElementById('count-selesai').innerText = counts.selesai;
+  }
+
+  // Filter dan render pesanan
+  function renderFilteredOrders(filteredList = null) {
+      const container = document.getElementById('ordersContainer');
+      if (!container) return;
+
+      let listToRender = filteredList || allOrders;
+
+      // Saring berdasarkan tab aktif jika tidak ada list pencarian eksternal
+      if (!filteredList) {
+          if (activeFilter === 'diproses') {
+              listToRender = allOrders.filter(o => o.status === 'PESANAN DITERIMA' || o.status === 'SEDANG DIPROSES');
+          } else if (activeFilter === 'siap') {
+              listToRender = allOrders.filter(o => o.status === 'SIAP DIAMBIL');
+          } else if (activeFilter === 'selesai') {
+              listToRender = allOrders.filter(o => o.status === 'PESANAN SELESAI');
+          }
+      }
+
+      if (listToRender.length === 0) {
+          container.innerHTML = `
+              <div class="empty">
+                  <div class="icon">
+                      <i class="fa-solid fa-cake-candles text-2xl"></i>
+                  </div>
+                  <h3>Belum ada pesanan</h3>
+                  <p>Mulai pesan kue favoritmu di halaman Menu sekarang.</p>
+                  <a href="menu.html" class="btn btn-solid">Mulai Pesan</a>
+              </div>
+          `;
+          return;
+      }
+
+      container.innerHTML = '';
+
+      listToRender.forEach(order => {
+          // Siapkan status visual
+          let statusClass = 'status-diproses';
+          let statusText = order.status;
+          
+          if (order.status === 'PESANAN DITERIMA') {
+              statusClass = 'status-diproses';
+              statusText = 'Pesanan Diterima';
+          } else if (order.status === 'SEDANG DIPROSES') {
+              statusClass = 'status-diproses';
+              statusText = 'Sedang Diproses';
+          } else if (order.status === 'SIAP DIAMBIL') {
+              statusClass = 'status-dikirim';
+              statusText = 'Siap Diambil';
+          } else if (order.status === 'PESANAN SELESAI') {
+              statusClass = 'status-selesai';
+              statusText = 'Selesai';
+          }
+
+          // Siapkan data item pesanan
+          const firstItem = order.order_items[0] || { product_name: 'Custom Cake', quantity: 1, price: order.total_price };
+          const totalItems = order.order_items.reduce((sum, i) => sum + i.quantity, 0);
+          const otherItemsText = order.order_items.length > 1 
+              ? `dan ${totalItems - firstItem.quantity} item lainnya...` 
+              : 'Pesan lagi favoritmu';
+
+          const card = document.createElement('div');
+          card.className = 'order-card';
+          card.innerHTML = `
+              <div class="order-top">
+                  <div>
+                      <p class="order-id">#${order.id}</p>
+                      <p class="order-date">${new Date(order.created_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute:'2-digit' })}</p>
+                  </div>
+                  <span class="status-pill ${statusClass}"><span class="dot"></span>${statusText}</span>
+              </div>
+              <div class="order-body">
+                  <div class="thumb">
+                      <i class="fa-solid fa-cake-candles text-xl"></i>
+                  </div>
+                  <div class="item-info">
+                      <p class="item-name">${firstItem.product_name}</p>
+                      <p class="item-meta">${totalItems} item · ${otherItemsText}</p>
+                      <p class="item-extra text-xs text-gray-400 mt-1">Outlet: ${order.outlet || '-'}</p>
+                  </div>
+                  <div class="item-price">Rp ${new Intl.NumberFormat('id-ID').format(firstItem.price)}</div>
+              </div>
+              <div class="order-bottom">
+                  <div class="total-line">Total bayar <b>Rp ${new Intl.NumberFormat('id-ID').format(order.total_price)}</b></div>
+                  <div class="actions">
+                      <a href="tracking.html?id=${order.id}" class="btn btn-solid">Lacak Pesanan</a>
+                  </div>
+              </div>
+          `;
+          container.appendChild(card);
+      });
+  }
+
+  // Setup tab filter clicks
+  function setupTabs() {
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+              tabs.forEach(t => t.classList.remove('active'));
+              tab.classList.add('active');
+              activeFilter = tab.getAttribute('data-status');
+              renderFilteredOrders();
+          });
+      });
+  }
+
+  // Setup pencarian pesanan
+  function setupSearch() {
+      const searchInput = document.getElementById('searchOrderId');
+      if (!searchInput) return;
+
+      searchInput.addEventListener('input', (e) => {
+          const query = e.target.value.toLowerCase().trim();
+          if (!query) {
+              renderFilteredOrders();
+              return;
+          }
+
+          const filtered = allOrders.filter(o => 
+              o.id.toLowerCase().includes(query) ||
+              o.customer_name.toLowerCase().includes(query)
+          );
+          renderFilteredOrders(filtered);
+      });
+  }
+</script>
+</body>
+</html>
